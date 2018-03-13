@@ -13,7 +13,7 @@ class ConexionBD {
     private $_host = "localhost";
     private $_username = "root";
     private $_password = "admin";
-    private $_database = "uresa";
+    private $_database = "instituto";
 
     /*
       Get an instance of the Database
