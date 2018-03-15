@@ -43,6 +43,11 @@ class Asistencia{
         $con = ConexionBD::getConexion();
         $con->insertar("INSERT INTO `asistencia`(`idasistencia`, `fecha`, `tipo`, `valor`, `alumnoxcurso_alumno_dni`, `alumnoxcurso_curso_idcurso`, `justificada`) VALUES (default,'" . $fecha . "','" . $tipo . "','" . $valor . "','" . $dni_alumno . "','" . $id_curso. "','" . $justificada . "')");
     }
+    public function listar_inasistencia($dni_alumno){
+        $con = ConexionBD::getConexion();
+        $result = $con->recuperar_asociativo("select fecha,tipo,valor from asistencia where alumnoxcurso_alumno_dni='".$dni_alumno."'");
+        return $result;
+    } 
 }
 
 class Curso{
