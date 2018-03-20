@@ -3,10 +3,21 @@
 include_once("../persistencia/conexionBD.php");
 error_reporting(E_ALL ^ E_NOTICE);
 
-
 class Alumno {
-   public function __construct() {
+	 public function __construct() {
+	 }
+    /* Obtiene el nombre con un dni
+    * @author Gabriela Peralta y Nicolas Silvera
+    * @version 1.0
+    * @param dni_alumno del cual se desean obtener el nombre
+    * @return array asociativo donde cada columna esta representada por su nombre: nombre, apellido
+    */
+    public function obtener_nombre($dni_alumno){
+        $con = ConexionBD::getConexion();
+        $result = $con->recuperar_asociativo("select nombre,apellido from alumno where dni='".$dni_alumno."'");
+        return $result;
     }
+
 }
 
 class AlumnoxCurso{
@@ -30,7 +41,7 @@ class Tutor{
 }
 
 class Asistencia{
-      public function __construct() {
+	public function __construct() {
     }
     /* Carga la asistencia para un alumnoxcurso
     * @author Franco Morero y Nicolas Dechecchi
@@ -48,47 +59,48 @@ class Asistencia{
         $con->insertar("INSERT INTO `asistencia`(`idasistencia`, `fecha`, `tipo`, `valor`, `alumnoxcurso_alumno_dni`, `alumnoxcurso_curso_idcurso`, `justificada`) VALUES (default,'" . $fecha . "','" . $tipo . "','" . $valor . "','" . $dni_alumno . "','" . $id_curso. "','" . $justificada . "')");
     }
 
+    /* Obtiene las inasistencias de un alumno
+    * @author Gabriela Peralta y Nicolas Silvera
+    * @version 1.0
+    * @param dni_alumno del cual se desean obtener inasistencias
+    * @return array asociativo donde cada columna esta representada por su nombre: fecha, tipo, valor
+    */
     public function listar_inasistencia($dni_alumno){
         $con = ConexionBD::getConexion();
-        $result = $con->recuperar_asociativo("select fecha,tipo,valor from asistencia where alumnoxcurso_alumno_dni='".$dni_alumno."'");
+        $result = $con->recuperar_asociativo("select fecha,tipo,valor from asistencia where alumnoxcurso_alumno_dni='".$dni_alumno."' and justificada='0'");
         return $result;
     } 
 }
 
 class Curso{
-
-    private $nombre;
+	 private $nombre;
     private $anio;
 
     public function __construct() {
     }
+
     /* Obtiene los cursos
     * @author Franco Morero y Nicolas Dechecchi
     * @version 1.0
     * @return array asociativo donde cada columna esta representada por su nombre: idcurso,nombre,anio
     */
-
     public function obtener_cursos() {
         $con = ConexionBD::getConexion();
         $result = $con->recuperar_asociativo("select idcurso,nombre,anio from curso");
         return $result;
     }
-    
+
     public function cant_registros() {
         $con = ConexionBD::getConexion();
         $result = $con->cantidad_registros("select nombre from curso");
         return $result;
     }
 
-public function obtener_curso($curso) {
+	public function obtener_curso($curso) {
         $con = ConexionBD::getConexion();
         $result = $con->recuperar_asociativo("select anio, nombre from curso where idcurso=".$curso);
         return $result;
     }
+
 }
 ?>
-   
-
-
-
-
