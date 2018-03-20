@@ -1,9 +1,18 @@
 
 <?php
 include_once("../logica/clases.php");
+
+session_start();
+
+
 $asistencia= new Asistencia();
 $alumno= new Alumno();
-$dni_alumno=$_POST["dni"];
+      if ($_SESSION['dni_alumno']==''){
+       $_SESSION['dni_alumno']=$_POST["dni"];
+       $dni_alumno=$_SESSION['dni_alumno'];
+      }else{
+        $dni_alumno=$_SESSION['dni_alumno'];
+      }
 foreach ($alumno->obtener_nombre($dni_alumno) as $fila) {
   $nombre_alumno=$fila['apellido']." ".$fila['nombre'];
 
@@ -19,7 +28,7 @@ $resultado=$asistencia -> listar_inasistencia($dni_alumno);
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   </head>
   <body>
-      <br>
+      
       
       <div class="container">
         <div id="contenidoPDF" display="none"></div> 
@@ -58,11 +67,11 @@ $resultado=$asistencia -> listar_inasistencia($dni_alumno);
     echo "<tr><td>".$fecha."</td>";
     echo "<td>".$faltoA."</td>";
     echo "<td>".$row["valor"]."</td>";
-    echo "<td></td> <td></td>";
+    echo "<td id='justificar' ></td> <td id='firma'></td>";
     echo "<td>".$acumulado."</td>";
     echo "<td> </td>";
-    echo "<tr>";
-    echo"</body>";
+    echo "</tr>";
+    
   }
 ?>           
           </tbody>
@@ -70,7 +79,7 @@ $resultado=$asistencia -> listar_inasistencia($dni_alumno);
     <div id="fincontenidoPDF"></div>
         
     <div class="col align-self-end">
-      <form class="form-horizontal" method="POST" action="generarpdf.php">
+      <form class="form-horizontal" method="POST" action="../logica/generarPdfInasistencias.php">
          <button class="btn btn-primary" type="submit" name="generarPDF">Imprimir</button>
       </form>
     </div>
