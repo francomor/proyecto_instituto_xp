@@ -1,10 +1,10 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
+-- version 4.6.6
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 12-03-2018 a las 20:25:02
--- Versión del servidor: 10.1.21-MariaDB
+-- Servidor: localhost
+-- Tiempo de generación: 20-03-2018 a las 17:16:48
+-- Versión del servidor: 5.7.17-log
 -- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -36,6 +36,17 @@ CREATE TABLE `alumno` (
   `tutor_dni` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `alumno`
+--
+
+INSERT INTO `alumno` (`apellido`, `nombre`, `dni`, `fechaNacimiento`, `direccion`, `email`, `tutor_dni`) VALUES
+('apellido', 'nombre', 24987654, '1993-01-22', 'calle', 'email', 29654213),
+('Galvez', 'Juan Ignacio', 37865412, '1996-03-13', 'calle 11', 'email', 29654213),
+('morales', 'alexis', 39271623, '1995-03-15', 'calle 12', 'email', 29654213),
+('Alvarez Scasic', 'Juan', 39282123, '1996-02-13', 'calle 11', 'email', 29654213),
+('Hernandez Scasic', 'Agustin', 39764123, '1995-02-13', 'calle 11', 'email', 29654213);
+
 -- --------------------------------------------------------
 
 --
@@ -48,6 +59,17 @@ CREATE TABLE `alumnoxcurso` (
   `anio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Volcado de datos para la tabla `alumnoxcurso`
+--
+
+INSERT INTO `alumnoxcurso` (`alumno_dni`, `curso_idcurso`, `anio`) VALUES
+(24987654, 1, 2018),
+(37865412, 1, 2018),
+(39271623, 1, 2018),
+(39282123, 1, 2018),
+(39764123, 5, 2018);
+
 -- --------------------------------------------------------
 
 --
@@ -57,12 +79,29 @@ CREATE TABLE `alumnoxcurso` (
 CREATE TABLE `asistencia` (
   `idasistencia` int(11) NOT NULL,
   `fecha` date NOT NULL,
-  `tipo` enum('clase','edFisica') NOT NULL,
+  `tipo` enum('clase','edFisica','clase+edfisica') NOT NULL,
   `valor` enum('1','1/2') NOT NULL,
   `alumnoxcurso_alumno_dni` int(11) NOT NULL,
   `alumnoxcurso_curso_idcurso` int(11) NOT NULL,
   `justificada` tinyint(2) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `asistencia`
+--
+
+INSERT INTO `asistencia` (`idasistencia`, `fecha`, `tipo`, `valor`, `alumnoxcurso_alumno_dni`, `alumnoxcurso_curso_idcurso`, `justificada`) VALUES
+(94, '2018-03-18', 'clase+edfisica', '1', 37865412, 1, 1),
+(95, '2018-03-18', 'edFisica', '1/2', 39271623, 1, 1),
+(96, '2018-03-18', 'clase', '1/2', 39282123, 1, 1),
+(97, '2018-03-18', 'clase', '1', 24987654, 1, 1),
+(98, '2018-03-18', 'clase', '1', 37865412, 1, 1),
+(99, '2018-03-18', 'clase', '1', 39271623, 1, 1),
+(100, '2018-03-18', 'clase', '1', 39282123, 1, 1),
+(101, '2018-03-19', 'clase', '1', 24987654, 1, 1),
+(102, '2018-03-19', 'clase', '1', 37865412, 1, 1),
+(103, '2018-03-19', 'clase', '1', 39271623, 1, 1),
+(104, '2018-03-19', 'clase', '1', 39282123, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -75,6 +114,18 @@ CREATE TABLE `curso` (
   `nombre` varchar(45) NOT NULL,
   `anio` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `curso`
+--
+
+INSERT INTO `curso` (`idcurso`, `nombre`, `anio`) VALUES
+(0, 'A', 1),
+(1, 'B', 1),
+(2, 'A', 2),
+(3, 'B', 2),
+(4, 'A', 3),
+(5, 'B', 3);
 
 -- --------------------------------------------------------
 
@@ -101,6 +152,13 @@ CREATE TABLE `tutor` (
   `telefono` varchar(45) NOT NULL,
   `email` varchar(45) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `tutor`
+--
+
+INSERT INTO `tutor` (`dni`, `nombre`, `apellido`, `telefono`, `email`) VALUES
+(29654213, 'tutor1', 'apellidotutor', '15656565', 'email');
 
 --
 -- Índices para tablas volcadas
@@ -149,6 +207,15 @@ ALTER TABLE `preceptor`
 ALTER TABLE `tutor`
   ADD PRIMARY KEY (`dni`);
 
+--
+-- AUTO_INCREMENT de las tablas volcadas
+--
+
+--
+-- AUTO_INCREMENT de la tabla `asistencia`
+--
+ALTER TABLE `asistencia`
+  MODIFY `idasistencia` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
 --
 -- Restricciones para tablas volcadas
 --

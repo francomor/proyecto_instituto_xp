@@ -9,9 +9,12 @@ $c = new Curso();
 $cursos = $c->obtener_cursos();
 $registros = $c->cant_registros();
 echo("<form action=tabla.php>");
-echo(" <select id='sel' name='sel' onchange='this.form.submit()'> <option value=seleccionar...> seleccione un curso </option>");
+
+echo (" <div class='col-xs-3'>");
+echo ("<div class='box'>");
+echo(" <select class='form-control' id='sel' name='sel' onchange='this.form.submit()'> <option value=seleccionar...> seleccione un curso </option>");
 for ($i = 0; $i < $registros; $i++) {
-    print('<option value="' . $cursos[$i]["idcurso"] . '"> ' . $cursos[$i]["anio"] . '° ' . $cursos[$i]["nombre"] . '</option>');
+    print('<option value="' . $cursos[$i]["idcurso"] . '"> ' . $cursos[$i]["anio"] . '&deg' . $cursos[$i]["nombre"] . '</option>');
 }
 echo("</select>");
 echo("</form>");

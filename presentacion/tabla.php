@@ -1,15 +1,58 @@
-<html>
+ 
+<?php       
+    include_once("GUIPreceptor.class.php");
+    $gui_preceptor = new GUIPreceptor();
+?>
+    
+
+ <div class="content-wrapper">
+ 
+    <section class="content-header">
+      <h1>
+         
+        <small> </small>
+      </h1>
+        <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="#">Cursos</a></li>
+        <li class="active">Tabla</li>
+      </ol> 
+    </section>
+     
+
+     <section class="content">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title"> </h3>
+            </div>
+            <!-- /.box-header -->
+          <div class="box-body">  
+
+          <div class="container">
+        
+    </div>
+
     <body>
         <?php
         include("../logica/clases.php");
         date_default_timezone_set('UTC');
         $curso = $_REQUEST['sel']; //se obtiene el id del curso seleccionado desde el archivo cursos.php
-        $alumnos = AlumnoxCurso::obtener_alumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del año actual
+        $alumnos = AlumnoxCurso::obtener_alumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del aï¿½o actual
         $cantfilas = count($alumnos); //se cuentan los registros obtenidos de la consulta anterior
         ?>
         <form action="../logica/guardar.php" method="get">
+        <div class="panel-heading ">
+             <!--checkbox para habilitar o deshabilitar los dias de educacion fisica o clase -->
+            <input type="checkbox" class="checkb"  name="valor-parcial" id="valor-parcial">
+            Habilitar ed-fisica 
+            <!--input hidden para enviar el valor de la falta correspondiente al dia, si es de clase solo, se envia un 1. Si es de clase y ed fisica se envia 1/2 -->
+            <input type="text" name="valor_parcial_envio" id="valor_parcial_envio" value="1" hidden>
+           
+            </div>
             <!-- tabla donde estan contenidos todos los alumnos del curso seleccionado !-->
-            <table border="1" width="80%">
+            <table class="table table-bordered" border="1" width="80%">
 
                 <tr>
                     <td rowspan="2" colspan="2">Curso: 
@@ -57,10 +100,6 @@
                             <input hidden value="<?php echo $cantfilas ?>" name="cant_alumnos">
                             <!--input hidden para enviar al servidor el curso actual -->
                             <input hidden value="<?php echo $curso ?>" name="curso_actual">
-                            
-
-
-
                         </td>
                     </tr>
 
@@ -70,14 +109,10 @@
                 ?>
 
             </table>
-            <!--checkbox para habilitar o deshabilitar los dias de educacion fisica o clase -->
-            habilitar ed-fisica <input type="checkbox" class="checkb"  name="valor-parcial" id="valor-parcial">
-            <!--input hidden para enviar el valor de la falta correspondiente al dia, si es de clase solo, se envia un 1. Si es de clase y ed fisica se envia 1/2 -->
-            <input type="text" name="valor_parcial_envio" id="valor_parcial_envio" value="1" hidden>
-
-            <input type="submit" value="GUARDAR" id="guardar">
-
-
+           
+             <div class="float-right">
+                <input type="submit" class="btn btn-danger" value="GUARDAR" id="guardar">
+            </div>
         </form>
 
         <script>
@@ -94,7 +129,7 @@
             }
         </script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+        <script src="../recursos/jquery-ajax.min.js">
             //script para traer la libreria de Jquery
         </script>
         <script>
@@ -114,4 +149,23 @@
             });
         </script>
     </body>
-</html>
+     
+ </div>
+ </div>
+ </div>
+ 
+  </section>
+
+ 
+</div>
+ 
+ 
+
+ <?php          
+ 
+    $gui_preceptor->cargarFooter();
+?>
+    
+
+
+ 
