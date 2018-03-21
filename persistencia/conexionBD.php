@@ -9,10 +9,10 @@ error_reporting(E_ALL);
 class ConexionBD {
 
     private $_connection;
-    private static $_instance; //The single instance
+    private static $_instance; //Instancia unica de BD
     private $_host = "localhost";
     private $_username = "root";
-    private $_password = "admin";
+    private $_password = "admin"; //contraseña BD
     private $_database = "instituto";
 
     /*
