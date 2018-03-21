@@ -40,7 +40,7 @@
           </a>
           <ul class="treeview-menu">
           <li><a href="registrarAsistencia.php"><i class=" glyphicon glyphicon-check"></i> Registrar Asistencias </a></li>
-            <li><a href="#"><i class=" glyphicon glyphicon-print"></i> Imprimir Boletín</a></li> 
+            <li><a href="formularioListarInasistencias.php"><i class=" glyphicon glyphicon-print"></i> Imprimir Boletín</a></li> 
           </ul>
         </li>
       </ul>
