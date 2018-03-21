@@ -1,7 +1,7 @@
 <?php 
 	class Interfaz
 	{ 
-		public function Interfaz(){
+		public function __construct() {
 			
 		}
 		public static function cargarHeader(){
