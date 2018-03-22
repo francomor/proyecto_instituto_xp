@@ -34,10 +34,11 @@ foreach ($alumno->obtener_nombre($dni_alumno) as $fila) {
 $resultado=$asistencia -> listar_inasistencia($dni_alumno);
 ?>
 
-<?php       
-    include_once("GUIPreceptor.class.php");
-    $gui_preceptor = new GUIPreceptor();
-    
+<?php
+
+  //Agrega la interfaz del preceptor comun a todas las secciones 
+  include_once("GUIPreceptor.class.php");
+  $gui_preceptor = new GUIPreceptor();
 ?>
   
   <div class="content-wrapper">
@@ -48,8 +49,8 @@ $resultado=$asistencia -> listar_inasistencia($dni_alumno);
         <small> </small>
       </h1> 
        <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Asistencias</a></li>
+        <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="formularioListarInasistencias.php">Asistencias</a></li>
         <li class="active">Imprimir Asistencia</li>
       </ol>
     </section>
@@ -123,5 +124,6 @@ $resultado=$asistencia -> listar_inasistencia($dni_alumno);
 
 <?php     
  
+  //Agrega el footer comun a todas las secciones
   $gui_preceptor->cargarFooter();
 ?>

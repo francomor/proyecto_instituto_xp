@@ -12,7 +12,7 @@ class ConexionBD {
     private static $_instance; //Instancia unica de BD
     private $_host = "localhost";
     private $_username = "root";
-    private $_password = ""; //contraseña BD
+    private $_password = "admin"; //contraseña BD
     private $_database = "instituto";
 
     /*

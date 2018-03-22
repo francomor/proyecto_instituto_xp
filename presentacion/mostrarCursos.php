@@ -1,4 +1,5 @@
-<?php     
+<?php
+
   include_once("GUIPreceptor.class.php");
   $gui_preceptor = new GUIPreceptor();
   
@@ -88,7 +89,9 @@
    
 
 
-<?php     
+<?php
+
   $gui_preceptor->cargarFooter();
+  
 ?>
   

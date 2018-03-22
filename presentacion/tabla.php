@@ -1,5 +1,7 @@
  
-<?php       
+<?php
+    
+    //Agrega la interfaz del preceptor comun a todas las secciones
     include_once("GUIPreceptor.class.php");
     $gui_preceptor = new GUIPreceptor();
 ?>
@@ -13,9 +15,9 @@
         <small> </small>
       </h1>
         <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Cursos</a></li>
-        <li class="active">Tabla</li>
+        <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="registrarAsistencia.php">Asistencias</a></li>
+        <li class="active">Registrar asistencias</li>
       </ol> 
     </section>
      
@@ -161,8 +163,9 @@
  
  
 
- <?php          
- 
+<?php          
+    
+    //Agrega el footer comun a todas las secciones
     $gui_preceptor->cargarFooter();
 ?>
     
