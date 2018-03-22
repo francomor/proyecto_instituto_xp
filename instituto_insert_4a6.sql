@@ -1,13 +1,74 @@
 
 -- curso
 
-INSERT INTO `curso`(`idcurso`, `nombre`, `anio`) VALUES (1, 'NN', '4');
-INSERT INTO `curso`(`idcurso`, `nombre`, `anio`) VALUES (2, 'Economico', '5');
-INSERT INTO `curso`(`idcurso`, `nombre`, `anio`) VALUES (3, 'Biologico', '5');
-INSERT INTO `curso`(`idcurso`, `nombre`, `anio`) VALUES (4, 'Economico', '6');
-INSERT INTO `curso`(`idcurso`, `nombre`, `anio`) VALUES (5, 'Biologico', '6');
+INSERT INTO `curso`(`idcurso`, `nombre`, `anio`) VALUES (1, 'Economico', '4');
+INSERT INTO `curso`(`idcurso`, `nombre`, `anio`) VALUES (2, 'Biologico', '4');
+INSERT INTO `curso`(`idcurso`, `nombre`, `anio`) VALUES (3, 'Economico', '5');
+INSERT INTO `curso`(`idcurso`, `nombre`, `anio`) VALUES (4, 'Biologico', '5');
+INSERT INTO `curso`(`idcurso`, `nombre`, `anio`) VALUES (5, 'Economico', '6');
+INSERT INTO `curso`(`idcurso`, `nombre`, `anio`) VALUES (6, 'Biologico', '6');
 
--- Insert para 4° 2018
+
+-- Insert para 4° biologico 2018
+-- alumno
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Aleman','Gerónimo','2003-02-22','44341495','314 nº 3468','','Realicó');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Allara','Augusto Joaquín','2003-05-29','44720063','14 nº 1775','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Antunez','Julieta','2002-08-05','44119854','302 nº 943','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Barbera','Julián','2002-12-10','44341771','Av. San Martín 683','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Boga Doyhenard','Santino','2002-07-08','44119042','403 nº 1337','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Bricco','Hernán Leonel','2002-07-10','44119004','33 nº 1123','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Cairola','Santino','2002-08-20','44119845','16 bis nº 668 (n)','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Calvo Ambrosino','Catalina','2002-12-12','44341772','20 (N) n°910','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Esteban','Octavio','2003-03-14','44007247','39 nº 282','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Ferreyra Ortiz De Urbina','Juana','2003-04-07','44760321','14 nº 970(n)','','Capital Federal');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Gallo Paronzini','Delfina','2003-06-20','44806197','16 bis n° 665(N)','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Gentili','Lucía','2002-10-16','44120289','20 n° 617(N)','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Giganti','Lorenzo','2003-05-07','44871870','4 nº 637','','Cap. Federal');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Gonzalo','Candela','2002-11-19','44341707','108 n° 136(N)','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Hector','Catalina Belén','2003-02-24','44633191','7 nº 1131','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Kunz','Camila','2002-09-10','44119876','11 nº 520','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Miege','Tomás','2002-08-09','44119087','16 nº 526(n)','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Montero','Tomás','2002-08-02','44119056','17 nº 1635','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Ocampos','Melina Celeste','2003-04-23','45030519','11 nº 1635','','Merlo (Bs. As)');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Ramirez Arias','Trinidad','2002-09-24','44120229','27 nº 376','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Sain','Román Bautista','2002-12-26','44342242','331 bis nº 365','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Seibel','Santino Irineo','2003-04-15','44680294','411 nº 1831','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Suarez','Felipe','2002-02-24','44119840','302 nº 767','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Tobal','Victoria','2002-09-04','44119880','125 nº 918','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Vanderhoeven Exner','Valentina A.','2003-05-15','44720016','53 nº 925','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Villa','Joaquín Ignacio','2003-05-06','44680289','302 bis nº 545','','Gral. Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Villabrille','Matías','2003-03-05','44633228','108 bis nº 345(N)','','Gral. Pico');
+
+-- alumnoxcurso
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44341495','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44720063','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119854','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44341771','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119042','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119004','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119845','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44341772','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007247','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44760321','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44806197','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44120289','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44871870','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44341707','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44633191','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119876','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119087','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119056','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('45030519','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44120229','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44342242','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44680294','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119840','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119880','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44720016','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44680289','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44633228','3','2018');
+
+-- Insert para 4° biologico 2018
 -- alumno
 INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Alison','Joaquín Gaspar','2003-03-16','44633258','6 bis nº 975(n)','','Gral. Pico');
 INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Barbeito','Trinidad','2003-03-29','44633287','32 n° 116','','Gral Pico');
@@ -41,36 +102,36 @@ INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNac
 INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Villa','Emilia','2003-10-07','44120262','13 nº 68','','Gral. Pico');
 
 -- alumnoxcurso
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44633258','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44633287','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119072','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119899','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44342351','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44103958','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44342888','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44633241','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44342875','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43700131','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44633253','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44342872','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44341794','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44720158','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119017','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119832','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44342795','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44806195','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44342870','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44680251','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119850','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44261719','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44453160','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44680298','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119835','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119836','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44120222','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119007','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44720013','1','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44120262','1','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44633258','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44633287','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119072','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119899','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44342351','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44103958','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44342888','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44633241','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44342875','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43700131','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44633253','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44342872','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44341794','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44720158','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119017','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119832','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44342795','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44806195','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44342870','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44680251','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119850','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44261719','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44453160','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44680298','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119835','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119836','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44120222','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44119007','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44720013','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44120262','2','2018');
 
 
 -- Insert para 5° Economico 2018
@@ -112,39 +173,39 @@ INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNac
 
 -- alumnoxcurso
 
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('41416765','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43699934','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542348','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542363','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542370','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007824','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43415884','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42016977','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542707','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483800','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483773','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43699950','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007303','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624164','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44118702','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007889','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44118653','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007397','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483761','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624097','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44151834','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483748','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43150115','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542686','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007861','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483457','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624079','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624110','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43729388','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44118781','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483723','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483760','2','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43699936','2','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('41416765','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43699934','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542348','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542363','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542370','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007824','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43415884','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42016977','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542707','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483800','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483773','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43699950','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007303','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624164','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44118702','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007889','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44118653','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007397','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483761','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624097','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44151834','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483748','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43150115','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542686','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007861','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483457','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624079','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624110','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43729388','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44118781','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483723','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483760','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43699936','3','2018');
 
 -- Insert para 5° Biologico 2018
 -- alumno
@@ -183,39 +244,39 @@ INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNac
 INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Ursino','Camila','2002-04-30','44007841','av. SM-2388','','Gral. Pico');
 
 -- alumnoxcurso
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542701','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43928183','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542129','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624066','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483799','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43699975','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483711','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483488','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483473','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624137','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542705','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43699942','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007877','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43603423','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624121','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44166058','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624092','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44118670','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542372','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43997209','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44199061','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542777','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542179','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542748','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43699995','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624181','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542781','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43699650','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483726','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542726','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542752','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624075','3','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007841','3','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542701','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43928183','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542129','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624066','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483799','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43699975','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483711','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483488','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483473','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624137','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542705','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43699942','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007877','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43603423','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624121','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44166058','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624092','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44118670','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542372','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43997209','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44199061','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542777','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542179','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542748','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43699995','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624181','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542781','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43699650','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43483726','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542726','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43542752','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43624075','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('44007841','4','2018');
 
 
 -- Insert para 6° Economico 2018
@@ -248,32 +309,32 @@ INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNac
 INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Vidales Ollo','Fermín A.','2000-09-13','42915812','22 Nº 270','','Argentina');
 
 -- alumnoxcurso
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43069514','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43299498','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42952061','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43299438','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43069571','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43069504','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43069929','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43271206','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43116811','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42335337','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43150149','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42699381','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42699176','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42798982','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42584063','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43299447','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42798909','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42798993','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43415869','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42699186','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915630','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43150148','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42720663','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915608','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42968190','4','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915812','4','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43069514','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43299498','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42952061','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43299438','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43069571','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43069504','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43069929','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43271206','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43116811','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42335337','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43150149','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42699381','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42699176','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42798982','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42584063','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43299447','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42798909','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42798993','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43415869','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42699186','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915630','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43150148','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42720663','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915608','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42968190','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915812','5','2018');
 
 
 -- Insert para 6° Biologico 2018
@@ -307,30 +368,31 @@ INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNac
 INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Viroletti','Eliana Magali','2000-09-30','42915691','306 nº770','','Argentina');
 
 -- alumnoxcurso
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43116878','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43365180','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43150125','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43299439','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915693','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43323250','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43149835','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915639','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42798967','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42968105','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43299497','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43116856','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915601','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43150119','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43040068','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42968107','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43069530','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43365191','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43069543','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42968135','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915642','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42798911','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915644','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42968198','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43069512','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915659','5','2018');
-INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915691','5','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43116878','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43365180','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43150125','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43299439','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915693','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43323250','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43149835','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915639','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42798967','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42968105','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43299497','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43116856','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915601','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43150119','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43040068','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42968107','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43069530','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43365191','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43069543','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42968135','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915642','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42798911','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915644','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42968198','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('43069512','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915659','6','2018');
+INSERT INTO alumnoxcurso (alumno_dni,curso_idcurso,anio) VALUES ('42915691','6','2018');
+
