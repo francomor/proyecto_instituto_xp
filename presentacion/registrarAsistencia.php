@@ -1,12 +1,12 @@
 
 <?php       
-    include_once("GUIPreceptor.class.php");
-    $gui_preceptor = new GUIPreceptor();
+    
+  include_once("GUIPreceptor.class.php");
+  $gui_preceptor = new GUIPreceptor();
     
 ?>
     
-
-     <div class="content-wrapper">
+  <div class="content-wrapper">
  
     <section class="content-header">
       <h1>
@@ -60,7 +60,7 @@
  </div>
  </div>
  
-  </section>
+    </section>
 
  
 </div>

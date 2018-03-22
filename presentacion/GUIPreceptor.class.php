@@ -1,5 +1,11 @@
 <?php  
+	
 	include("FachadaInterfaz.class.php");
+	
+	/*
+	* Clase encargada de crear la interfaz principal correspondiente al preceptor,
+	con sus respectivas funcionalidades, haciendo llamadas a los metodos correspondientes
+	*/
 	class GUIPreceptor
 	{
 		public function __construct()
