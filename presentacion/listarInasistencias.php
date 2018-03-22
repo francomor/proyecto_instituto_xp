@@ -2,17 +2,30 @@
 <?php
 include_once("../logica/clases.php");
 
+//se inicia la sesion para poder mantener los valores que luego se utilizaran para imprimir un PDF
+
 session_start();
 
 
 $asistencia= new Asistencia();
 $alumno= new Alumno();
-      if ($_SESSION['dni_alumno']==''){
-       $_SESSION['dni_alumno']=$_POST["dni"];
-       $dni_alumno=$_SESSION['dni_alumno'];
-      }else{
-        $dni_alumno=$_SESSION['dni_alumno'];
-      }
+
+
+if (!isset($_SESSION['dni_alumno']) && isset($_POST['dni'])){
+  //if (!isset($_SESSION['dni_alumno'])){
+    $_SESSION['dni_alumno']=$_POST["dni"];
+  }
+if( isset($_POST['dni']) && $_SESSION['dni_alumno']!=$_POST['dni']){
+        $_SESSION['dni_alumno']=$_POST['dni'];
+        
+    }
+if( !isset($_POST['dni']) && isset($_SESSION['dni_alumno'])){
+        $_POST['dni']=$_SESSION['dni_alumno'];
+        
+    }
+  
+$dni_alumno=$_POST['dni'];   
+
 foreach ($alumno->obtener_nombre($dni_alumno) as $fila) {
   $nombre_alumno=$fila['apellido']." ".$fila['nombre'];
 
@@ -49,7 +62,7 @@ $resultado=$asistencia -> listar_inasistencia($dni_alumno);
       
       
       <div class="container">
-        <div id="contenidoPDF" display="none"></div> 
+         
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -70,36 +83,36 @@ $resultado=$asistencia -> listar_inasistencia($dni_alumno);
   $acumulado=0; 
   foreach($resultado as $row)
   {
-    $auxFecha=$row["fecha"];
-    $partes=explode('-',$auxFecha);
-    $fecha="{$partes[2]}-{$partes[1]}-{$partes[0]}";
+      $auxFecha=$row["fecha"];
+      $partes=explode('-',$auxFecha);
+      $fecha="{$partes[2]}-{$partes[1]}-{$partes[0]}";
 
-    $faltoA=$row["tipo"];
-    if($row["valor"]=='1/2'){
-      $falta=0.5;
-    }
-    else if($row["valor"]=='1'){
-      $falta=1;
-    }
-    $acumulado=$acumulado+$falta;
-    echo "<tr><td>".$fecha."</td>";
-    echo "<td>".$faltoA."</td>";
-    echo "<td>".$row["valor"]."</td>";
-    echo "<td id='justificar' ></td> <td id='firma'></td>";
-    echo "<td>".$acumulado."</td>";
-    echo "<td> </td>";
-    echo "</tr>";
+      $faltoA=$row["tipo"];
+      if($row["valor"]=='1/2'){
+          $falta=0.5;
+      }
+      else if($row["valor"]=='1'){
+              $falta=1;
+      }
+      $acumulado=$acumulado+$falta;
+      echo "<tr><td>".$fecha."</td>";
+      echo "<td>".$faltoA."</td>";
+      echo "<td>".$row["valor"]."</td>";
+      echo "<td id='justificar' ></td> <td id='firma'></td>";
+      echo "<td>".$acumulado."</td>";
+      echo "<td> </td>";
+      echo "</tr>";
     
   }
 ?>           
           </tbody>
         </table>
-    <div id="fincontenidoPDF"></div>
         
     <div class="col align-self-end">
-      <form class="form-horizontal" method="POST" action="../logica/generarPdfInasistencias.php">
+      <form class="form-horizontal" method="POST" action="../logica/generarPdfInasistencias.php" target="_blank">
          <button class="btn btn-primary" type="submit" name="generarPDF">Imprimir</button>
       </form>
+    
     </div>
 
 

@@ -69,7 +69,19 @@ class Asistencia{
         $con = ConexionBD::getConexion();
         $result = $con->recuperar_asociativo("select fecha,tipo,valor from asistencia where alumnoxcurso_alumno_dni='".$dni_alumno."' and justificada='0'");
         return $result;
-    } 
+    }
+    
+    /* Justifica las faltas injustificadas de un aulmno
+    * @author Mauricio Vazquez
+    * @version 1.0
+    * @param dni_alumno del cual se desean justificar inasistencias
+    */
+    public function justificarFaltas($dni_alumno){
+        $con = ConexionBD::getConexion();
+
+        $con->update("UPDATE `asistencia` SET `justificada`='1' WHERE `alumnoxcurso_alumno_dni`='".$dni_alumno."' AND `justificada`='0'");
+
+    }
 }
 
 class Curso{
