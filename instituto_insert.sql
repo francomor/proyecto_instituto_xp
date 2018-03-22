@@ -106,7 +106,7 @@ INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNac
 INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Pussacq','Marina Grazia','2002-01-04','43624110','109- 1168','','General Pico');
 INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Radicci','Karen','2001-11-03','43729388','11 -936','','Buenos Aires ');
 INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Remirez','Sofía Anahí','2002-05-10','44118781','112 - 38','','Realicó');
-INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES (' Ricca','Sofía','2001-07-30','43483723','29- 384','','General Pico');
+INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Ricca','Sofía','2001-07-30','43483723','29- 384','','General Pico');
 INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Robledo','Ana Clara','2001-07-25','43483760','RUTA 1 - 1636','','General Pico');
 INSERT INTO alumno (apellido,nombre,fechaNacimiento,dni,direccion,email,lugarNacimiento) VALUES ('Rossi Iglesias','Albaro Elian','2002-01-28','43699936','102 - 1185','','General Pico');
 
