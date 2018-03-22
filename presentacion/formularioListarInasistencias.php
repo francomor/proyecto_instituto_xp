@@ -30,7 +30,7 @@
                     <label for="dni_alumno" class="col-md-5 control-label" style="text-align: center">DNI del alumno</label>
                 </div>
                 <div class="row">
-            		    <input type="text" class="col-md-5" id="dni" name="dni">
+            		    <input type="text" class="col-md-5" id="dni" name="dni" pattern="[0-9]{8}" required>
                 </div>
                 <div class="row">
             		    <button class="btn btn-primary col-md-2" type="submit">Buscar</button>
