@@ -16,7 +16,6 @@ use Spipu\Html2Pdf\Html2Pdf;
 
 if (isset($_POST['generarPDF'])){
     
-    $dni_alumno=$_SESSION['dni_alumno'];
     //con ayuda del buffer, levantamos el codigo html contenido en la pagina objetivo a ser generada en pdf
     
     ob_start();
