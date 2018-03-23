@@ -6,6 +6,20 @@
   $gui_preceptor = new GUIPreceptor();
 ?>
   
+  <!--Posiciona los elementos de manera correcta-->
+  <style type="text/css">
+    input{
+      margin-left: 20px;
+      margin-right: 20px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    } 
+    button{
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+  </style>
+  
   <div class="content-wrapper">
   
     <section class="content-header">
