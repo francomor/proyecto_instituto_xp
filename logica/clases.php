@@ -31,7 +31,11 @@ class AlumnoxCurso{
     */
     public static function obtener_alumnoxCurso($id_curso,$anio){
         $con = ConexionBD::getConexion();
+<<<<<<< HEAD
         $result = $con->recuperar_asociativo("select dni,nombre,apellido from alumnoxcurso,alumno where alumnoxcurso.curso_idcurso='" . $id_curso . "' and alumnoxcurso.anio='" . $anio . "' and alumnoxcurso.alumno_dni=alumno.dni order by alumno.apellido, alumno.nombre");
+=======
+        $result = $con->recuperar_asociativo("select dni,nombre,apellido from alumnoxcurso,alumno where alumnoxcurso.curso_idcurso='" . $id_curso . "' and alumnoxcurso.anio='" . $anio . "' and alumnoxcurso.alumno_dni=alumno.dni");
+>>>>>>> 47442b3e4bbbd5b6dc5ed8508c5d3d2db53c4aca
         return $result;
     }
 }
