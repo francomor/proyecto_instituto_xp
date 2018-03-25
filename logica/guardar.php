@@ -16,7 +16,6 @@ for ($i = 0; $i < $cant_filas; $i++) {
     if ($valor_parcial != 1) { //si el dia en que se computa la asistencia hay ed fisica y clase...
         $a = new Asistencia();
         $falta_ed_f = $_REQUEST[(String) ($i + 1) . 'ed-f_aus']; //obtengo si falto o no a edfisica
-<<<<<<< HEAD
         if ($falta_clase != NULL && $falta_ed_f != NULL) { //si falto a clase y edfisica...
             $valor_total = 1;
             $a->cargar_asistencia($fecha,"clase+edfisica", $valor_total, $dni, $curso, 0);
@@ -24,29 +23,16 @@ for ($i = 0; $i < $cant_filas; $i++) {
             $valor_total = "1/2";
             $a->cargar_asistencia($fecha,"clase", $valor_total, $dni, $curso, 0);
         } else if ($falta_ed_f != NULL) { //si falto a ed fisica...
-=======
-        if ($falta_clase == NULL && $falta_ed_f == NULL) { //si falto a clase y edfisica...
-            $valor_total = 1;
-            $a->cargar_asistencia($fecha,"clase+edfisica", $valor_total, $dni, $curso, 0);
-        } else if ($falta_clase == NULL) { //si falto a clase
-            $valor_total = "1/2";
-            $a->cargar_asistencia($fecha,"clase", $valor_total, $dni, $curso, 0);
-        } else if ($falta_ed_f == NULL) { //si falto a ed fisica...
->>>>>>> 47442b3e4bbbd5b6dc5ed8508c5d3d2db53c4aca
             $valor_total = "1/2";
             $a->cargar_asistencia($fecha,"edfisica", $valor_total, $dni, $curso, 0);
         }
     } else { //si el dia que se computa la asistencia hay solo clase...
         $a = new Asistencia();
-<<<<<<< HEAD
         if ($falta_clase != NULL) { //si falto a clase...
-=======
-        if ($falta_clase == NULL) { //si falto a clase...
->>>>>>> 47442b3e4bbbd5b6dc5ed8508c5d3d2db53c4aca
             $valor_total = 1;
             $a->cargar_asistencia($fecha,"clase", $valor_total, $dni, $curso, 0);
-        }
     }
+}
     echo ("<script>");
     echo ("alert ('guardado correctamente')");
     echo ("</script>");
