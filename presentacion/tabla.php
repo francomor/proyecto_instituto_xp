@@ -1,9 +1,8 @@
- 
 <?php
-    
-    //Agrega la interfaz del preceptor comun a todas las secciones
-    include_once("GUIPreceptor.class.php");
-    $gui_preceptor = new GUIPreceptor();
+
+//Agrega la interfaz del preceptor comun a todas las secciones
+require_once "GUIPreceptor.class.php";
+$gui_preceptor = new GUIPreceptor();
 ?>
     
 
@@ -38,11 +37,11 @@
 
     <body>
         <?php
-        include("../logica/AlumnoxCurso.php");
-        include_once("../logica/Curso.php");
+        require "../logica/AlumnoxCurso.php";
+        require_once "../logica/Curso.php" ;
         date_default_timezone_set('UTC');
         $curso = $_REQUEST['sel']; //se obtiene el id del curso seleccionado desde el archivo cursos.php
-        $alumnos = AlumnoxCurso::obtener_alumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del a�o actual
+        $alumnos = AlumnoxCurso::obtenerAlumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del a�o actual
         $cantfilas = count($alumnos); //se cuentan los registros obtenidos de la consulta anterior
         ?>
         <form action="../logica/guardar.php" method="get">
@@ -62,7 +61,7 @@
                         <?php
                         //se muestra en la tabla el curso actual
                         $c = new Curso();
-                        $curso_actual = $c->obtener_curso($curso);
+                        $curso_actual = $c->obtenerCurso($curso);
                         echo $curso_actual [0]['anio'] . ' ' . $curso_actual[0]['nombre'];
                         ?>
                     </td>
@@ -164,10 +163,11 @@
  
  
 
-<?php          
-    
-    //Agrega el footer comun a todas las secciones
-    $gui_preceptor->cargarFooter();
+<?php
+
+//Agrega el footer comun a todas las secciones
+$gui_preceptor->cargarFooter();
+
 ?>
     
 

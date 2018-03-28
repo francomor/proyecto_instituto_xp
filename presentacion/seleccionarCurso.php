@@ -1,9 +1,8 @@
 <?php
+//Agrega la interfaz comun del preceptor a todas las secciones
+require_once "GUIPreceptor.class.php";
+$gui_preceptor = new GUIPreceptor();
 
-  //Agrega la interfaz comun del preceptor a todas las secciones     
-  include_once("GUIPreceptor.class.php");
-  $gui_preceptor = new GUIPreceptor();
-    
 ?>
     
   <div class="content-wrapper">
@@ -65,8 +64,7 @@
  
 </div>
  
- <?php  		
- 
-	//Agrega el footer comun a todas las secciones
-  $gui_preceptor->cargarFooter();
+<?php
+//Agrega el footer comun a todas las secciones
+$gui_preceptor->cargarFooter();
 ?>

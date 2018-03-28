@@ -1,33 +1,52 @@
-<?php  
-	
-	include("FachadaInterfaz.class.php");
-	
-	/*
-	* Clase encargada de crear la interfaz principal correspondiente al preceptor,
-	con sus respectivas funcionalidades, haciendo llamadas a los metodos correspondientes
-	*/
-	class GUIPreceptor{
+<?php
 
-		public function __construct(){
-		 	$fachada= new FachadaInterfaz();
-		}	
+require "FachadaInterfaz.class.php";
 
-		public function mostrarCursos(){
-			include("../presentacion/contenido.php");
-		}
+/**
+ * Clase encargada de crear la interfaz principal correspondiente al preceptor,
+ * con sus respectivas funcionalidades, haciendo llamadas a los metodos correspondientes
+ */
+class GUIPreceptor
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $fachada = new FachadaInterfaz();
+    }
 
-		
-		public static function cargarContenido(){
-			include("../presentacion/contenido.php");
-		}
+    /**
+     * Mostrar Cursos
+     */
+    public function mostrarCursos()
+    {
+        include "../presentacion/contenido.php";
+    }
 
-		public static function registrarAsistencia(){
-			include("../presentacion/cursos.php");
-		}
+    /**
+     * Cargar Contenido
+     */
+    public static function cargarContenido()
+    {
+        include "../presentacion/contenido.php";
+    }
 
-		public static function cargarFooter(){
-			include("footer.php");
-		}
-	}
+    /**
+     * Registrar Asistencias
+     */
+    public static function registrarAsistencia()
+    {
+        include "../presentacion/cursos.php";
+    }
 
-?>	
+    /**
+     * Cargar Footer
+     */
+    public static function cargarFooter()
+    {
+        include "footer.php";
+    }
+}
+
+?>

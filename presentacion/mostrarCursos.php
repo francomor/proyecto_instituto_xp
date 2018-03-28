@@ -1,8 +1,8 @@
 <?php
 
-  include_once("GUIPreceptor.class.php");
-  $gui_preceptor = new GUIPreceptor();
-  
+require_once "GUIPreceptor.class.php";
+$gui_preceptor = new GUIPreceptor();
+
 ?>
   
 	<div class="content-wrapper">
@@ -90,8 +90,7 @@
 
 
 <?php
+$gui_preceptor->cargarFooter();
 
-  $gui_preceptor->cargarFooter();
-  
 ?>
   

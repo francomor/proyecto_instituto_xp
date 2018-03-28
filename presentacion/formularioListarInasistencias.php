@@ -1,9 +1,7 @@
-
 <?php
-
-  //Agrega la interfaz del preceptor comun a todas las secciones
-  include_once("GUIPreceptor.class.php");
-  $gui_preceptor = new GUIPreceptor();
+//Agrega la interfaz del preceptor comun a todas las secciones
+require_once "GUIPreceptor.class.php";
+$gui_preceptor = new GUIPreceptor();
 ?>
   <style type="text/css">
     input{
@@ -18,21 +16,21 @@
     }
   </style>
   <div class="content-wrapper">
-  
+
     <section class="content-header">
       <h1>
         IMPRIMIR INASISTENCIAS
         <small> </small>
-      </h1> 
+      </h1>
        <ol class="breadcrumb">
         <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="formularioListarInasistencias.php">Asistencias</a></li>
         <li class="active">Imprimir Asistencia</li>
       </ol>
     </section>
-    
+
     <section class="content">
-      
+
 
     <form class="form-horizontal" method="POST" action="../presentacion/listarInasistencias.php" role="form">
       <div class="row">
@@ -49,17 +47,16 @@
             </div>
           </div>
         </div>
-      </div> 
+      </div>
     </form>
-    </section> 
+    </section>
 
 
 
   </div>
- 
 
-<?php     
-  
-  //Agrega el footer comun a todas las secciones
-  $gui_preceptor->cargarFooter();
+
+<?php
+//Agrega el footer comun a todas las secciones
+$gui_preceptor->cargarFooter();
 ?>

@@ -1,12 +1,15 @@
-<?php  
-	include("FachadaInterfaz.class.php");
-	class GUI
-	{
-		public function __construct()
-		{
-		 	$fachada= new FachadaInterfaz();
-	 	 
-		}
-		
-	}
-?>		
+<?php
+require "FachadaInterfaz.class.php";
+class GUI
+{
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $fachada = new FachadaInterfaz();
+    }
+
+}
+
+?>

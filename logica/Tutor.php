@@ -1,8 +1,13 @@
 <?php
 
-include_once("../persistencia/conexionBD.php");
+require_once "../persistencia/conexionBD.php";
 error_reporting(E_ALL ^ E_NOTICE);
-class Tutor{
+/**
+ * Clase Curso
+ */
+class Tutor
+{
 
 }
+
 ?>
