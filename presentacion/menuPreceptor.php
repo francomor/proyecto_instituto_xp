@@ -68,8 +68,14 @@
         </li>
           <li>
             <a href="formularioListarInasistencias.php">
+              <i class=" glyphicon glyphicon-search"></i> 
+              Buscar Alumno
+            </a>
+          </li>
+          <li>
+            <a href="seleccionarCurso.php">
               <i class=" glyphicon glyphicon-print"></i> 
-              Imprimir Boletín
+              Imprimir Inasistencias
             </a>
           </li> 
         </ul>
