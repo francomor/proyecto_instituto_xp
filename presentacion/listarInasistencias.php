@@ -11,7 +11,6 @@ session_start();
 $asistencia= new Asistencia();
 $alumno= new Alumno();
 
-
 if (!isset($_SESSION['dni_alumno']) && isset($_POST['dni'])){
   //if (!isset($_SESSION['dni_alumno'])){
     $_SESSION['dni_alumno']=$_POST["dni"];
@@ -22,9 +21,13 @@ if( isset($_POST['dni']) && $_SESSION['dni_alumno']!=$_POST['dni']){
     }
 if( !isset($_POST['dni']) && isset($_SESSION['dni_alumno'])){
         $_POST['dni']=$_SESSION['dni_alumno'];
-        
     }
-  
+if(isset($_GET['dni'])){
+  $_SESSION['dni_alumno'] = $_GET['dni'];
+  $_POST['dni'] = $_GET['dni'];
+
+}
+
 $dni_alumno=$_POST['dni'];   
 
 foreach ($alumno->obtener_nombre($dni_alumno) as $fila) {

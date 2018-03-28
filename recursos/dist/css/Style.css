@@ -4887,6 +4887,13 @@ table.text-center th {
   width: 100% !important;
 }
 /*
+  *Estilos propios
+*/
+.float-right{
+  float: right;
+}
+
+/*
  * Misc: print
  * -----------
  */
@@ -4929,4 +4936,5 @@ table.text-center th {
   .table-responsive > .table tr td {
     white-space: normal !important;
   }
+
 }

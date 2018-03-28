@@ -10,7 +10,7 @@
  
     <section class="content-header">
       <h1>
-         
+        IMPRESION DE BOLETINES     
         <small> </small>
       </h1>
         <ol class="breadcrumb">
@@ -38,15 +38,18 @@
     <body>
         <?php
         include_once("../logica/AlumnoxCurso.php");
+        include_once("../logica/Curso.php");
         date_default_timezone_set('UTC');
         $curso = $_REQUEST['sel']; //se obtiene el id del curso seleccionado desde el archivo cursos.php
         $alumnos = AlumnoxCurso::obtener_alumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del a�o actual
         $cantfilas = count($alumnos); //se cuentan los registros obtenidos de la consulta anterior
         ?>
-        <form action="#" method="get">
-        <div class="panel-heading ">
-             
-            </div>
+        <form action="#" >
+        <div class="panel-heading row">
+            <input type="button" style="float: right;" class="btn btn-danger " value="Imprimir curso completo" id="guardar">
+        </div>
+        
+
             <!-- tabla donde estan contenidos todos los alumnos del curso seleccionado !-->
             <table class="table table-bordered" border="1" width="100%">
 
@@ -66,10 +69,7 @@
                 </tr>
                 <tr>
                     <td width="3%">#</td>
-                    <td width="40%">Apellido y nombre</td>
-                    <td >Clase
-                    </td>
-                    <td>Ed-Fisica</td>
+                    <td width="70%">Apellido y nombre</td>
                 </tr>       
 
                 <?php
@@ -82,18 +82,11 @@
                         <td><?php echo $alumnos[$i]["apellido"] . ", " . $alumnos[$i]["nombre"] ?> </td> 
                         <!-- se muestra el nombre y apellido del alumno en la tabla --> 
                         <td>
-                            <!--checkbox para computar la asistencia a clase-->
-                            <input class="btn btn-danger col-md-2" value="Imprimir Boletin"  type="button" name="<?php echo ($i + 1) . "clase_aus" ?>" id="<?php echo ($i + 1) . "clase_aus" ?>"> 
-                        </td>
-                        <td>
                             <!--checkbox para computar la asistencia a ed fisica -->
-                            <input  class="hab_deshab" value="Ver Boletin" type="button" name="<?php echo ($i + 1) . "ed-f_aus" ?>" id="<?php echo ($i + 1) . "ed-f_aus" ?>"> 
-                            <!--input hidden para enviar al servidor todos los alumnos del curso -->
-                            <input hidden value="<?php echo $alumnos[$i]["dni"] ?>" name="<?php echo $i + 1 ?>">
-                            <!--input hidden para enviar al servidor la cantidad de alumnos -->
-                            <input hidden value="<?php echo $cantfilas ?>" name="cant_alumnos">
-                            <!--input hidden para enviar al servidor el curso actual -->
-                            <input hidden value="<?php echo $curso ?>" name="curso_actual">
+                            <input  class="btn btn-danger" value="Ver Boletin" type="submit" name="<?php echo ($i + 1) . "ed-f_aus" ?>" 
+                            id="<?php echo ($i + 1) . "ed-f_aus" ?>"
+                            formaction="listarInasistencias.php?dni=<?php echo $alumnos[$i]['dni'];?>"
+                            formmethod='get'> 
                         </td>
                     </tr>
 
@@ -104,44 +97,9 @@
 
             </table>
            
-             <div class="float-right">
-                <input type="submit" class="btn btn-danger" value="GUARDAR" id="guardar">
-            </div>
+             
         </form>
 
-        <script>
-            //funcion para cambiar el imput hidden que envia al servidor el valor de la falta, dependiendo el dia.
-            // si es de clase solo se cambia por 1, si es de clase y educacion fisica se cambia por 1/2.
-            function hab_des_ef() {
-                var chkbox = document.getElementById("valor-parcial");
-                var envio = document.getElementById("valor_parcial_envio");
-                if (chkbox.checked === true) {
-                    envio.value = 1 / 2;
-                } else {
-                    envio.value = 1;
-                }
-            }
-        </script>
-
-        <script src="../recursos/jquery-ajax.min.js">
-            //script para traer la libreria de Jquery
-        </script>
-        <script>
-            //funcion Jquery para habilitar o deshabilitar los checkbox que representan las faltas a ed-fisica
-            //de los alumnos a partir del evento de click a un checkbox.
-            $(document).ready(function () {
-                $('.checkb').change(function () {
-                    hab_des_ef();
-                    if ($(this).prop('checked')) {
-                        $('.hab_deshab').prop('disabled', false);
-                        $('.hab_deshab').prop('checked', false);
-                    } else {
-                        $('.hab_deshab').prop('disabled', true);
-                        $('.hab_deshab').prop('checked', false);
-                    }
-                });
-            });
-        </script>
     </body>
      
  </div>

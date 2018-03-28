@@ -2,7 +2,7 @@
 
 //en este archivo, mediante una llamada de ajax, se cargan todos los cursos de la bdd al archivo cursos.php
 //se hace en forma de lista.
-include_once("../logica/clases.php");
+include_once("../logica/Curso.php");
 error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 
 $c = new Curso();
