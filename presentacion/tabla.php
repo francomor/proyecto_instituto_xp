@@ -38,7 +38,8 @@
 
     <body>
         <?php
-        include("../logica/clases.php");
+        include("../logica/AlumnoxCurso.php");
+        include_once("../logica/Curso.php");
         date_default_timezone_set('UTC');
         $curso = $_REQUEST['sel']; //se obtiene el id del curso seleccionado desde el archivo cursos.php
         $alumnos = AlumnoxCurso::obtener_alumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del a�o actual

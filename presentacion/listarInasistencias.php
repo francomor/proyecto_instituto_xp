@@ -1,6 +1,7 @@
 
 <?php
-include_once("../logica/clases.php");
+include_once("../logica/Asistencia.php");
+include_once("../logica/Alumno.php");
 
 //se inicia la sesion para poder mantener los valores que luego se utilizaran para imprimir un PDF
 

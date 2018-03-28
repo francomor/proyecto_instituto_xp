@@ -1,5 +1,5 @@
 <?php     
-  include_once("presentacion/GUIPreceptor.class.php");
+  include_once("GUIPreceptor.class.php");
   $gui_preceptor = new GUIPreceptor();
   $gui_preceptor-> cargarTabla();
  //$gui_preceptor->cargarContenido();
