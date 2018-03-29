@@ -4,9 +4,10 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 /**
  * Clase ALumnoxCurso
+ * @author 
+ * @version 1.0
  */
-class AlumnoxCurso
-{
+class AlumnoxCurso {
 
     /**
      * Obtiene los alumnos x curso
@@ -16,8 +17,7 @@ class AlumnoxCurso
      * @param anio año del curso que se quiere obtener (2018,2019,..)
      * @return array asociativo donde cada columna esta representada por su nombre: dni,nombre,apellido
      */
-    public static function obtenerAlumnoxCurso($id_curso, $anio)
-    {
+    public static function obtenerAlumnoxCurso($id_curso, $anio) {
         $con = ConexionBD::getConexion();
         $result = $con->recuperarAsociativo("select dni,nombre,apellido from alumnoxcurso,alumno where alumnoxcurso.curso_idcurso='" . $id_curso . "' and alumnoxcurso.anio='" . $anio . "' and alumnoxcurso.alumno_dni=alumno.dni order by alumno.apellido, alumno.nombre");
         return $result;

@@ -1,4 +1,5 @@
 <?php
+require_once "Asistencia.php";
 /**
  * En este archivo, se guardan las inasistencias de todos los alumnos que se
  * envien por el formulario tabla.php
@@ -9,9 +10,10 @@
  * se computa 1/2 como valor total de la falta.
  * Si falto a clase el dia en que hay solo clase, se computa 1 como valor total de la falta.
  * NO se computa en la base de datos los alumnos que estan presentes a las clases, solo los ausentes.
+ * @author 
+ * @version 1.0
  */
 
-require_once "Asistencia.php";
 $fecha = $_REQUEST['fecha']; //se recupera la fecha
 $curso = (int) $_REQUEST["curso_actual"]; //se recupera el id del curso.
 $cant_filas = (int) $_REQUEST["cant_alumnos"]; // se recupera la cantidad de alumnos de ese curso.

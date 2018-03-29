@@ -1,20 +1,20 @@
 <?php
-
 require_once "../persistencia/conexionBD.php";
 error_reporting(E_ALL ^ E_NOTICE);
+
 /**
  * Clase Curso
+ * @author 
+ * @version 1.0
  */
-class Curso
-{
+class Curso {
     private $nombre;
     private $anio;
 
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
     }
 
     /**
@@ -23,8 +23,7 @@ class Curso
      * @version 1.0
      * @return array asociativo donde cada columna esta representada por su nombre: idcurso,nombre,anio
      */
-    public function obtenerCursos()
-    {
+    public function obtenerCursos() {
         $con = ConexionBD::getConexion();
         $result = $con->recuperarAsociativo("select idcurso,nombre,anio from curso");
         return $result;
@@ -36,8 +35,7 @@ class Curso
      * @version 1.0
      * @return result
      */
-    public function cantRegistros()
-    {
+    public function cantRegistros() {
         $con = ConexionBD::getConexion();
         $result = $con->cantidadRegistros("select nombre from curso");
         return $result;
@@ -49,8 +47,7 @@ class Curso
      * @version 1.0
      * @return array asociativo donde cada columna esta representada por:
      */
-    public function obtenerCurso($curso)
-    {
+    public function obtenerCurso($curso) {
         $con = ConexionBD::getConexion();
         $result = $con->recuperarAsociativo("select anio, nombre from curso where idcurso=" . $curso);
         return $result;

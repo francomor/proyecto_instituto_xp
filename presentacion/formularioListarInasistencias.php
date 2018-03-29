@@ -1,6 +1,12 @@
 <?php
 //Agrega la interfaz del preceptor comun a todas las secciones
 require_once "GUIPreceptor.class.php";
+
+/**
+ * Formulario listar inasistencias
+ * @author 
+ * @version 1.0
+ */
 $gui_preceptor = new GUIPreceptor();
 ?>
   <style type="text/css">

@@ -1,7 +1,12 @@
 <?php
-
 //Agrega la interfaz del preceptor comun a todas las secciones
 require_once "GUIPreceptor.class.php";
+
+/**
+ * Tabla
+ * @author 
+ * @version 1.0
+ */
 $gui_preceptor = new GUIPreceptor();
 ?>
     

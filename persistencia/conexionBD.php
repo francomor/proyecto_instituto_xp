@@ -1,15 +1,14 @@
 <?php
-
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
 /**
  * Clase de base de datos Mysql
  * Solo una conexion es aceptada
+ * @author 
+ * @version 1.0
  */
-class ConexionBD
-{
-
+class ConexionBD {
     private $_connection;
     private static $_instance; //The single instance
     private $_host = "localhost";
@@ -21,8 +20,7 @@ class ConexionBD
      * Get an instance of the Database
      * @return Instance
      */
-    public static function getConexion()
-    {
+    public static function getConexion() {
         if (!self::$_instance) { // If no instance then make one
             self::$_instance = new self();
         }
@@ -32,8 +30,7 @@ class ConexionBD
     /** 
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->crearConexion();
     }
 
@@ -41,10 +38,8 @@ class ConexionBD
      * Crean conexion en la BD 
      * (NO USAR, tiene Singleton)
      */
-    public function crearConexion()
-    {
+    public function crearConexion() {
         $this->_connection = new mysqli($this->_host, $this->_username, $this->_password, $this->_database);
-
         // Error handling
         if (mysqli_connect_error()) {
             trigger_error("Failed to conencto to MySQL: " . mysql_connect_error(), E_USER_ERROR);
@@ -54,9 +49,7 @@ class ConexionBD
     /** 
      * Metodo clone esta vacio para prevenir duplicaciones en la conexion
      */
-    private function __clone()
-    {
-
+    private function __clone() {
     }
 
     /**
@@ -64,8 +57,7 @@ class ConexionBD
      * @param consulta consulta insert
      * @return guardado verdadero si se guardo correctamente
      */
-    public function insertar($consulta)
-    {
+    public function insertar($consulta) {
         $guardado = false;
         if ($this->_connection->query($consulta) === true) {
             $guardado = true;
@@ -79,8 +71,7 @@ class ConexionBD
      * Actualizar en la BD
      * @param consulta consulta update
      */
-    public function update($consulta)
-    {
+    public function update($consulta) {
         if ($this->_connection->query($consulta) === true) {
             echo "update successfully";
         } else {
@@ -93,17 +84,14 @@ class ConexionBD
      * @param consulta consulta select
      * @return array[][] donde el primer campo es la fila y el segundo corresponde con las columnas
      */
-    public function recuperar($consulta)
-    {
+    public function recuperar($consulta) {
         $_res = array();
         if ($resultado = $this->_connection->query($consulta)) {
             /* obtener el array de objetos */
             while ($fila = $resultado->fetch_row()) {
                 $_res[] = $fila;
             }
-
             /* liberar el conjunto de resultados */
-
             mysqli_free_result($resultado);
         }
         return $_res;
@@ -114,8 +102,7 @@ class ConexionBD
      * @param consulta consulta select
      * @return array asociativo donde cada columna se representa por su nombre
      */
-    public function recuperarAsociativo($consulta)
-    {
+    public function recuperarAsociativo($consulta) {
         $_res = array();
         if ($resultado = $this->_connection->query($consulta)) {
             while ($row = $resultado->fetch_array(MYSQLI_ASSOC)) {
@@ -131,8 +118,7 @@ class ConexionBD
      * @param consulta consulta a verificar
      * @return boolean verdadero si existe al menos una fila
      */
-    public function existe($consulta)
-    {
+    public function existe($consulta) {
         $result = false;
         if ($resultado = $this->_connection->query($consulta)) {
             $row_cnt = $resultado->num_rows;
@@ -142,7 +128,6 @@ class ConexionBD
         } else {
             echo "Error: " . $consulta . "<br>" . $this->_connection->error;
         }
-
         return $result;
     }
 
@@ -151,8 +136,7 @@ class ConexionBD
      * @param consulta consulta
      * @return int cantidad de registros de la consulta
      */
-    public function cantidadRegistros($consulta)
-    {
+    public function cantidadRegistros($consulta) {
         $row_cnt = -1;
         if ($resultado = $this->_connection->query($consulta)) {
             $row_cnt = $resultado->num_rows;
@@ -165,8 +149,7 @@ class ConexionBD
     /**
      * Cerrar conexion en la BD
      */
-    public function cerrarConexion()
-    {
+    public function cerrarConexion() {
         $this->_connection->close();
     }
 

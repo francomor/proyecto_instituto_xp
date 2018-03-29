@@ -4,14 +4,14 @@ error_reporting(E_ALL ^ E_NOTICE);
 
 /**
  * Clase Alumno
+ * @author 
+ * @version 1.0
  */
-class Alumno
-{
+class Alumno {
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
     }
 
     /**
@@ -21,8 +21,7 @@ class Alumno
      * @param dni_alumno del cual se desean obtener el nombre
      * @return array asociativo donde cada columna esta representada por su nombre: nombre, apellido
      */
-    public function obtenerNombre($dni_alumno)
-    {
+    public function obtenerNombre($dni_alumno) {
         $con = ConexionBD::getConexion();
         $result = $con->recuperarAsociativo("select nombre,apellido from alumno where dni='" . $dni_alumno . "'");
         return $result;

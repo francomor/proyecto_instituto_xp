@@ -3,12 +3,12 @@ require_once "../logica/Asistencia.php";
 require_once "../logica/Alumno.php";
 /**
  * Listar Inasistencias
+ * @author 
+ * @version 1.0
  */
 
 //se inicia la sesion para poder mantener los valores que luego se utilizaran para imprimir un PDF
-
 session_start();
-
 $asistencia = new Asistencia();
 $alumno = new Alumno();
 
@@ -18,7 +18,6 @@ if (!isset($_SESSION['dni_alumno']) && isset($_POST['dni'])) {
 }
 if (isset($_POST['dni']) && $_SESSION['dni_alumno'] != $_POST['dni']) {
     $_SESSION['dni_alumno'] = $_POST['dni'];
-
 }
 if (!isset($_POST['dni']) && isset($_SESSION['dni_alumno'])) {
     $_POST['dni'] = $_SESSION['dni_alumno'];
@@ -26,16 +25,11 @@ if (!isset($_POST['dni']) && isset($_SESSION['dni_alumno'])) {
 if (isset($_GET['dni'])) {
     $_SESSION['dni_alumno'] = $_GET['dni'];
     $_POST['dni'] = $_GET['dni'];
-
 }
-
 $dni_alumno = $_POST['dni'];
-
 foreach ($alumno->obtenerNombre($dni_alumno) as $fila) {
     $nombre_alumno = $fila['apellido'] . " " . $fila['nombre'];
-
 }
-
 $resultado = $asistencia->listarInasistencia($dni_alumno);
 ?>
 
@@ -64,9 +58,6 @@ $gui_preceptor = new GUIPreceptor();
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     -->
 
-
-
-
       <div class="container">
 
         <table class="table table-bordered">
@@ -91,7 +82,6 @@ foreach ($resultado as $row) {
     $auxFecha = $row["fecha"];
     $partes = explode('-', $auxFecha);
     $fecha = "{$partes[2]}-{$partes[1]}-{$partes[0]}";
-
     $faltoA = $row["tipo"];
     if ($row["valor"] == '1/2') {
         $falta = 0.5;
@@ -106,7 +96,6 @@ foreach ($resultado as $row) {
     echo "<td>" . $acumulado . "</td>";
     echo "<td> </td>";
     echo "</tr>";
-
 }
 
 ?>

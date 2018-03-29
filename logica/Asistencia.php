@@ -1,18 +1,17 @@
 <?php
-
 require_once "../persistencia/conexionBD.php";
 error_reporting(E_ALL ^ E_NOTICE);
 
 /**
  * Clase ALumnoxCurso
+ * @author 
+ * @version 1.0
  */
-class Asistencia
-{
+class Asistencia {
     /**
      * Constructor
      */
-    public function __construct()
-    {
+    public function __construct() {
     }
 
     /**
@@ -25,8 +24,7 @@ class Asistencia
      * @param id_curso id del curso
      * @param justificada 0 o 1 si es justificada o no
      */
-    public function cargarAsistencia($fecha, $tipo, $valor, $dni_alumno, $id_curso, $justificada)
-    {
+    public function cargarAsistencia($fecha, $tipo, $valor, $dni_alumno, $id_curso, $justificada) {
         //date_default_timezone_set('UTC');
         //$fecha = date("Y") . "-" . date("m") . "-" . date("d");
         $con = ConexionBD::getConexion();
@@ -40,8 +38,7 @@ class Asistencia
      * @param dni_alumno del cual se desean obtener inasistencias
      * @return array asociativo donde cada columna esta representada por su nombre: fecha, tipo, valor
      */
-    public function listarInasistencia($dni_alumno)
-    {
+    public function listarInasistencia($dni_alumno) {
         $con = ConexionBD::getConexion();
         $result = $con->recuperarAsociativo("select fecha,tipo,valor from asistencia where alumnoxcurso_alumno_dni='" . $dni_alumno . "' and justificada='0'");
         return $result;
@@ -53,8 +50,7 @@ class Asistencia
      * @version 1.0
      * @param dni_alumno del cual se desean justificar inasistencias
      */
-    public function justificarFaltas($dni_alumno)
-    {
+    public function justificarFaltas($dni_alumno) {
         $con = ConexionBD::getConexion();
         $con->update("UPDATE `asistencia` SET `justificada`='1' WHERE `alumnoxcurso_alumno_dni`='" . $dni_alumno . "' AND `justificada`='0'");
     }
