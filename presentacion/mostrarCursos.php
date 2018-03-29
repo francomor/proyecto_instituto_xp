@@ -1,7 +1,12 @@
 <?php
 require_once "GUIPreceptor.class.php";
-$gui_preceptor = new GUIPreceptor();
 
+/**
+ * Mostrar cursos
+ * @author 
+ * @version 1.0
+ */
+$gui_preceptor = new GUIPreceptor();
 ?>
   
 	<div class="content-wrapper">
