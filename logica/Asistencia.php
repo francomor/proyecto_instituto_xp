@@ -45,6 +45,32 @@ class Asistencia {
     }
 
     /**
+     * Obtiene las asistencias de un alumno
+     * @author Natali Martinez y Francisco Herrero
+     * @version 1.0
+     * @param idcurso y fecha del cual se desean obtener asistencias
+     * @return array asociativo donde cada columna esta representada por su nombre: apellido,nombre,DNI, tipo, valor de los alumnos de un curso que faltaron o no en una determinada fecha
+     */
+    public function inasistenciaxCurso($idcurso,$fecha,$anio) {
+        $con = ConexionBD::getConexion();
+        $result = $con->recuperarAsociativo("SELECT alumno.apellido,alumno.nombre, A.alumno_dni,N.tipo,N.valor  FROM ((SELECT * FROM alumnoxcurso WHERE alumnoxcurso.curso_idcurso = ".$idcurso." and alumnoxcurso.anio='".$anio."' ) AS A 
+    	LEFT JOIN (SELECT * FROM asistencia WHERE asistencia.fecha = '".$fecha."')as N ON A.alumno_dni = N.alumnoxcurso_alumno_dni), alumno WHERE alumno.dni = A.alumno_dni ORDER BY alumno.apellido , alumno.nombre ASC");
+        return $result;
+    }
+
+       /**
+     * Borrar las inasistencias de un curso
+     * @author Natali Martinez y Francisco Herrero
+     * @version 1.0
+     * @param idcurso y fecha del cual se desean borrar las inasistencias
+     * @return 
+     */
+    public static function borrarInasistenciaxCurso($idcurso,$fecha){
+        $con = ConexionBD::getConexion();
+        $result = $con->delete("DELETE FROM `asistencia` WHERE `alumnoxcurso_curso_idcurso`=".$idcurso." and `fecha`='".$fecha."'");
+        return $result;
+    }
+    /**
      * Justifica las faltas injustificadas de un aulmno
      * @author Mauricio Vazquez
      * @version 1.0

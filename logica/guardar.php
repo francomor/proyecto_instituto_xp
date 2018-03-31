@@ -10,19 +10,27 @@ require_once "Asistencia.php";
  * se computa 1/2 como valor total de la falta.
  * Si falto a clase el dia en que hay solo clase, se computa 1 como valor total de la falta.
  * NO se computa en la base de datos los alumnos que estan presentes a las clases, solo los ausentes.
- * @author 
+ * @author Corrionero Federico y Herrero Francisco
+ * @version 1.0
+ */
+
+/**
+ * En este archivo, Además se guardan las modificaciones de las inasistencias.
+ * @author Martinez Natali y Herrero Francisco
  * @version 1.0
  */
 
 $fecha = $_REQUEST['fecha']; //se recupera la fecha
 $curso = (int) $_REQUEST["curso_actual"]; //se recupera el id del curso.
+Asistencia::borrarInasistenciaxCurso($curso, $fecha); //antes de guardar se borra todas las asistencias de ese curso en la fecha dada.
 $cant_filas = (int) $_REQUEST["cant_alumnos"]; // se recupera la cantidad de alumnos de ese curso.
-$valor_parcial = $_REQUEST["valor_parcial_envio"]; // se recupera el valor parcial de la falta de ese dia.
+$valor_parcial = $_REQUEST["valor_parcial_envio"]; // se recupera el valor parcial de la falta de ese dia
+
 for ($i = 0; $i < $cant_filas; $i++) {
+    $a = new Asistencia();
     $dni = $_REQUEST[($i + 1)]; //obtengo el dni de los alumnos.
     $falta_clase = $_REQUEST[(String) ($i + 1) . 'clase_aus']; //obtengo si falto o no a clase.
     if ($valor_parcial != 1) { //si el dia en que se computa la asistencia hay ed fisica y clase...
-        $a = new Asistencia();
         $falta_ed_f = $_REQUEST[(String) ($i + 1) . 'ed-f_aus']; //obtengo si falto o no a edfisica
         if ($falta_clase != null && $falta_ed_f != null) { //si falto a clase y edfisica...
             $valor_total = 1;
@@ -35,7 +43,6 @@ for ($i = 0; $i < $cant_filas; $i++) {
             $a->cargarAsistencia($fecha, "edfisica", $valor_total, $dni, $curso, 0);
         }
     } else { //si el dia que se computa la asistencia hay solo clase...
-        $a = new Asistencia();
         if ($falta_clase != null) { //si falto a clase...
             $valor_total = 1;
             $a->cargarAsistencia($fecha, "clase", $valor_total, $dni, $curso, 0);
@@ -45,6 +52,8 @@ for ($i = 0; $i < $cant_filas; $i++) {
     echo ("alert ('guardado correctamente')");
     echo ("</script>");
     print("<script>window.location='../presentacion/cursos.php';</script>"); //una vez guardado, redireccionar a la pagina de seleccion de cursos.
-}
+    
+     }
+     
 
 ?>

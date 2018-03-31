@@ -145,6 +145,17 @@ class ConexionBD {
         }
         return $row_cnt;
     }
+    
+     /**
+     * borrar registro en la BD
+     * @param  consulta delete
+     */
+    public function delete($consulta) {
+        if ($this->_connection->query($consulta) === true) {
+        } else {
+            echo "Error: " . $consulta . "<br>" . $this->_connection->error;
+        }
+    }
 
     /**
      * Cerrar conexion en la BD
