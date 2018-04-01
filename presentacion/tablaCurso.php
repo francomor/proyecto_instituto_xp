@@ -9,7 +9,6 @@ include_once "GUIPreceptor.class.php";
  */
 $gui_preceptor = new GUIPreceptor();
 ?>
-    
 
  <div class="content-wrapper">
  
@@ -44,7 +43,7 @@ $gui_preceptor = new GUIPreceptor();
         <?php
         require_once "../logica/AlumnoxCurso.php";
         require_once "../logica/Curso.php";
-        date_default_timezone_set('UTC');
+        date_default_timezone_set('America/Argentina/Buenos_Aires');
         $curso = $_REQUEST['sel']; //se obtiene el id del curso seleccionado desde el archivo cursos.php
         $alumnos = AlumnoxCurso::obtenerAlumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del a�o actual
         $cantfilas = count($alumnos); //se cuentan los registros obtenidos de la consulta anterior
@@ -88,7 +87,7 @@ $gui_preceptor = new GUIPreceptor();
                         <!-- se muestra el nombre y apellido del alumno en la tabla --> 
                         <td>
                             <!--checkbox para computar la asistencia a ed fisica -->
-                            <input  class="btn btn-danger" value="Ver Boletin" type="submit" name="<?php echo ($i + 1) . "ed-f_aus" ?>" 
+                            <input  class="btn btn-danger" value="Ver Boletin" type="submit" name="<?php echo ($i + 1) . "edFAusente" ?>" 
                             id="<?php echo ($i + 1) . "ed-f_aus" ?>"
                             formaction="listarInasistencias.php?dni=<?php echo $alumnos[$i]['dni'];?>"
                             formmethod='get'> 

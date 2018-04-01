@@ -1,5 +1,5 @@
 <?php
-require_once "Asistencia.php";
+require_once "../logica/Asistencia.php";
 /**
  * En este archivo, se guardan las inasistencias de todos los alumnos que se
  * envien por el formulario tabla.php
@@ -20,38 +20,38 @@ require_once "Asistencia.php";
  * @version 1.0
  */
 
-$fecha = $_REQUEST['fecha']; //se recupera la fecha
-$curso = (int) $_REQUEST["curso_actual"]; //se recupera el id del curso.
+$fecha = $_POST['fecha']; //se recupera la fecha
+$curso = (int) $_POST["cursoActual"]; //se recupera el id del curso.
 Asistencia::borrarInasistenciaxCurso($curso, $fecha); //antes de guardar se borra todas las asistencias de ese curso en la fecha dada.
-$cant_filas = (int) $_REQUEST["cant_alumnos"]; // se recupera la cantidad de alumnos de ese curso.
-$valor_parcial = $_REQUEST["valor_parcial_envio"]; // se recupera el valor parcial de la falta de ese dia
+$cantAlumnos = (int) $_POST["cantAlumnos"]; // se recupera la cantidad de alumnos de ese curso.
+$valorParcial = $_POST["valorParcialEnvio"]; // se recupera el valor parcial de la falta de ese dia
 
-for ($i = 0; $i < $cant_filas; $i++) {
+for ($i = 0; $i < $cantAlumnos; $i++) {
     $a = new Asistencia();
-    $dni = $_REQUEST[($i + 1)]; //obtengo el dni de los alumnos.
-    $falta_clase = $_REQUEST[(String) ($i + 1) . 'clase_aus']; //obtengo si falto o no a clase.
-    if ($valor_parcial != 1) { //si el dia en que se computa la asistencia hay ed fisica y clase...
-        $falta_ed_f = $_REQUEST[(String) ($i + 1) . 'ed-f_aus']; //obtengo si falto o no a edfisica
+    $dni = $_POST[($i + 1)]; //obtengo el dni de los alumnos.
+    $falta_clase = $_POST[(String) ($i + 1) . 'claseAusente']; //obtengo si falto o no a clase.
+    if ($valorParcial != 1) { //si el dia en que se computa la asistencia hay ed fisica y clase...
+        $falta_ed_f = $_POST[(String) ($i + 1) . 'edFAusente']; //obtengo si falto o no a edfisica
         if ($falta_clase != null && $falta_ed_f != null) { //si falto a clase y edfisica...
-            $valor_total = 1;
-            $a->cargarAsistencia($fecha, "clase+edfisica", $valor_total, $dni, $curso, 0);
+            $valorTotal = 1;
+            $a->cargarAsistencia($fecha, "clase+edfisica", $valorTotal, $dni, $curso, 0);
         } else if ($falta_clase != null) { //si falto a clase
-            $valor_total = "1/2";
-            $a->cargarAsistencia($fecha, "clase", $valor_total, $dni, $curso, 0);
+            $valorTotal = "1/2";
+            $a->cargarAsistencia($fecha, "clase", $valorTotal, $dni, $curso, 0);
         } else if ($falta_ed_f != null) { //si falto a ed fisica...
-            $valor_total = "1/2";
-            $a->cargarAsistencia($fecha, "edfisica", $valor_total, $dni, $curso, 0);
+            $valorTotal = "1/2";
+            $a->cargarAsistencia($fecha, "edfisica", $valorTotal, $dni, $curso, 0);
         }
     } else { //si el dia que se computa la asistencia hay solo clase...
         if ($falta_clase != null) { //si falto a clase...
-            $valor_total = 1;
-            $a->cargarAsistencia($fecha, "clase", $valor_total, $dni, $curso, 0);
+            $valorTotal = 1;
+            $a->cargarAsistencia($fecha, "clase", $valorTotal, $dni, $curso, 0);
         }
     }
     echo ("<script>");
     echo ("alert ('guardado correctamente')");
     echo ("</script>");
-    print("<script>window.location='../presentacion/cursos.php';</script>"); //una vez guardado, redireccionar a la pagina de seleccion de cursos.
+    print("<script>window.location='../presentacion/registrarAsistencia.php';</script>"); //una vez guardado, redireccionar a la pagina de seleccion de cursos.
     
      }
      

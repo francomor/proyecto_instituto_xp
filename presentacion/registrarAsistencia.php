@@ -56,7 +56,7 @@ $gui_preceptor = new GUIPreceptor();
                     document.getElementById("aca").innerHTML = this.responseText;
                 }
             };
-            xmlhttp.open("GET", "../logica/cargar_cursos_ed-f.php", true);
+            xmlhttp.open("POST", "../logica/cargarCursosEdF.php", true);
             xmlhttp.send();
         }
     </script>

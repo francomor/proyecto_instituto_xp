@@ -80,6 +80,19 @@ class Asistencia {
         $con = ConexionBD::getConexion();
         $con->update("UPDATE `asistencia` SET `justificada`='1' WHERE `alumnoxcurso_alumno_dni`='" . $dni_alumno . "' AND `justificada`='0'");
     }
+
+        /**
+     * obtiene el numero de inasistencias de un curso en determinada fecha
+     * @author Herrero Francisco
+     * @version 1.0
+     * @param idcurso, fecha
+     */
+    public function ObtenerCantidadInasistencias($idcurso,$fecha){
+        $con = ConexionBD::getConexion();
+        $result = $con->cantidadRegistros("SELECT `idasistencia` FROM `asistencia` WHERE `alumnoxcurso_curso_idcurso`=".$idcurso." and `fecha`='".$fecha."'");
+        return $result;
+        
+    }
 }
 
 ?>

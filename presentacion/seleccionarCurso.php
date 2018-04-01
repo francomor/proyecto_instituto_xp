@@ -49,7 +49,7 @@ $gui_preceptor = new GUIPreceptor();
       
 
     <script>
-        function cargar() //funcion ajax para traer desde cargar_cursos_ed.f-php todos los cursos de la bdd, para luego cargarlo en el select
+        function cargar() //funcion ajax para traer desde cargarCursosEdF-php todos los cursos de la bdd, para luego cargarlo en el select
         {
             var xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function () {
@@ -57,7 +57,7 @@ $gui_preceptor = new GUIPreceptor();
                     document.getElementById("aca").innerHTML = this.responseText;
                 }
             };
-            xmlhttp.open("GET", "../logica/cargar_cursos_ed-f.php?funcion=imprimirCurso", true);
+            xmlhttp.open("GET", "../logica/cargarCursosEdF.php?funcion=imprimirCurso", true);
             xmlhttp.send();
         }
     </script>
