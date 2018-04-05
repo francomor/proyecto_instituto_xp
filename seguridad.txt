@@ -1,0 +1,20 @@
+Agregar en php.ini
+
+session.cookie_httponly = true
+session.cookie_secure = true
+
+Agregar en httpd.conf
+TraceEnable off
+
+Cambiar en httpd.conf
+Include conf/extra/httpd-autoindex.conf
+por
+#Include conf/extra/httpd-autoindex.conf
+
+LoadModule autoindex_module modules/mod_autoindex.so
+por
+#LoadModule autoindex_module modules/mod_autoindex.so
+
+
+En validarUsuario.php
+        <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" autocomplete="off">
