@@ -59,7 +59,6 @@ $gui_preceptor = new GUIPreceptor();
     -->
 
       <div class="container">
-
         <table class="table table-bordered">
           <thead>
             <tr>
