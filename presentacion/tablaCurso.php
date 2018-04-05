@@ -48,12 +48,14 @@ $gui_preceptor = new GUIPreceptor();
         $alumnos = AlumnoxCurso::obtenerAlumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del a�o actual
         $cantfilas = count($alumnos); //se cuentan los registros obtenidos de la consulta anterior
         ?>
-        <form action="#" >
+        <form action="../logica/generarPdfBoletinPorCurso.php" method="POST" >
         <div class="panel-heading row">
-            <input type="button" style="float: right;" class="btn btn-danger " value="Imprimir curso completo" id="guardar">
+            <input type="hidden" name="idCurso" value="<?php echo $curso;?>">
+            <input type="submit" style="float: right;" class="btn btn-danger " value="Imprimir curso completo" id="guardar" name="generarPdfPorCurso">
         </div>
+        </form>
         
-
+        <form action="listarInasistencias.php" method="GET">
             <!-- tabla donde estan contenidos todos los alumnos del curso seleccionado !-->
             <table class="table table-bordered" border="1" width="100%">
 
@@ -74,10 +76,11 @@ $gui_preceptor = new GUIPreceptor();
                 <tr>
                     <td width="3%">#</td>
                     <td width="70%">Apellido y nombre</td>
-                </tr>       
-
+                </tr>      
                 <?php
+                
                 for ($i = 0; $i < $cantfilas; $i++) {
+                    
                     //se hace de manera dinamica la carga de los alumnos a la tabla, con sus respectivos 
                     //checkbox donde se computan las faltas a clase y a ed-fisica.
                     ?>
@@ -87,23 +90,28 @@ $gui_preceptor = new GUIPreceptor();
                         <!-- se muestra el nombre y apellido del alumno en la tabla --> 
                         <td>
                             <!--checkbox para computar la asistencia a ed fisica -->
-                            <input  class="btn btn-danger" value="Ver Boletin" type="submit" name="<?php echo ($i + 1) . "edFAusente" ?>" 
-                            id="<?php echo ($i + 1) . "ed-f_aus" ?>"
-                            formaction="listarInasistencias.php?dni=<?php echo $alumnos[$i]['dni'];?>"
-                            formmethod='get'> 
+                            <input  class="btn btn-danger" value="Ver Boletin" type="submit" onclick="cargarDni(<?php echo $alumnos[$i]['dni'];?>)">
+                            <!--formaction="listarInasistencias.php?dni=<?php// echo $alumnos[$i]['dni'];?>">-->
                         </td>
                     </tr>
 
 
                     <?php
+                   
                 }//cierre del for
                 ?>
 
             </table>
-           
+            <input type="hidden" name='dni' id='hiddenDni'>
+           </form>
              
-        </form>
+        
+    <script>
+        function cargarDni(dni){
+            document.getElementById('hiddenDni').value=dni;
+        }
 
+    </script>
     </body>
      
  </div>
