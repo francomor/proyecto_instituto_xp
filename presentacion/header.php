@@ -46,8 +46,43 @@
                 <img src="../recursos/imagenes/logo_user.png" class="img-circle" alt="User Image">
 
                 <p>
-                 Usuario
-                  <small>Cerrar Sesion</small>
+                  <?php
+                  /**
+                   * Se consultan los datos de los usuarios para que aparezcan en dropdown, al cerrar sesión.
+                   * @author Navarro Karen y Piñero Luciana
+                   * @version 1.0
+                   */
+                  require_once "../persistencia/conexionBD.php";
+
+                  session_start();
+                  $db=conexionBD::getConexion();
+                  $tipo=$_SESSION["tipo"];
+                  $usuario=$_SESSION["usuario"];
+                  if($tipo=="tutor")
+                  {
+                    $consulta="select * from tutor where email='".$usuario."'";              
+                    $resultado = $db -> recuperarAsociativo($consulta);
+                    $nombre=$resultado [0]['nombre'];
+                    $apellido=$resultado [0]['apellido'];
+                    printf($apellido.', '.$nombre);
+                  }
+                  else if($tipo=="preceptor"){
+                    $consulta="select * from preceptor where email='".$usuario."'";              
+                    $resultado = $db -> recuperarAsociativo($consulta);
+                    $nombre=$resultado [0]['nombre'];
+                    $apellido=$resultado [0]['apellido'];
+                    printf($apellido.', '.$nombre);
+                  }
+                  else if($tipo=="rector")
+                  {
+                    printf($usuario);
+                    
+                  }
+                  
+                  
+                  ?>
+                 <!--Usuario-->
+                  <small><?php printf($tipo); ?></small>
                 </p>
               </li>
              

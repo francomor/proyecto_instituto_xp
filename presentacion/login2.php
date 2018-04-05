@@ -1,4 +1,11 @@
-<?php session_start(); ?>
+<?php session_start(); 
+/**
+ * Este archivo se utiliza como redireccionamiento cuando se ingresan datos incorrectos en el login.
+ * @author Navarro Karen y Piñero Luciana
+ * @version 1.0
+ */
+
+?>
 
 <!DOCTYPE html>
 <html>
@@ -45,12 +52,16 @@
         <div class="col-xs-12">
           <button type="submit" class="btn btn-danger btn-primary btn-block btn-flat" >Ingresar</button>
         </div>
+
          
       </div>
+
     </form>
  
- 
   </div>
+        <div>
+          <div class='alert alert-danger'>  <strong>Error!</strong> Datos incorrectos.</div>
+      </div>
    
 </div>
  

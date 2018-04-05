@@ -1,3 +1,18 @@
+               <?php
+                require_once "../logica/Curso.php";
+                require_once "../logica/Alumno.php";
+                require_once "../logica/Tutor.php";
+                require_once "../logica/Preceptor.php";
+                $curso = new Curso();
+                $alumno=new Alumno();
+                $tutor=new Tutor();
+                $preceptor=new Preceptor();
+                $registros = $curso->cantRegistros();
+                $alumnos=$alumno->cantRegistros();
+                $tutores=$tutor->cantRegistros();
+                $preceptores=$preceptor->cantRegistros();
+            ?>
+
    <div class="content-wrapper">
  
     <section class="content-header">
@@ -17,7 +32,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Alumnos</span>
-              <span class="info-box-number"># </span>
+              <span class="info-box-number"><?php printf($alumnos); ?> </span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -30,7 +45,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Preceptores</span>
-              <span class="info-box-number">#</span>
+              <span class="info-box-number"><?php printf($preceptores); ?> </span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -45,9 +60,10 @@
           <div class="info-box">
             <span class="info-box-icon bg-green"><i class="glyphicon glyphicon-user"></i></span>
 
+
             <div class="info-box-content">
               <span class="info-box-text">Cursos</span>
-              <span class="info-box-number">#</span>
+              <span class="info-box-number"><?php printf($registros); ?></span>
             </div>
             <!-- /.info-box-content -->
           </div>
@@ -60,7 +76,7 @@
 
             <div class="info-box-content">
               <span class="info-box-text">Tutores</span>
-              <span class="info-box-number">#</span>
+              <span class="info-box-number"><?php printf($tutores); ?> </span>
             </div>
             <!-- /.info-box-content -->
           </div>

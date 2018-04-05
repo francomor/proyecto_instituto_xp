@@ -7,7 +7,7 @@ error_reporting(E_ALL ^ E_NOTICE);
  * @author 
  * @version 1.0
  */
-class Alumno {
+class Preceptor{
     /**
      * Constructor
      */
@@ -28,7 +28,7 @@ class Alumno {
     }
     public function cantRegistros() {
         $con = ConexionBD::getConexion();
-        $result = $con->cantidadRegistros("select dni from alumno");
+        $result = $con->cantidadRegistros("select dni from preceptor");
         return $result;
     }
 

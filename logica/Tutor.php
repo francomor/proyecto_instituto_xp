@@ -9,6 +9,12 @@ error_reporting(E_ALL ^ E_NOTICE);
  */
 class Tutor {
 
+	 public function cantRegistros() {
+        $con = ConexionBD::getConexion();
+        $result = $con->cantidadRegistros("select dni from tutor");
+        return $result;
+    }
+
 }
 
 ?>
