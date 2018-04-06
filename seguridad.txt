@@ -1,4 +1,4 @@
-Agregar en php.ini
+﻿Agregar en php.ini
 
 session.cookie_httponly = true
 session.cookie_secure = true

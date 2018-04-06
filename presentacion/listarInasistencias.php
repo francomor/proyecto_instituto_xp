@@ -8,7 +8,7 @@ require_once "../logica/Alumno.php";
  */
 
 //se inicia la sesion para poder mantener los valores que luego se utilizaran para imprimir un PDF
-session_start();
+//session_start();
 $asistencia = new Asistencia();
 $alumno = new Alumno();
 

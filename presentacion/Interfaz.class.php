@@ -30,6 +30,7 @@ class Interfaz {
         if(!isset($_SESSION)){
             session_start();
         }
+
         if($_SESSION["tipo"]=="preceptor"){
             include "menuPreceptor.php";
         }
