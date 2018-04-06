@@ -55,7 +55,7 @@ $gui_preceptor = new GUIPreceptor();
         </div>
         </form>
         
-        <form action="listarInasistencias.php" method="GET">
+        <form action="listarInasistencias.php" method="POST">
             <!-- tabla donde estan contenidos todos los alumnos del curso seleccionado !-->
             <table class="table table-bordered" border="1" width="100%">
 

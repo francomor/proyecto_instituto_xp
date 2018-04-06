@@ -11,12 +11,12 @@ require_once "../logica/Alumno.php";
 //session_start();
 $asistencia = new Asistencia();
 $alumno = new Alumno();
-
+/*
 if (!isset($_SESSION['dni_alumno']) && isset($_POST['dni'])) {
     //if (!isset($_SESSION['dni_alumno'])){
     $_SESSION['dni_alumno'] = $_POST["dni"];
 }
-if (isset($_POST['dni']) && $_SESSION['dni_alumno'] != $_POST['dni']) {
+if (isset($_POST['dni']) && ($_SESSION['dni_alumno'] != $_POST['dni'])) {
     $_SESSION['dni_alumno'] = $_POST['dni'];
 }
 if (!isset($_POST['dni']) && isset($_SESSION['dni_alumno'])) {
@@ -25,12 +25,17 @@ if (!isset($_POST['dni']) && isset($_SESSION['dni_alumno'])) {
 if (isset($_GET['dni'])) {
     $_SESSION['dni_alumno'] = $_GET['dni'];
     $_POST['dni'] = $_GET['dni'];
+}*/
+
+if(isset($_POST['dni'])){
+  $dni_alumno = $_POST['dni'];
 }
-$dni_alumno = $_POST['dni'];
+//$dni_alumno = $_POST['dni'];
 foreach ($alumno->obtenerNombre($dni_alumno) as $fila) {
     $nombre_alumno = $fila['apellido'] . " " . $fila['nombre'];
 }
 $resultado = $asistencia->listarInasistencia($dni_alumno);
+
 ?>
 
 <?php
@@ -68,7 +73,7 @@ $gui_preceptor = new GUIPreceptor();
               <th>Fecha</th>
               <th>Falto a</th>
               <th>Falta</th>
-              <th>Causas de inasistencia</th>
+              <th style='width: 30%;text-align: center;'>Causas de inasistencia</th>
               <th>Firma</th>
               <th>Total</th>
               <th>V°B°</th>
@@ -82,6 +87,9 @@ foreach ($resultado as $row) {
     $partes = explode('-', $auxFecha);
     $fecha = "{$partes[2]}-{$partes[1]}-{$partes[0]}";
     $faltoA = $row["tipo"];
+    if($faltoA == 'clase+edFisica'){
+      $faltoA = 'clase y ef';
+    }
     if ($row["valor"] == '1/2') {
         $falta = 0.5;
     } else if ($row["valor"] == '1') {
@@ -104,6 +112,7 @@ foreach ($resultado as $row) {
     <div class="col align-self-end">
       <form class="form-horizontal" method="POST" action="../logica/generarPdfInasistencias.php" target="_blank">
          <button class="btn btn-primary" type="submit" name="generarPDF">Imprimir</button>
+         <input type="hidden" name="dni" value="<?php echo $dni_alumno;?>">
       </form>
 
     </div>

@@ -14,7 +14,7 @@ use Spipu\Html2Pdf\Html2Pdf;
 
 //este if verifica si se selecciono el boton en el formulario de listarinasistencias.php
 
-if (isset($_POST['generarPDF'])){
+if (isset($_POST['dni'])){
     
     //con ayuda del buffer, levantamos el codigo html contenido en la pagina objetivo a ser generada en pdf
     
@@ -79,11 +79,12 @@ if (isset($_POST['generarPDF'])){
 
     //este metodo se utiliza para darle nombre al archivo en el caso que se quiera descargar el pdf.
 
-    $html2pdf->output('Boletin.pdf');
+    $html2pdf->output('Boletin.pdf'); 
 
     //se destruye la sesion actual para que se pueda volver a realizar una consulta
     
     //session_unset();
+    //echo $pdf;
     
 }
 ?>

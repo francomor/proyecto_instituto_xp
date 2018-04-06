@@ -68,6 +68,9 @@ if (isset($_POST["generarPdfPorCurso"])) {
                 $partes = explode('-', $auxFecha);
                 $fecha = "{$partes[2]}-{$partes[1]}-{$partes[0]}";
                 $faltoA = $inasistencia["tipo"];
+                if($faltoA == 'clase+edFisica'){
+                  $faltoA = 'clase y ef';
+                }
                 if ($inasistencia["valor"] == '1/2') {
                     $falta = 0.5;
                 } else if ($inasistencia["valor"] == '1') {
