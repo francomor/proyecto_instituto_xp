@@ -3,6 +3,7 @@ require '../recursos/html2pdf/vendor/autoload.php';
 use Spipu\Html2Pdf\Html2Pdf;
 require "../logica/AlumnoxCurso.php";
 require "../logica/Asistencia.php";
+require "../logica/Alumno.php";
 
 /**
  * Genera el pdf del boletin por curso
@@ -43,6 +44,7 @@ if (isset($_POST["generarPdfPorCurso"])) {
 
         $inasistencias= $asistencia->listarInasistencia($alumno['dni']);
         $nombreAlumno = $alumno['apellido'].' '.$alumno['nombre'];
+        //Si el nombre contiene acentos, permite hacer visible los caracteres
         if (mb_detect_encoding($nombreAlumno, 'utf-8', true) === false) {
             $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
         } 
@@ -103,8 +105,79 @@ if (isset($_POST["generarPdfPorCurso"])) {
         $pdf.="</body></html>";
         //var_dump($_POST);
         //echo $curso;
-        $html2pdf = new Html2Pdf('P', 'A4');
-        $html2pdf->writeHTML($pdf);
-        $html2pdf->output('Boletin.pdf');
-}       
-        ?>
+}
+if (isset($_POST["generarPDF"])) {
+    date_default_timezone_set('UTC');
+    $asistencia = new Asistencia();
+    $alumno = new Alumno();
+    $dniAlumno = $_POST['dni'];
+    $resultadoNombre = $alumno->obtenerNombre($dniAlumno);
+    $nombreAlumno = $resultadoNombre[0]['apellido'] . " " . $resultadoNombre[0]['nombre'];
+    //Si el nombre contiene acentos, permite hacer visible los caracteres
+    if (mb_detect_encoding($nombreAlumno, 'utf-8', true) === false) {
+        $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
+    }
+    $inasistencias= $asistencia->listarInasistencia($dniAlumno);
+    $cantInasistencias=count($inasistencias);
+    if($cantInasistencias != 0 ){
+    $pdf.="
+    <table class='table table-bordered'>
+      
+        <tr>
+          <th colspan='7' style='text-align: center;'>Boletin de inasistencias de ".$nombreAlumno."</th>
+          </tr>
+          <tr>
+            <th>Fecha</th>
+            <th>Falto a</th>
+            <th>Falta</th>
+            <th style='width: 30%;text-align: center;'>Causas de inasistencia</th>
+            <th>Firma</th>
+            <th>Total</th>
+            <th>V°B°</th>
+          </tr>
+        
+        <tbody>";
+        $acumulado = 0;
+        foreach ($inasistencias as $inasistencia) {
+            $auxFecha = $inasistencia["fecha"];
+            $partes = explode('-', $auxFecha);
+            $fecha = "{$partes[2]}-{$partes[1]}-{$partes[0]}";
+            $faltoA = $inasistencia["tipo"];
+            if($faltoA == 'clase+edFisica'){
+              $faltoA = 'clase y ef';
+            }
+            if ($inasistencia["valor"] == '1/2') {
+                $falta = 0.5;
+            } else if ($inasistencia["valor"] == '1') {
+                $falta = 1;
+            }
+            $acumulado = $acumulado + $falta;
+            $pdf.= "<tr><td>" . $fecha . "</td>";
+            $pdf.= "<td>" . $faltoA . "</td>";
+            $pdf.= "<td>" . $inasistencia["valor"] . "</td>";
+            $pdf.= "<td id='justificar' ></td> <td id='firma'></td>";
+            $pdf.= "<td>" . $acumulado . "</td>";
+            $pdf.= "<td> </td>";
+            $pdf.= "</tr>";
+        }
+        $pdf.="</tbody></table>";
+        if ($cantInasistencias < 3){
+            $cantLineas = 64;
+        }else{
+            $cantLineas = 61;
+        }
+        for($i=0; $i < ($cantLineas-$cantInasistencias); $i++){
+            $pdf.="<br>";
+        }    
+    }
+    $pdf.="</body></html>";
+    //var_dump($_POST);
+    //echo $curso;
+    
+    //echo $pdf;
+}        
+
+    $html2pdf = new Html2Pdf('P', 'A4');
+    $html2pdf->writeHTML($pdf);
+    $html2pdf->output('Boletin.pdf');
+?>

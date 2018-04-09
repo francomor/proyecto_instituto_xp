@@ -79,7 +79,12 @@ $cantidadInasistencias=$a->ObtenerCantidadInasistencias($curso,$fecha);
                 <!-- se muestra el numero del alumno en la tabla -->
                 <td><?php echo $i + 1 ?></td> 
                 <!-- se muestra el nombre y apellido del alumno en la tabla --> 
-                <td><?php echo $inasistencia[$i]["apellido"] . ", " . $inasistencia[$i]["nombre"] ?> </td> 
+                <td><?php 
+                        $nombreAlumno=$inasistencia[$i]["apellido"] . ", " . $inasistencia[$i]["nombre"];
+                        if (mb_detect_encoding($nombreAlumno, 'utf-8', true) === false) {
+                        $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
+                        } 
+                        echo $nombreAlumno ?>  </td> 
 
 
                 <td>

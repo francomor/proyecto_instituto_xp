@@ -32,7 +32,11 @@ if(isset($_POST['dni'])){
 }
 //$dni_alumno = $_POST['dni'];
 foreach ($alumno->obtenerNombre($dni_alumno) as $fila) {
-    $nombre_alumno = $fila['apellido'] . " " . $fila['nombre'];
+    $nombreAlumno = $fila['apellido'] . " " . $fila['nombre'];
+    //Si el nombre contiene acentos permite hacer visible los caracteres
+    if (mb_detect_encoding($nombreAlumno, 'utf-8', true) === false) {
+        $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
+    } 
 }
 $resultado = $asistencia->listarInasistencia($dni_alumno);
 
@@ -67,7 +71,10 @@ $gui_preceptor = new GUIPreceptor();
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th colspan="7" style="text-align: center;">Boletin de inasistencias de <?php echo $nombre_alumno; ?></th>
+              <th colspan="7" style="text-align: center;">Boletin de inasistencias de <?php 
+              echo $nombreAlumno; 
+              ?> 
+              </th>
             </tr>
             <tr>
               <th>Fecha</th>
@@ -110,8 +117,8 @@ foreach ($resultado as $row) {
         </table>
 
     <div class="col align-self-end">
-      <form class="form-horizontal" method="POST" action="../logica/generarPdfInasistencias.php" target="_blank">
-         <button class="btn btn-primary" type="submit" name="generarPDF">Imprimir</button>
+      <form class="form-horizontal" method="POST" action="../logica/generarPdfBoletin.php">
+         <button class="btn btn-danger col-md-2" type="submit" name="generarPDF">Imprimir</button>
          <input type="hidden" name="dni" value="<?php echo $dni_alumno;?>">
       </form>
 

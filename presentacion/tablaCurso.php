@@ -48,7 +48,7 @@ $gui_preceptor = new GUIPreceptor();
         $alumnos = AlumnoxCurso::obtenerAlumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del a�o actual
         $cantfilas = count($alumnos); //se cuentan los registros obtenidos de la consulta anterior
         ?>
-        <form action="../logica/generarPdfBoletinPorCurso.php" method="POST" >
+        <form action="../logica/generarPdfBoletin.php" method="POST" >
         <div class="panel-heading row">
             <input type="hidden" name="idCurso" value="<?php echo $curso;?>">
             <input type="submit" style="float: right;" class="btn btn-danger " value="Imprimir curso completo" id="guardar" name="generarPdfPorCurso">
@@ -86,7 +86,12 @@ $gui_preceptor = new GUIPreceptor();
                     ?>
                     <tr>
                         <td><?php echo $i + 1 ?></td> <!-- se muestra el numero del alumno en la tabla -->
-                        <td><?php echo $alumnos[$i]["apellido"] . ", " . $alumnos[$i]["nombre"] ?> </td> 
+                        <td><?php 
+                        $nombreAlumno=$alumnos[$i]["apellido"] . ", " . $alumnos[$i]["nombre"];
+                        if (mb_detect_encoding($nombreAlumno, 'utf-8', true) === false) {
+                        $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
+                        } 
+                        echo $nombreAlumno; ?> </td> 
                         <!-- se muestra el nombre y apellido del alumno en la tabla --> 
                         <td>
                             <!--checkbox para computar la asistencia a ed fisica -->
