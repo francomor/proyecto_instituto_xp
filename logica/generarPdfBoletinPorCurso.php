@@ -10,7 +10,6 @@ require "../logica/Asistencia.php";
  * @version 1.0
  */
 
-
 $pdf = "<html><head><style>
     table {
         width: 100%;
@@ -30,7 +29,8 @@ $pdf = "<html><head><style>
     #firma{
         width: 20%;
     }
-    </style></head><body>";
+    </style>
+    </head><body>";
 
 if (isset($_POST["generarPdfPorCurso"])) {
     date_default_timezone_set('UTC');
@@ -43,6 +43,9 @@ if (isset($_POST["generarPdfPorCurso"])) {
 
         $inasistencias= $asistencia->listarInasistencia($alumno['dni']);
         $nombreAlumno = $alumno['apellido'].' '.$alumno['nombre'];
+        if (mb_detect_encoding($nombreAlumno, 'utf-8', true) === false) {
+            $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
+        } 
         $cantInasistencias=count($inasistencias);
         if($cantInasistencias != 0 ){
         $pdf.="
@@ -86,7 +89,12 @@ if (isset($_POST["generarPdfPorCurso"])) {
                 $pdf.= "</tr>";
             }
             $pdf.="</tbody></table>";
-            for($i=0; $i < (61-$cantInasistencias); $i++){
+            if ($cantInasistencias < 3){
+                $cantLineas = 64;
+            }else{
+                $cantLineas = 61;
+            }
+            for($i=0; $i < ($cantLineas-$cantInasistencias); $i++){
                 $pdf.="<br>";
             }    
         }  
@@ -98,5 +106,5 @@ if (isset($_POST["generarPdfPorCurso"])) {
         $html2pdf = new Html2Pdf('P', 'A4');
         $html2pdf->writeHTML($pdf);
         $html2pdf->output('Boletin.pdf');
-}   
+}       
         ?>
