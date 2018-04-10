@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,15 +57,6 @@
 <script src="recursos/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script src="recursos/bootstrap/js/bootstrap.min.js"></script>
 
-<script src="recursos/plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-  });
 </script>
 </body>
 </html>

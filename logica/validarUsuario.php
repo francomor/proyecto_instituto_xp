@@ -7,7 +7,6 @@
 
 require_once "../persistencia/conexionBD.php";
 
-
 if(!empty($_POST)){
 
 	if(isset($_POST["username"]) &&isset($_POST["password"])){
@@ -28,21 +27,22 @@ if(!empty($_POST)){
 
 			if($tipo==null){
 
-				//print "<div class='alert alert-danger'>  <strong>Error!</strong> Email o contraseña incorrectos.</div>";
-				    //window.location='../presentacion/login.php';
 
 				    header('location: ../presentacion/login2.php');
 			}
 
 			else{
+
 				session_start();
+
 				$_SESSION["usuario"]=$username;
 				$_SESSION["tipo"]=$tipo;
 				$_SESSION["clave"]=$password;
+				$_SESSION["login"] = true;
+    		
+				header('location: ../presentacion/home.php');
 
-				print "<script>window.location='../presentacion/home.php';</script>";
-
-				}
+			}
 		}
 		else
 		{

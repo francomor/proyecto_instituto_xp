@@ -27,10 +27,10 @@ class Interfaz {
      * Cargar Menu
      */
     public static function cargarMenu() {
+    
         if(!isset($_SESSION)){
             session_start();
         }
-
         if($_SESSION["tipo"]=="preceptor"){
             include "menuPreceptor.php";
         }
