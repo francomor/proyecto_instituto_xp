@@ -48,7 +48,7 @@ $gui_preceptor = new GUIPreceptor();
         $alumnos = AlumnoxCurso::obtenerAlumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del a�o actual
         $cantfilas = count($alumnos); //se cuentan los registros obtenidos de la consulta anterior
         ?>
-        <form action="../logica/generarPdfBoletin.php" method="POST" >
+        <form action="../logica/generarPdfBoletin.php" method="POST"  target="_blank">
         <div class="panel-heading row">
             <input type="hidden" name="idCurso" value="<?php echo $curso;?>">
             <input type="submit" style="float: right;" class="btn btn-danger " value="Imprimir curso completo" id="guardar" name="generarPdfPorCurso">

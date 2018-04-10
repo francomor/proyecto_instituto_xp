@@ -49,24 +49,25 @@ require_once "GUIPreceptor.class.php";
 $gui_preceptor = new GUIPreceptor();
 ?>
 
-  <div class="content-wrapper">
+<div class="content-wrapper">
 
-    <section class="content-header">
-      <h1>
-       <!-- Armar Boletin -->
-        <small> </small>
-      </h1>
-       <ol class="breadcrumb">
-        <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="formularioListarInasistencias.php">Asistencias</a></li>
-        <li class="active">Imprimir Asistencia</li>
-      </ol>
-    </section>
+  <section class="content-header">
+    <h1>
+      <!-- Armar Boletin -->
+      <small></small>
+    </h1>
+      <ol class="breadcrumb">
+      <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="formularioListarInasistencias.php">Asistencias</a></li>
+      <li class="active">Imprimir Asistencia</li>
+    </ol>
+  </section>
 
-    <!-- <title>Armar Boletín</title>
-     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    -->
-
+  <!-- <title>Armar Boletín</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  -->
+  <div class="box">
+    <div class="box-body">
       <div class="container">
         <table class="table table-bordered">
           <thead>
@@ -87,51 +88,48 @@ $gui_preceptor = new GUIPreceptor();
             </tr>
           </thead>
           <tbody>
-<?php
-$acumulado = 0;
-foreach ($resultado as $row) {
-    $auxFecha = $row["fecha"];
-    $partes = explode('-', $auxFecha);
-    $fecha = "{$partes[2]}-{$partes[1]}-{$partes[0]}";
-    $faltoA = $row["tipo"];
-    if($faltoA == 'clase+edFisica'){
-      $faltoA = 'clase y ef';
-    }
-    if ($row["valor"] == '1/2') {
-        $falta = 0.5;
-    } else if ($row["valor"] == '1') {
-        $falta = 1;
-    }
-    $acumulado = $acumulado + $falta;
-    echo "<tr><td>" . $fecha . "</td>";
-    echo "<td>" . $faltoA . "</td>";
-    echo "<td>" . $row["valor"] . "</td>";
-    echo "<td id='justificar' ></td> <td id='firma'></td>";
-    echo "<td>" . $acumulado . "</td>";
-    echo "<td> </td>";
-    echo "</tr>";
-}
+          <?php
+          $acumulado = 0;
+          foreach ($resultado as $row) {
+              $auxFecha = $row["fecha"];
+              $partes = explode('-', $auxFecha);
+              $fecha = "{$partes[2]}-{$partes[1]}-{$partes[0]}";
+              $faltoA = $row["tipo"];
+              if($faltoA == 'clase+edFisica'){
+                $faltoA = 'clase y ef';
+              }
+              if ($row["valor"] == '1/2') {
+                  $falta = 0.5;
+              } else if ($row["valor"] == '1') {
+                  $falta = 1;
+              }
+              $acumulado = $acumulado + $falta;
+              echo "<tr><td>" . $fecha . "</td>";
+              echo "<td>" . $faltoA . "</td>";
+              echo "<td>" . $row["valor"] . "</td>";
+              echo "<td id='justificar' ></td> <td id='firma'></td>";
+              echo "<td>" . $acumulado . "</td>";
+              echo "<td> </td>";
+              echo "</tr>";
+          }
 
-?>
+          ?>
           </tbody>
         </table>
 
-    <div class="col align-self-end">
-      <form class="form-horizontal" method="POST" action="../logica/generarPdfBoletin.php">
-         <button class="btn btn-danger col-md-2" type="submit" name="generarPDF">Imprimir</button>
-         <input type="hidden" name="dni" value="<?php echo $dni_alumno;?>">
-      </form>
-
-    </div>
-
-
-
+        <div class="col align-self-end">
+          <form class="form-horizontal" method="POST" action="../logica/generarPdfBoletin.php">
+            <button class="btn btn-danger col-md-2" type="submit" name="generarPDF">Imprimir</button>
+            <input type="hidden" name="dni" value="<?php echo $dni_alumno;?>">
+          </form>
+        </div>
       </div>
-
-  </div>
-
+    </div>
+  </div>  
+</div>
+</body>
+</html>
 <?php
 //Agrega el footer comun a todas las secciones
 $gui_preceptor->cargarFooter();
-
 ?>

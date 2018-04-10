@@ -19,8 +19,8 @@ $pdf = "<html><head><style>
     }
     th, td {
         width: 10%;
-      text-align: center;
-      border: 2px solid black;
+        text-align: center;
+        border: 2px solid black;
 
     }
     #justificar{
@@ -29,6 +29,12 @@ $pdf = "<html><head><style>
     }
     #firma{
         width: 20%;
+    }
+    #cabeceraTabla{
+
+        height: 40px;
+        padding: 15px;
+        text-align: center;
     }
     </style>
     </head><body>";
@@ -44,17 +50,25 @@ if (isset($_POST["generarPdfPorCurso"])) {
 
         $inasistencias= $asistencia->listarInasistencia($alumno['dni']);
         $nombreAlumno = $alumno['apellido'].' '.$alumno['nombre'];
+
         //Si el nombre contiene acentos, permite hacer visible los caracteres
         if (mb_detect_encoding($nombreAlumno, 'utf-8', true) === false) {
             $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
-        } 
+        }
+        $primeraPagina=true; 
         $cantInasistencias=count($inasistencias);
         if($cantInasistencias != 0 ){
-        $pdf.="
-        <table class='table table-bordered'>
-          
+
+          if($primeraPagina==false){
+            $pdf.="<page pageset='new'>";
+            }else{
+
+            $pdf.="<page pageset='old'>";    
+            }    
+        $pdf.="<table class='table table-bordered'>
+            <thead>
             <tr>
-              <th colspan='7' style='text-align: center;'>Boletin de inasistencias de ".$nombreAlumno."</th>
+              <th colspan='7' id='cabeceraTabla'>Boletin de inasistencias de ".$nombreAlumno."</th>
               </tr>
               <tr>
                 <th>Fecha</th>
@@ -65,7 +79,7 @@ if (isset($_POST["generarPdfPorCurso"])) {
                 <th>Total</th>
                 <th>V°B°</th>
               </tr>
-            
+            </thead>
             <tbody>";
             $acumulado = 0;
             foreach ($inasistencias as $inasistencia) {
@@ -90,15 +104,19 @@ if (isset($_POST["generarPdfPorCurso"])) {
                 $pdf.= "<td> </td>";
                 $pdf.= "</tr>";
             }
-            $pdf.="</tbody></table>";
-            if ($cantInasistencias < 3){
+            $pdf.="</tbody></table></page>";
+
+
+
+            $primeraPagina=false;
+            /*if ($cantInasistencias < 6){
                 $cantLineas = 64;
             }else{
                 $cantLineas = 61;
             }
             for($i=0; $i < ($cantLineas-$cantInasistencias); $i++){
                 $pdf.="<br>";
-            }    
+            } */   
         }  
              
     }
@@ -120,11 +138,11 @@ if (isset($_POST["generarPDF"])) {
     $inasistencias= $asistencia->listarInasistencia($dniAlumno);
     $cantInasistencias=count($inasistencias);
     if($cantInasistencias != 0 ){
-    $pdf.="
+    $pdf.="<page pageset='new'>
     <table class='table table-bordered'>
       
         <tr>
-          <th colspan='7' style='text-align: center;'>Boletin de inasistencias de ".$nombreAlumno."</th>
+          <th colspan='7' id='cabeceraTabla'>Boletin de inasistencias de ".$nombreAlumno."</th>
           </tr>
           <tr>
             <th>Fecha</th>
@@ -160,15 +178,7 @@ if (isset($_POST["generarPDF"])) {
             $pdf.= "<td> </td>";
             $pdf.= "</tr>";
         }
-        $pdf.="</tbody></table>";
-        if ($cantInasistencias < 3){
-            $cantLineas = 64;
-        }else{
-            $cantLineas = 61;
-        }
-        for($i=0; $i < ($cantLineas-$cantInasistencias); $i++){
-            $pdf.="<br>";
-        }    
+        $pdf.="</tbody></table></page>";   
     }
     $pdf.="</body></html>";
     //var_dump($_POST);
