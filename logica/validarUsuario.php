@@ -6,48 +6,42 @@
  */
 
 require_once "../persistencia/conexionBD.php";
+ob_start();
 
-if(!empty($_POST)){
+if (!empty($_POST)) {
 
-	if(isset($_POST["username"]) &&isset($_POST["password"])){
+    if (isset($_POST["username"]) && isset($_POST["password"])) {
 
-		if($_POST["username"]!=""&&$_POST["password"]!=""){
-			$db=conexionBD::getConexion();
+        if ($_POST["username"] != "" && $_POST["password"] != "") {
+            $db = conexionBD::getConexion();
 
-			$username=$_POST["username"];
-			$password=$_POST["password"];
+            $username = $_POST["username"];
+            $password = $_POST["password"];
 
-			
-			 
-			$consulta="select * from user where usuario='".$username."' and clave='".$password."'";
-			$resultado = $db -> recuperarAsociativo($consulta);
-			$cantidad=count($resultado);
-			$i=0;
-			$tipo=$resultado [$i]['tipo'];
+            $consulta = "select * from user where usuario='" . $username . "' and clave='" . $password . "'";
+            $resultado = $db->recuperarAsociativo($consulta);
+            $cantidad = count($resultado);
+            $i = 0;
+            $tipo = $resultado[$i]['tipo'];
 
-			if($tipo==null){
+            if ($tipo == null) {
 
+                header('location: ../presentacion/login2.php');
+            } else {
 
-				    header('location: ../presentacion/login2.php');
-			}
+                session_start();
 
-			else{
+                $_SESSION["usuario"] = $username;
+                $_SESSION["tipo"] = $tipo;
+                $_SESSION["clave"] = $password;
+                $_SESSION["login"] = true;
 
-				session_start();
+                header('location: ../presentacion/home.php');
 
-				$_SESSION["usuario"]=$username;
-				$_SESSION["tipo"]=$tipo;
-				$_SESSION["clave"]=$password;
-				$_SESSION["login"] = true;
-    		
-				header('location: ../presentacion/home.php');
-
-			}
-		}
-		else
-		{
-			header('location: ../presentacion/login2.php');
-		}
-	}
+            }
+        } else {
+            header('location: ../presentacion/login2.php');
+        }
+    }
 }
-?>
+ob_end_flush();
