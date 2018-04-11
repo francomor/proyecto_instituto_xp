@@ -20,14 +20,15 @@
 <div class="wrapper">
 
   <header class="main-header">
-    <a href="#" class="logo">
+    <a href="home.php" class="logo">
       <span class="logo-mini"> <img src="../recursos/imagenes/minilogo.jpeg"></span>
       <span class="logo-lg"><b>INS</b> Nuestra Señora</span>
          
     </a>
     <nav class="navbar navbar-static-top">
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-       
+        <span class="sr-only">Toggle navigation</span>
+
       </a>
 
        <div class="navbar-custom-menu">
@@ -53,8 +54,8 @@
                    */
                   require_once "../persistencia/conexionBD.php";
 
-                  session_start();
                   $db=conexionBD::getConexion();
+                  //session_start();
                   $tipo=$_SESSION["tipo"];
                   $usuario=$_SESSION["usuario"];
                   if($tipo=="tutor")
@@ -89,7 +90,7 @@
               <li class="user-footer">
                  
                 <div class="pull-right">
-                  <a href="login.php" class="btn btn-default btn-flat">Salir</a>
+                  <a href="logout.php" class="btn btn-default btn-flat">Salir</a>
                 </div>
               </li>
             </ul>

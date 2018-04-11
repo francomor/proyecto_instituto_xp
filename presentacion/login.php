@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,7 +32,7 @@
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">
-        <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña">
+        <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" autocomplete="off">
         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
       </div>
       <div class="row">
@@ -56,15 +57,6 @@
 <script src="recursos/plugins/jQuery/jquery-2.2.3.min.js"></script>
 <script src="recursos/bootstrap/js/bootstrap.min.js"></script>
 
-<script src="recursos/plugins/iCheck/icheck.min.js"></script>
-<script>
-  $(function () {
-    $('input').iCheck({
-      checkboxClass: 'icheckbox_square-blue',
-      radioClass: 'iradio_square-blue',
-      increaseArea: '20%' // optional
-    });
-  });
 </script>
 </body>
 </html>
