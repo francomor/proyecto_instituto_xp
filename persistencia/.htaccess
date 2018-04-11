@@ -1,0 +1,7 @@
+
+# HTID:4964514: DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES BELOW
+AuthType Basic
+AuthName "Restricted Access"
+AuthUserFile "/storage/ssd2/329/5311329/public_html/persistencia/.htpasswd"
+Require user institutonuestrasenora
+# DO NOT REMOVE OR MODIFY THIS LINE AND THE LINES ABOVE HTID:4964514:
