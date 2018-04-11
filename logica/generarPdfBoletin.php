@@ -4,6 +4,7 @@ use Spipu\Html2Pdf\Html2Pdf;
 require "../logica/AlumnoxCurso.php";
 require "../logica/Asistencia.php";
 require "../logica/Alumno.php";
+require "../logica/Curso.php";
 
 /**
  * Genera el pdf del boletin por curso
@@ -109,20 +110,19 @@ if (isset($_POST["generarPdfPorCurso"])) {
 
 
             $primeraPagina=false;
-            /*if ($cantInasistencias < 6){
-                $cantLineas = 64;
-            }else{
-                $cantLineas = 61;
-            }
-            for($i=0; $i < ($cantLineas-$cantInasistencias); $i++){
-                $pdf.="<br>";
-            } */   
+            $d = $asistencia->justificarFaltas($alumno['dni']);
         }  
              
     }
         $pdf.="</body></html>";
         //var_dump($_POST);
         //echo $curso;
+        $c= new Curso();
+        $nombreCurso= $c->obtenerCurso($curso);
+        //var_dump($nombreCurso);
+        $html2pdf = new Html2Pdf('P', 'A4');
+        $html2pdf->writeHTML($pdf);
+        $html2pdf->output('Boletin-Curso'.$nombreCurso[0]["anio"].$nombreCurso[0]["nombre"].'-'.date('d-m-Y').'.pdf');
 }
 if (isset($_POST["generarPDF"])) {
     date_default_timezone_set('UTC');
@@ -183,11 +183,16 @@ if (isset($_POST["generarPDF"])) {
     $pdf.="</body></html>";
     //var_dump($_POST);
     //echo $curso;
-    
-    //echo $pdf;
-}        
 
     $html2pdf = new Html2Pdf('P', 'A4');
     $html2pdf->writeHTML($pdf);
-    $html2pdf->output('Boletin.pdf');
+    $html2pdf->output('Boletin-'.$nombreAlumno.'-'.date('d-m-Y').'.pdf');
+    $d = $asistencia->justificarFaltas($dniAlumno);
+    //echo $pdf;
+}        
+
+    
+    
+    
+
 ?>
