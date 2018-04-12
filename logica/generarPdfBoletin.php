@@ -12,7 +12,7 @@ require "../logica/Curso.php";
  * @version 1.0
  */
 
-$pdf = "<html><head><style>
+$pdf = "<style>
     table {
         width: 100%;
         border: 1px solid black;
@@ -38,7 +38,7 @@ $pdf = "<html><head><style>
         text-align: center;
     }
     </style>
-    </head><body>";
+    ";
 
 if (isset($_POST["generarPdfPorCurso"])) {
     date_default_timezone_set('UTC');
@@ -114,7 +114,7 @@ if (isset($_POST["generarPdfPorCurso"])) {
         }  
              
     }
-        $pdf.="</body></html>";
+        
         //var_dump($_POST);
         //echo $curso;
         $c= new Curso();
@@ -138,7 +138,7 @@ if (isset($_POST["generarPDF"])) {
     $inasistencias= $asistencia->listarInasistencia($dniAlumno);
     $cantInasistencias=count($inasistencias);
     if($cantInasistencias != 0 ){
-    $pdf.="<page pageset='new'>
+    $pdf.="
     <table class='table table-bordered'>
       
         <tr>
@@ -178,9 +178,9 @@ if (isset($_POST["generarPDF"])) {
             $pdf.= "<td> </td>";
             $pdf.= "</tr>";
         }
-        $pdf.="</tbody></table></page>";   
+        $pdf.="</tbody></table>";   
     }
-    $pdf.="</body></html>";
+    
     //var_dump($_POST);
     //echo $curso;
 
