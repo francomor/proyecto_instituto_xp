@@ -29,12 +29,12 @@
   </div>
  
   <div class="login-box-body" style="background-color: #F3EDED;" >
-    <p class="login-box-msg">Bienvenido! Ingrese email y contraseña</p>
+    <p class="login-box-msg">Bienvenido! Ingrese Id usuario y contraseña</p>
 
     <form action="../logica/validarUsuario.php" method="post" name="login">
     
       <div class="form-group has-feedback">
-        <input type="email" class="form-control" id="username" name="username" placeholder="Email">
+        <input type="text" class="form-control" id="username" name="username" placeholder="Id usuario">
         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
       </div>
       <div class="form-group has-feedback">

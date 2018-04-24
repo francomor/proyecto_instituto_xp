@@ -11,8 +11,11 @@ error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
  */
 
 $c = new Curso();
-$cursos = $c->obtenerCursos();
-$registros = $c->cantRegistros();
+
+$preceptor=$_SESSION["usuario"];
+
+$cursos = $c->obtenerCursosxPreceptor($preceptor);
+$registros = $c->cantRegistrosxPreceptor($preceptor);
 if ($_REQUEST['funcion'] == 'imprimirCurso') {
     echo ("<form action=tablaCurso.php>");
 } else {

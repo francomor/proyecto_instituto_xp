@@ -67,7 +67,7 @@
                     printf($apellido.', '.$nombre);
                   }
                   else if($tipo=="preceptor"){
-                    $consulta="select * from preceptor where email='".$usuario."'";              
+                    $consulta="select * from preceptor where id_usuario='".$usuario."'";              
                     $resultado = $db -> recuperarAsociativo($consulta);
                     $nombre=$resultado [0]['nombre'];
                     $apellido=$resultado [0]['apellido'];
