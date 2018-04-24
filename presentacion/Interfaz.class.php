@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 /**
  * Clase que se encarga de crear una que sea comun para las distintas secciones
  * del sitio correspondientes a un preceptor, con el objetivo de mantener uniforme
@@ -29,7 +29,7 @@ class Interfaz {
     public static function cargarMenu() {
     
         if(!isset($_SESSION)){
-            session_start();
+            //session_start();
         }
         if($_SESSION["tipo"]=="preceptor"){
             include "menuPreceptor.php";

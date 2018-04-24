@@ -1,6 +1,7 @@
 <?php
 require_once "../logica/Asistencia.php";
 require_once "../logica/Alumno.php";
+require_once "GUIPreceptor.class.php";
 /**
  * Listar Inasistencias
  * @author 
@@ -45,7 +46,7 @@ $resultado = $asistencia->listarInasistencia($dni_alumno);
 <?php
 
 //Agrega la interfaz del preceptor comun a todas las secciones
-require_once "GUIPreceptor.class.php";
+
 $gui_preceptor = new GUIPreceptor();
 ?>
 

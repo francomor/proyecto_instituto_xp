@@ -20,7 +20,7 @@
 <div class="wrapper">
 
   <header class="main-header">
-    <a href="#" class="logo">
+    <a href="home.php" class="logo">
       <span class="logo-mini"> <img src="../recursos/imagenes/minilogo.jpeg"></span>
       <span class="logo-lg"><b>INS</b> Nuestra Señora</span>
          

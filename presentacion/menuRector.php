@@ -13,7 +13,7 @@
         </a>
         <ul class="treeview-menu">
           <li>
-            <a href="mostrarTutores.php">
+            <a href="#">
               <i class="glyphicon glyphicon-th-list"></i> 
               Mostrar Tutores
             </a>

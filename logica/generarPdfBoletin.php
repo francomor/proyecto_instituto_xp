@@ -4,6 +4,7 @@ use Spipu\Html2Pdf\Html2Pdf;
 require "../logica/AlumnoxCurso.php";
 require "../logica/Asistencia.php";
 require "../logica/Alumno.php";
+require "../logica/Curso.php";
 
 /**
  * Genera el pdf del boletin por curso
@@ -11,7 +12,7 @@ require "../logica/Alumno.php";
  * @version 1.0
  */
 
-$pdf = "<html><head><style>
+$pdf = "<style>
     table {
         width: 100%;
         border: 1px solid black;
@@ -37,7 +38,7 @@ $pdf = "<html><head><style>
         text-align: center;
     }
     </style>
-    </head><body>";
+    ";
 
 if (isset($_POST["generarPdfPorCurso"])) {
     date_default_timezone_set('UTC');
@@ -109,20 +110,19 @@ if (isset($_POST["generarPdfPorCurso"])) {
 
 
             $primeraPagina=false;
-            /*if ($cantInasistencias < 6){
-                $cantLineas = 64;
-            }else{
-                $cantLineas = 61;
-            }
-            for($i=0; $i < ($cantLineas-$cantInasistencias); $i++){
-                $pdf.="<br>";
-            } */   
+            $d = $asistencia->justificarFaltas($alumno['dni']);
         }  
              
     }
-        $pdf.="</body></html>";
+        
         //var_dump($_POST);
         //echo $curso;
+        $c= new Curso();
+        $nombreCurso= $c->obtenerCurso($curso);
+        //var_dump($nombreCurso);
+        $html2pdf = new Html2Pdf('P', 'A4');
+        $html2pdf->writeHTML($pdf);
+        $html2pdf->output('Boletin-Curso'.$nombreCurso[0]["anio"].$nombreCurso[0]["nombre"].'-'.date('d-m-Y').'.pdf');
 }
 if (isset($_POST["generarPDF"])) {
     date_default_timezone_set('UTC');
@@ -138,7 +138,7 @@ if (isset($_POST["generarPDF"])) {
     $inasistencias= $asistencia->listarInasistencia($dniAlumno);
     $cantInasistencias=count($inasistencias);
     if($cantInasistencias != 0 ){
-    $pdf.="<page pageset='new'>
+    $pdf.="
     <table class='table table-bordered'>
       
         <tr>
@@ -178,16 +178,21 @@ if (isset($_POST["generarPDF"])) {
             $pdf.= "<td> </td>";
             $pdf.= "</tr>";
         }
-        $pdf.="</tbody></table></page>";   
+        $pdf.="</tbody></table>";   
     }
-    $pdf.="</body></html>";
+    
     //var_dump($_POST);
     //echo $curso;
-    
-    //echo $pdf;
-}        
 
     $html2pdf = new Html2Pdf('P', 'A4');
     $html2pdf->writeHTML($pdf);
-    $html2pdf->output('Boletin.pdf');
+    $html2pdf->output('Boletin-'.$nombreAlumno.'-'.date('d-m-Y').'.pdf');
+    $d = $asistencia->justificarFaltas($dniAlumno);
+    //echo $pdf;
+}        
+
+    
+    
+    
+
 ?>
