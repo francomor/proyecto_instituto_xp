@@ -64,14 +64,14 @@
                     $resultado = $db -> recuperarAsociativo($consulta);
                     $nombre=$resultado [0]['nombre'];
                     $apellido=$resultado [0]['apellido'];
-                    printf($apellido.', '.$nombre);
+                    printf($nombre.' '. $apellido);
                   }
                   else if($tipo=="preceptor"){
                     $consulta="select * from preceptor where id_usuario='".$usuario."'";              
                     $resultado = $db -> recuperarAsociativo($consulta);
                     $nombre=$resultado [0]['nombre'];
                     $apellido=$resultado [0]['apellido'];
-                    printf($apellido.', '.$nombre);
+                    printf($nombre.' '. $apellido);
                   }
                   else if($tipo=="rector")
                   {

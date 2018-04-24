@@ -28,7 +28,7 @@ class Preceptor{
     }
     public function cantRegistros() {
         $con = ConexionBD::getConexion();
-        $result = $con->cantidadRegistros("select dni from preceptor");
+        $result = $con->cantidadRegistros("select id_usuario from preceptor");
         return $result;
     }
 

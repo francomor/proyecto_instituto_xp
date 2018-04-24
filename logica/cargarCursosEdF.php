@@ -1,6 +1,7 @@
 <?php
 require_once "../logica/Curso.php";
 error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+session_start();
 
 /**
  * En este archivo, mediante una llamada de ajax,
@@ -12,10 +13,16 @@ error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
 
 $c = new Curso();
 
-$preceptor=$_SESSION["usuario"];
+$usuario=$_SESSION["usuario"];
 
-$cursos = $c->obtenerCursosxPreceptor($preceptor);
-$registros = $c->cantRegistrosxPreceptor($preceptor);
+if($usuario == "rector"){
+    $cursos = $c->obtenerCursos();
+    $registros = $c->cantRegistros();
+}
+else{
+    $cursos = $c->obtenerCursosxPreceptor($usuario);
+    $registros = $c->cantRegistrosxPreceptor($usuario);
+}
 if ($_REQUEST['funcion'] == 'imprimirCurso') {
     echo ("<form action=tablaCurso.php>");
 } else {
@@ -29,5 +36,3 @@ for ($i = 0; $i < $registros; $i++) {
 }
 echo ("</select>");
 echo ("</form>");
-
-?>
