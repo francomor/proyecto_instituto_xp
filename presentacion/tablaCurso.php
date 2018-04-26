@@ -44,12 +44,15 @@ $gui_preceptor = new GUIPreceptor();
         require_once "../logica/AlumnoxCurso.php";
         require_once "../logica/Curso.php";
         date_default_timezone_set('America/Argentina/Buenos_Aires');
+        $fecha = date("Y")."-".date("m")."-".date("d"); // obtenermos la fecha de hoy y le damos formato de bdd
         $curso = $_REQUEST['sel']; //se obtiene el id del curso seleccionado desde el archivo cursos.php
         $alumnos = AlumnoxCurso::obtenerAlumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del a�o actual
         $cantfilas = count($alumnos); //se cuentan los registros obtenidos de la consulta anterior
         ?>
         <form action="../logica/generarPdfBoletin.php" method="POST"  target="_blank">
         <div class="panel-heading row">
+            <input name="fechadesde"id="fechadesde" type="date" value="<?php echo date('Y-m-d', strtotime($fecha)) ?>" required>
+            <input name="fechahasta" id="fechahasta" type="date" value="<?php echo date('Y-m-d', strtotime($fecha)) ?>" required>
             <input type="hidden" name="idCurso" value="<?php echo $curso;?>">
             <input type="submit" style="float: right;" class="btn btn-danger " value="Imprimir curso completo" id="guardar" name="generarPdfPorCurso">
         </div>
