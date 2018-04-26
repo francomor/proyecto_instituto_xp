@@ -22,13 +22,13 @@ class Asistencia {
      * @param valor valor de la falta 0,1,1/2 (el 0 falta en la bd, para indicar que asistio)
      * @param dni_alumno dni del alumno
      * @param id_curso id del curso
-     * @param justificada 0 o 1 si es justificada o no
+    
      */
-    public function cargarAsistencia($fecha, $tipo, $valor, $dni_alumno, $id_curso, $justificada) {
+    public function cargarAsistencia($fecha, $tipo, $valor, $dni_alumno, $id_curso) {
         //date_default_timezone_set('UTC');
         //$fecha = date("Y") . "-" . date("m") . "-" . date("d");
         $con = ConexionBD::getConexion();
-        $con->insertar("INSERT INTO `asistencia`(`idasistencia`, `fecha`, `tipo`, `valor`, `alumnoxcurso_alumno_dni`, `alumnoxcurso_curso_idcurso`, `justificada`) VALUES (default,'" . $fecha . "','" . $tipo . "','" . $valor . "','" . $dni_alumno . "','" . $id_curso . "','" . $justificada . "')");
+        $con->insertar("INSERT INTO `asistencia`(`idasistencia`, `fecha`, `tipo`, `valor`, `alumnoxcurso_alumno_dni`, `alumnoxcurso_curso_idcurso`) VALUES (default,'" . $fecha . "','" . $tipo . "','" . $valor . "','" . $dni_alumno . "','" . $id_curso . "')");
     }
 
     /**
@@ -38,9 +38,9 @@ class Asistencia {
      * @param dni_alumno del cual se desean obtener inasistencias
      * @return array asociativo donde cada columna esta representada por su nombre: fecha, tipo, valor
      */
-    public function listarInasistencia($dni_alumno) {
+    public function listarInasistencia($fecha1, $fecha2, $dni_alumno) {
         $con = ConexionBD::getConexion();
-        $result = $con->recuperarAsociativo("select fecha,tipo,valor from asistencia where alumnoxcurso_alumno_dni='" . $dni_alumno . "' and justificada='0'");
+        $result = $con->recuperarAsociativo("select fecha,tipo,valor from asistencia where alumnoxcurso_alumno_dni='" . $dni_alumno . "'  and fecha between '".$fecha1."' and '".$fecha2."' ORDER BY `asistencia`.`fecha` ASC");
         return $result;
     }
 
@@ -70,16 +70,7 @@ class Asistencia {
         $result = $con->delete("DELETE FROM `asistencia` WHERE `alumnoxcurso_curso_idcurso`=".$idcurso." and `fecha`='".$fecha."'");
         return $result;
     }
-    /**
-     * Justifica las faltas injustificadas de un aulmno
-     * @author Mauricio Vazquez
-     * @version 1.0
-     * @param dni_alumno del cual se desean justificar inasistencias
-     */
-    public function justificarFaltas($dni_alumno) {
-        $con = ConexionBD::getConexion();
-        $con->update("UPDATE `asistencia` SET `justificada`='1' WHERE `alumnoxcurso_alumno_dni`='" . $dni_alumno . "' AND `justificada`='0'");
-    }
+    
 
         /**
      * obtiene el numero de inasistencias de un curso en determinada fecha

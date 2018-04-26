@@ -31,45 +31,41 @@ $pdf = "<style>
     #firma{
         width: 20%;
     }
-    #cabeceraTabla{
+    .cabeceraTabla{
 
-        height: 40px;
-        padding: 15px;
         text-align: center;
     }
+            
     </style>
     ";
 
 if (isset($_POST["generarPdfPorCurso"])) {
     date_default_timezone_set('UTC');
     $curso = $_POST['idCurso']; //se obtiene el id del curso seleccionado desde el archivo cursos.php
+    $fecha1 = $_POST['fechadesde'];
+    $fecha2 = $_POST['fechahasta'];
     $alumnos = AlumnoxCurso::obtenerAlumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del a�o actual
     $cantfilas = count($alumnos); //se cuentan los registros obtenidos de la consulta anterior
     $asistencia = New Asistencia();
-
+    
+    $pdf.="<page setpage='new'>";
     foreach($alumnos as $alumno){
-
-        $inasistencias= $asistencia->listarInasistencia($alumno['dni']);
+        $inasistencias= $asistencia->listarInasistencia($fecha1, $fecha2, $alumno['dni']);
         $nombreAlumno = $alumno['apellido'].' '.$alumno['nombre'];
 
         //Si el nombre contiene acentos, permite hacer visible los caracteres
         if (mb_detect_encoding($nombreAlumno, 'utf-8', true) === false) {
             $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
         }
-        $primeraPagina=true; 
+        //$primeraPagina=true; 
         $cantInasistencias=count($inasistencias);
         if($cantInasistencias != 0 ){
+       
 
-          if($primeraPagina==false){
-            $pdf.="<page pageset='new'>";
-            }else{
-
-            $pdf.="<page pageset='old'>";    
-            }    
-        $pdf.="<table class='table table-bordered'>
+        $pdf.="<nobreak>   <table class='table table-bordered'>
             <thead>
             <tr>
-              <th colspan='7' id='cabeceraTabla'>Boletin de inasistencias de ".$nombreAlumno."</th>
+              <th colspan='7' class='cabeceraTabla'>Boletin de inasistencias de ".$nombreAlumno."</th>
               </tr>
               <tr>
                 <th>Fecha</th>
@@ -105,21 +101,15 @@ if (isset($_POST["generarPdfPorCurso"])) {
                 $pdf.= "<td> </td>";
                 $pdf.= "</tr>";
             }
-            $pdf.="</tbody></table></page>";
+            $pdf.="</tbody></table></nobreak>   <br>";
 
-
-
-            $primeraPagina=false;
-            $d = $asistencia->justificarFaltas($alumno['dni']);
         }  
              
     }
+        $pdf.="</page>";
         
-        //var_dump($_POST);
-        //echo $curso;
         $c= new Curso();
         $nombreCurso= $c->obtenerCurso($curso);
-        //var_dump($nombreCurso);
         $html2pdf = new Html2Pdf('P', 'A4');
         $html2pdf->writeHTML($pdf);
         $html2pdf->output('Boletin-Curso'.$nombreCurso[0]["anio"].$nombreCurso[0]["nombre"].'-'.date('d-m-Y').'.pdf');
@@ -135,7 +125,7 @@ if (isset($_POST["generarPDF"])) {
     if (mb_detect_encoding($nombreAlumno, 'utf-8', true) === false) {
         $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
     }
-    $inasistencias= $asistencia->listarInasistencia($dniAlumno);
+    $inasistencias= $asistencia->listarInasistencia($fecha1, $fecha2, $dniAlumno);
     $cantInasistencias=count($inasistencias);
     if($cantInasistencias != 0 ){
     $pdf.="
@@ -187,7 +177,7 @@ if (isset($_POST["generarPDF"])) {
     $html2pdf = new Html2Pdf('P', 'A4');
     $html2pdf->writeHTML($pdf);
     $html2pdf->output('Boletin-'.$nombreAlumno.'-'.date('d-m-Y').'.pdf');
-    $d = $asistencia->justificarFaltas($dniAlumno);
+    
     //echo $pdf;
 }        
 
