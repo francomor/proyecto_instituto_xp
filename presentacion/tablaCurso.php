@@ -51,8 +51,8 @@ $gui_preceptor = new GUIPreceptor();
         ?>
         <form action="../logica/generarPdfBoletin.php" method="POST"  target="_blank">
         <div class="panel-heading row">
-            <input name="fechadesde"id="fechadesde" type="date" value="<?php echo date('Y-m-d', strtotime($fecha)) ?>" required>
-            <input name="fechahasta" id="fechahasta" type="date" value="<?php echo date('Y-m-d', strtotime($fecha)) ?>" required>
+            <input name="fechadesde" id="fechadesde" type="date" value="<?php echo date('Y-m-d', strtotime($fecha)) ?>" required onchange="cargarfecha()">
+            <input name="fechahasta" id="fechahasta" type="date" value="<?php echo date('Y-m-d', strtotime($fecha)) ?>" required onchange="cargarfecha()">
             <input type="hidden" name="idCurso" value="<?php echo $curso;?>">
             <input type="submit" style="float: right;" class="btn btn-danger " value="Imprimir curso completo" id="guardar" name="generarPdfPorCurso">
         </div>
@@ -79,14 +79,18 @@ $gui_preceptor = new GUIPreceptor();
                 <tr>
                     <td width="3%">#</td>
                     <td width="70%">Apellido y nombre</td>
-                </tr>      
+                </tr>    
+                 <input type="hidden" name="fechadesde" id="fechadesdehiden"value="<?php echo date('Y-m-d', strtotime($fecha)) ?>" >
+                <input type="hidden" name="fechahasta" id="fechahastahiden"value="<?php echo date('Y-m-d', strtotime($fecha)) ?>" >
+            
                 <?php
-                
+               
                 for ($i = 0; $i < $cantfilas; $i++) {
                     
                     //se hace de manera dinamica la carga de los alumnos a la tabla, con sus respectivos 
                     //checkbox donde se computan las faltas a clase y a ed-fisica.
                     ?>
+                
                     <tr>
                         <td><?php echo $i + 1 ?></td> <!-- se muestra el numero del alumno en la tabla -->
                         <td><?php 
@@ -111,10 +115,17 @@ $gui_preceptor = new GUIPreceptor();
 
             </table>
             <input type="hidden" name='dni' id='hiddenDni'>
+            
            </form>
              
         
     <script>
+        
+      function cargarfecha(){
+            document.getElementById('fechadesdehiden').value=document.getElementById('fechadesde').value;
+            document.getElementById('fechahastahiden').value=document.getElementById('fechahasta').value;
+            
+        }
         function cargarDni(dni){
             document.getElementById('hiddenDni').value=dni;
         }
