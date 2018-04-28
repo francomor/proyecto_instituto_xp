@@ -115,6 +115,8 @@ if (isset($_POST["generarPdfPorCurso"])) {
         $html2pdf->output('Boletin-Curso'.$nombreCurso[0]["anio"].$nombreCurso[0]["nombre"].'-'.date('d-m-Y').'.pdf');
 }
 if (isset($_POST["generarPDF"])) {
+    $fecha1 = $_POST['fechadesde'];
+    $fecha2 = $_POST['fechahasta'];
     date_default_timezone_set('UTC');
     $asistencia = new Asistencia();
     $alumno = new Alumno();
