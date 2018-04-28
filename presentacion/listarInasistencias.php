@@ -30,6 +30,9 @@ if (isset($_GET['dni'])) {
 
 if(isset($_POST['dni'])){
   $dni_alumno = $_POST['dni'];
+  $fecha1 = $_POST['fechadesde'];
+  $fecha2 = $_POST['fechahasta'];
+ 
 }
 //$dni_alumno = $_POST['dni'];
 foreach ($alumno->obtenerNombre($dni_alumno) as $fila) {
@@ -39,7 +42,7 @@ foreach ($alumno->obtenerNombre($dni_alumno) as $fila) {
         $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
     } 
 }
-$resultado = $asistencia->listarInasistencia($dni_alumno);
+$resultado = $asistencia->listarInasistencia($fecha1, $fecha2,$dni_alumno);
 
 ?>
 
@@ -121,6 +124,8 @@ $gui_preceptor = new GUIPreceptor();
         <div class="col align-self-end">
           <form class="form-horizontal" method="POST" action="../logica/generarPdfBoletin.php">
             <button class="btn btn-danger col-md-2" type="submit" name="generarPDF">Imprimir</button>
+            <input type="hidden" name="fechadesde" id="fechadesdehiden"value="<?php echo $fecha1; ?>">
+            <input type="hidden" name="fechahasta" id="fechahastahiden"value="<?php echo $fecha2; ?>">
             <input type="hidden" name="dni" value="<?php echo $dni_alumno;?>">
           </form>
         </div>
