@@ -42,20 +42,20 @@ $cantidadInasistencias=$a->ObtenerCantidadInasistencias($curso,$fecha);
                 echo $curso_actual [0]['anio'] . ' ' . $curso_actual[0]['nombre'];
                 ?>
             </td>
-            <td width="20%" colspan="2">Fecha: 
+            <td width="20%" colspan="3">Fecha: 
                 <input type="date" name="fecha" id="fecha" value="<?php echo date('Y-m-d', strtotime($fecha)); ?>" required>  <!-- fecha de hoy por defecto !-->
             </td>
         </tr>
         <tr>
-            <td colspan="2">Inasistencias</td>
+            <td colspan="3">Inasistencias</td>
         </tr>
         <tr>
-            <td width="3%">#</td>
+            <td width="2%">#</td>
             <td width="40%">Apellido y nombre</td>
-            <td >Clase
-            </td>
-            <td>Ed-Fisica</td>
-        </tr>       
+            <td width="7%">Clase</td>
+            <td width="7%"> Llegada tarde </td>
+            <td width="7%">Ed-Fisica</td>
+          </tr>        
 
         <?php
         for ($i = 0; $i < $cantAlumnos; $i++) {
@@ -89,8 +89,12 @@ $cantidadInasistencias=$a->ObtenerCantidadInasistencias($curso,$fecha);
 
                 <td>
                     <!--checkbox para computar la asistencia a clase-->
-                    <input disabled class="hab_deshab_clase" value="clase"  type="checkbox" name="<?php echo ($i + 1) . "claseAusente" ?>" id="<?php echo ($i + 1) . "claseAusente" ?>" title="Para habilitar presione modificar"> 
+                    <input disabled class="hab_deshab_clase" value="clase"  type="checkbox" name="<?php echo ($i + 1) . "claseAusente" ?>" id="<?php echo ($i + 1) . "claseAusente" ?>" title="Para habilitar presione modificar" onClick="controlarCB('<?php echo ($i + 1) ?>',1)"> 
                 </td>
+                <td>
+                <!--checkbox para computar la llegada tarde a clase-->
+                <input disabled class="hab_deshab_tarde" value="tarde"  type="checkbox" name="<?php echo ($i + 1) . "claseTarde" ?>" id="<?php echo ($i + 1) . "claseTarde" ?>" onClick="controlarCB('<?php echo ($i + 1) ?>',2)">
+              </td>
                 <td>
                     <!--checkbox para computar la asistencia a ed fisica -->
                     <input disabled class="hab_deshab" value="edfisica" type="checkbox" name="<?php echo ($i + 1) . "edFAusente" ?>" id="<?php echo ($i + 1) . "edFAusente" ?>" title="Para habilitar presione modificar"> 
@@ -129,9 +133,12 @@ $cantidadInasistencias=$a->ObtenerCantidadInasistencias($curso,$fecha);
             var cantidad = document.getElementById("cantAlumnos").value;
                 for(var i=0; i<parseInt(cantidad); i++){
                         var clase=(i+1)+'claseAusente';
-                        var ed_fisica=(i+1)+'edFAusente'; 
+                        var ed_fisica=(i+1)+'edFAusente';
+                        var tarde= (i+1)+'claseTarde';
                         document.getElementById(clase).disabled=false;
                         document.getElementById(ed_fisica).disabled=false;
+                        document.getElementById(tarde).disabled=false;
+
                     }
                     document.getElementById("valorParcial").disabled=false;
 
@@ -198,6 +205,7 @@ $cantidadInasistencias=$a->ObtenerCantidadInasistencias($curso,$fecha);
                             $('.checkb').prop('title', "Habilitar como día de educación física");
                         }
                     $('.hab_deshab_clase').prop('disabled', false);
+                    $('.hab_deshab_tarde').prop('disabled', false);
                     $('.checkb').prop('disabled', false);
 
                      }
@@ -212,6 +220,7 @@ $cantidadInasistencias=$a->ObtenerCantidadInasistencias($curso,$fecha);
             for(var i=0; i<$('#cantAlumnos').val();i++){
                 var clase='#'+(i+1)+'claseAusente';
                 var ed_fisica='#'+(i+1)+'edFAusente';
+                var tarde='#'+(i+1)+'claseTarde';
                 var indice = '#'+(i+1)+'tipoFalta';
                 var valor = '#'+(i+1)+'valorFalta';
                 switch ($(indice).val()) {
@@ -226,18 +235,33 @@ $cantidadInasistencias=$a->ObtenerCantidadInasistencias($curso,$fecha);
                          habDeshabEF();
                      }
 
-                 }
-                 break;
-                 case 'edFisica': {
-                    $(ed_fisica).prop('checked', true);
-                    habDeshabEF();}
+                    }
                     break;
-                    case 'clase+edFisica':{$(clase).prop('checked', true);
-                    $(ed_fisica).prop('checked', true);
-                    $('.checkb').prop('checked', true);
-                    habDeshabEF();
-                }
-                break;
+                    case 'edFisica': {
+                        $(ed_fisica).prop('checked', true);
+                        habDeshabEF();}
+                    break;
+                    case 'clase+edFisica':{
+                        $(clase).prop('checked', true);
+                        $(ed_fisica).prop('checked', true);
+                        $('.checkb').prop('checked', true);
+                        habDeshabEF();
+                        }
+                    break;
+                    case 'tarde':{
+                        $(tarde).prop('checked', true);
+                        $('.checkb').prop('checked', true);
+                        habDeshabEF();
+                        }
+                    break;
+                    case 'tarde+edFisica':{
+                        $(tarde).prop('checked', true);
+                        $(ed_fisica).prop('checked', true);
+                        $('.checkb').prop('checked', true);
+                        habDeshabEF();
+                        }
+                    break;
+
 
             }
         }
@@ -246,7 +270,9 @@ else{
     for(var i=0; i<$('#cantAlumnos').val();i++){
     var clase='#'+(i+1)+'claseAusente';
     var ed_fisica='#'+(i+1)+'edFAusente';
+    var tarde='#'+(i+1)+'claseTarde';
     $(ed_fisica).prop('disabled', true);
+    $(tarde).prop('disabled', false);
     $(clase).prop('disabled', false);
     $(clase).prop('title', '');
     $(ed_fisica).prop('title', '');
@@ -260,6 +286,24 @@ else{
 
 
     });
+
+
+</script>
+<script>
+  
+  function controlarCB(numID,activador){
+  //var cbClase = document.getElementById(numID.concat("claseAusente"));
+  //var cbTarde = document.getElementById(numID.concat("claseTarde"));
+
+  if(activador==1 && document.getElementById(numID.concat("claseTarde")).checked==true)
+      document.getElementById(numID.concat("claseTarde")).checked=false;
+    //alert("debe desactivar algo");
+  if(activador==2 && document.getElementById(numID.concat("claseAusente")).checked==true)
+      document.getElementById(numID.concat("claseAusente")).checked=false;
+    //alert("debe desactivar algo");
+
+
+  }
 
 
 </script>

@@ -85,19 +85,19 @@ $gui_preceptor = new GUIPreceptor();
               echo $cursoActual [0]['anio'] . ' ' . $cursoActual[0]['nombre'];
               ?>
             </td>
-            <td width="20%" colspan="2">Fecha: 
+            <td width="20%" colspan="3">Fecha: 
               <input name="fecha" id="fecha" type="date" value="<?php echo date('Y-m-d', strtotime($fecha)) ?>" required> <!-- fecha de hoy por defecto !-->
             </td>
           </tr>
           <tr>
-            <td colspan="2">Inasistencias</td>
+            <td colspan="3">Inasistencias</td>
           </tr>
           <tr>
-            <td width="3%">#</td>
+            <td width="2%">#</td>
             <td width="40%">Apellido y nombre</td>
-            <td >Clase
-            </td>
-            <td>Ed-Fisica</td>
+            <td width="7%">Clase</td>
+            <td width="7%"> Llegada tarde </td>
+            <td width="7%">Ed-Fisica</td>
           </tr>       
 
           <?php
@@ -116,7 +116,11 @@ $gui_preceptor = new GUIPreceptor();
               <!-- se muestra el nombre y apellido del alumno en la tabla --> 
               <td>
                 <!--checkbox para computar la asistencia a clase-->
-                <input value="clase"  type="checkbox" name="<?php echo ($i + 1) . "claseAusente" ?>" id="<?php echo ($i + 1) . "claseAusente" ?>"> 
+                <input value="clase"  type="checkbox" name="<?php echo ($i + 1) . "claseAusente" ?>" id="<?php echo ($i + 1) . "claseAusente" ?>" onClick="controlarCB('<?php echo ($i + 1) ?>',1)"> 
+              </td>
+              <td>
+                <!--checkbox para computar la llegada tarde a clase-->
+                <input value="tarde"  type="checkbox" name="<?php echo ($i + 1) . "claseTarde" ?>" id="<?php echo ($i + 1) . "claseTarde" ?>" onClick="controlarCB('<?php echo ($i + 1) ?>',2)"> 
               </td>
               <td>
                <!--input hidden para obtener el tipo de falta que tienen los alumnos que queremos modificar -->
@@ -222,6 +226,19 @@ $gui_preceptor = new GUIPreceptor();
                   habDeshabEF();
                 }
                 break;
+                case 'tarde':{
+                        $(tarde).prop('checked', true);
+                        $('.checkb').prop('checked', true);
+                        habDeshabEF();
+                        }
+                    break;
+                case 'tarde+edFisica':{
+                        $(tarde).prop('checked', true);
+                        $(ed_fisica).prop('checked', true);
+                        $('.checkb').prop('checked', true);
+                        habDeshabEF();
+                        }
+                    break;
 
               }
             }
@@ -274,6 +291,25 @@ $gui_preceptor = new GUIPreceptor();
 
 
               });
+</script>
+<script>
+  
+ function controlarCB(numID,activador){
+
+  //var cbClase = document.getElementById(numID.concat("claseAusente"));
+  //var cbTarde = document.getElementById(numID.concat("claseTarde"));
+
+if(activador==1 && document.getElementById(numID.concat("claseTarde")).checked==true)
+      document.getElementById(numID.concat("claseTarde")).checked=false;
+    //alert("debe desactivar algo");
+  if(activador==2 && document.getElementById(numID.concat("claseAusente")).checked==true)
+      document.getElementById(numID.concat("claseAusente")).checked=false;
+    //alert("debe desactivar algo");
+
+
+  }
+
+
 </script>
 </body>
 
