@@ -30,7 +30,31 @@ for ($i = 0; $i < $cantAlumnos; $i++) {
     $a = new Asistencia();
     $dni = $_POST[($i + 1)]; //obtengo el dni de los alumnos.
     $falta_clase = $_POST[(String) ($i + 1) . 'claseAusente']; //obtengo si falto o no a clase.
-    if ($valorParcial != 1) { //si el dia en que se computa la asistencia hay ed fisica y clase...
+    $falta_ed_f = $_POST[(String) ($i + 1) . 'edFAusente']; //obtengo si falto o no a Educacion fisica.
+    $llegada_tarde= $_POST[(String) ($i + 1) . 'claseTarde']; //obtengo si llego tarde.
+
+
+    if($falta_clase=="clase" && $falta_ed_f==null && $llegada_tarde==null){
+        $a->cargarAsistencia($fecha, "clase", 1, $dni, $curso, 0);
+    }
+    if($falta_clase==null && $falta_ed_f=="edfisica" && $llegada_tarde==null){
+        $a->cargarAsistencia($fecha, "edFisica", "1/2", $dni, $curso, 0);
+    }
+    if($falta_clase==null && $falta_ed_f==null && $llegada_tarde=="tarde"){
+        $a->cargarAsistencia($fecha, "tarde", "1/2", $dni, $curso, 0);
+    }
+    if($falta_clase=="clase" && $falta_ed_f=="edfisica" && $llegada_tarde==null){
+        $a->cargarAsistencia($fecha, "clase+edFisica", 1, $dni, $curso, 0);
+    }
+    if($falta_clase==null && $falta_ed_f=="edfisica" && $llegada_tarde=="tarde"){
+        $a->cargarAsistencia($fecha, "tarde+edFisica", 1, $dni, $curso, 0);
+    }
+
+
+
+
+
+    /*if ($valorParcial != 1) { //si el dia en que se computa la asistencia hay ed fisica y clase...
         $falta_ed_f = $_POST[(String) ($i + 1) . 'edFAusente']; //obtengo si falto o no a edfisica
         if ($falta_clase != null && $falta_ed_f != null) { //si falto a clase y edfisica...
             $valorTotal = 1;
@@ -47,7 +71,8 @@ for ($i = 0; $i < $cantAlumnos; $i++) {
             $valorTotal = 1;
             $a->cargarAsistencia($fecha, "clase", $valorTotal, $dni, $curso, 0);
         }
-    }
+    }*/
+
     echo ("<script>");
     echo ("alert ('guardado correctamente')");
     echo ("</script>");
