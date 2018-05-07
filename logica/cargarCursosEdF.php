@@ -1,7 +1,7 @@
 <?php
 require_once "../logica/Curso.php";
+require_once "../presentacion/GUIPreceptor.class.php";
 error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
-session_start();
 
 /**
  * En este archivo, mediante una llamada de ajax,
