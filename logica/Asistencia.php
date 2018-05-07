@@ -84,6 +84,12 @@ class Asistencia {
         return $result;
         
     }
+
+    public function inasistenciasConsecutivas($fecha1, $fecha2, $fecha3, $curso){
+        $con = ConexionBD::getConexion();
+        $result = $con->recuperarAsociativo("SELECT `alumnoxcurso_alumno_dni` FROM `asistencia` WHERE `fecha` = '".$fecha1."' and `alumnoxcurso_curso_idcurso` = '".$curso."' and `alumnoxcurso_alumno_dni` IN (SELECT `alumnoxcurso_alumno_dni` FROM `asistencia` WHERE `fecha` = '".$fecha2."'  and `alumnoxcurso_curso_idcurso` = '".$curso."' and `alumnoxcurso_alumno_dni` IN (SELECT `alumnoxcurso_alumno_dni` FROM `asistencia` WHERE `fecha` = '".$fecha3."' and `alumnoxcurso_curso_idcurso` = '".$curso."' ))");
+        return $result;
+    }   
 }
 
 ?>

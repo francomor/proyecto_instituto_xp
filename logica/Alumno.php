@@ -32,6 +32,11 @@ class Alumno {
         return $result;
     }
 
+    public function obtenerAlumno($dni_alumno) {
+        $con = ConexionBD::getConexion();
+        $result = $con->recuperarAsociativo("select * from alumno where dni='" . $dni_alumno . "'");
+        return $result;
+    }
 }
 
 ?>

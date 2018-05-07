@@ -77,7 +77,9 @@ for ($i = 0; $i < $cantAlumnos; $i++) {
     echo ("alert ('guardado correctamente')");
     echo ("</script>");
     print("<script>window.location='../presentacion/registrarAsistencia.php';</script>"); //una vez guardado, redireccionar a la pagina de seleccion de cursos.
-    
+
+    //una vez guardado, habria que verificar inasistencias consecutivas
+    //print("<script>window.location='../logica/inasistenciasConsecutivas.php?fecha=".$fecha."&curso=".$curso."';</script>");
      }
      
 

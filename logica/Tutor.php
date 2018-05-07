@@ -15,6 +15,11 @@ class Tutor {
         return $result;
     }
 
+    public function obtenerTutor($dni) {
+        $con = ConexionBD::getConexion();
+        $result = $con->recuperarAsociativo("select * from tutor where dni='" . $dni . "'");
+        return $result;
+    }
 }
 
 ?>
