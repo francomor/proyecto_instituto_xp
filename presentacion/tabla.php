@@ -241,7 +241,6 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
                       //funcion Jquery para habilitar o deshabilitar los checkbox que representan las faltas a ed-fisica
                       //de los alumnos a partir del evento de click a un checkbox.
                       $('.checkb').change(function () {
-                        habDeshabEF();
                         if ($(this).prop('checked')) {
                           $('.hab_deshab').prop('disabled', false);
                           $('.hab_deshab').prop('checked', false);

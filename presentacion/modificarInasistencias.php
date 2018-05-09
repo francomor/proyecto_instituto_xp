@@ -119,17 +119,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 
     
     <script>
-            //funcion para cambiar el imput hidden que envia al servidor el valor de la falta, dependiendo el dia.
-            // si es de clase solo se cambia por 1, si es de clase y educacion fisica se cambia por 1/2.
-            function habDeshabEF() {
-                var chkbox = document.getElementById("valorParcial");
-                var envio = document.getElementById("valorParcialEnvio");
-                if (chkbox.checked === true) {
-                    envio.value = 1 / 2;
-                } else {
-                    envio.value = 1;
-                }
-            }
+            
             //funcion para no sobreescribir las inasistencias guardadas de ese curso en esa fecha cuando el usuario no presiona el boton modoficar
             // si el boton modificar no es presionado
             function noSobreescribir(){
@@ -155,7 +145,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
             $(document).ready(function () {
 
                 $('.checkb').change(function () {
-                    habDeshabEF();
+                    
                     if ($(this).prop('checked')) {
                         $('.hab_deshab').prop('disabled', false);
                         $('.hab_deshab').prop('checked', false);
