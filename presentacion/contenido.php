@@ -1,8 +1,12 @@
-               <?php
-                require_once "../logica/Curso.php";
-                require_once "../logica/Alumno.php";
-                require_once "../logica/Tutor.php";
-                require_once "../logica/Preceptor.php";
+<?php
+require_once "GUIPreceptor.class.php";
+require_once "../logica/Curso.php";
+require_once "../logica/Alumno.php";
+require_once "../logica/Tutor.php";
+require_once "../logica/Preceptor.php";
+if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+
+
                 $curso = new Curso();
                 $alumno=new Alumno();
                 $tutor=new Tutor();
@@ -92,3 +96,8 @@
     </section>
   </div>
  
+  <?php
+} 
+else {
+  header('location: ../presentacion/login.php');
+}

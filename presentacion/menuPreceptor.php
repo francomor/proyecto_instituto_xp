@@ -1,3 +1,7 @@
+<?php
+require_once "GUIPreceptor.class.php";
+if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+?>
 <aside class="main-sidebar">
   <section class="sidebar">
     <ul class="sidebar-menu">
@@ -84,3 +88,9 @@
     </ul>
   </section>
 </aside>
+
+<?php
+} 
+else {
+  header('location: ../presentacion/login.php');
+}

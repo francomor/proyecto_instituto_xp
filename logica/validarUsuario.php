@@ -21,13 +21,14 @@ if (!empty($_POST)) {
             $consulta = "select * from user where usuario='" . $username . "' and clave='" . $password . "'";
             $resultado = $db->recuperarAsociativo($consulta);
             $cantidad = count($resultado);
-            $i = 0;
-            $tipo = $resultado[$i]['tipo'];
 
-            if ($tipo == null) {
-
-                header('location: ../presentacion/login2.php');
+            if ($cantidad == 0) {
+                ?>
+                <div class='alert alert-danger'>  <strong>Error!</strong> Datos incorrectos.</div>
+                <?php
             } else {
+
+                $tipo = $resultado[0]['tipo'];
 
                 session_start();
 
@@ -36,11 +37,14 @@ if (!empty($_POST)) {
                 $_SESSION["clave"] = $password;
                 $_SESSION["login"] = true;
 
-                header('location: ../presentacion/home.php');
+                ?>
+home <?php
 
             }
         } else {
-            header('location: ../presentacion/login2.php');
+            ?>
+            <div class='alert alert-danger'>  <strong>Error!</strong> Campos vacios.</div>
+            <?php
         }
     }
 }

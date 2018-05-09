@@ -6,7 +6,10 @@ require_once "GUIPreceptor.class.php";
  * @author 
  * @version 1.0
  */
-$gui_preceptor = new GUIPreceptor();
+
+if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+
+  $gui_preceptor = new GUIPreceptor();
 ?>
   
 	<div class="content-wrapper">
@@ -96,5 +99,7 @@ $gui_preceptor = new GUIPreceptor();
 <?php
 $gui_preceptor->cargarFooter();
 
-?>
-  
+} 
+else {
+  header('location: ../presentacion/login.php');
+}

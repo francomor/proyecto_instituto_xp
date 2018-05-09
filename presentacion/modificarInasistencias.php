@@ -4,17 +4,20 @@
  * @author Martinez Natali y Herrero Francisco
  * @version 1.0
  */
-require "../logica/AlumnoxCurso.php";
-require_once "../logica/Curso.php";
-require_once "../logica/Asistencia.php";
-date_default_timezone_set('America/Argentina/Buenos_Aires');
-$curso = (int)$_REQUEST['curso']; //se obtiene el id del curso desde el archivo tabla.php
-$fecha = $_REQUEST['fecha']; //se obtiene la fecha que se selecciona del archivo tabla.php
+require_once "GUIPreceptor.class.php";
+if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 
-$a = new Asistencia();
-$inasistencia = $a->inasistenciaxCurso($curso,$fecha,(int) date("Y"));// obtenemos todas las asistencias del curso dado en la fecha dada. 
-$cantAlumnos = count($inasistencia); //se cuentan los registros obtenidos de la consulta anterior
-$cantidadInasistencias=$a->ObtenerCantidadInasistencias($curso,$fecha);
+    require "../logica/AlumnoxCurso.php";
+    require_once "../logica/Curso.php";
+    require_once "../logica/Asistencia.php";
+    date_default_timezone_set('America/Argentina/Buenos_Aires');
+    $curso = (int)$_REQUEST['curso']; //se obtiene el id del curso desde el archivo tabla.php
+    $fecha = $_REQUEST['fecha']; //se obtiene la fecha que se selecciona del archivo tabla.php
+
+    $a = new Asistencia();
+    $inasistencia = $a->inasistenciaxCurso($curso,$fecha,(int) date("Y"));// obtenemos todas las asistencias del curso dado en la fecha dada. 
+    $cantAlumnos = count($inasistencia); //se cuentan los registros obtenidos de la consulta anterior
+    $cantidadInasistencias=$a->ObtenerCantidadInasistencias($curso,$fecha);
 ?>
 <body>
     <form action="../logica/guardar.php" method="post" onsubmit="noSobreescribir()">
@@ -31,7 +34,7 @@ $cantidadInasistencias=$a->ObtenerCantidadInasistencias($curso,$fecha);
 
       </div>
       <!-- tabla donde estan contenidos todos los alumnos del curso a modificar en la fecha propuesta !-->
-      <table class="table table-bordered" border="1" width="80%">
+      <table class="table table-bordered table-hover" border="1" width="80%">
 
         <tr>
             <td rowspan="2" colspan="2">Curso: 
@@ -150,6 +153,7 @@ $cantidadInasistencias=$a->ObtenerCantidadInasistencias($curso,$fecha);
                 //funcion Jquery para habilitar o deshabilitar los checkbox que representan las faltas a ed-fisica
             //de los alumnos a partir del evento de click a un checkbox.
             $(document).ready(function () {
+
                 $('.checkb').change(function () {
                     habDeshabEF();
                     if ($(this).prop('checked')) {
@@ -224,44 +228,38 @@ $cantidadInasistencias=$a->ObtenerCantidadInasistencias($curso,$fecha);
                 var indice = '#'+(i+1)+'tipoFalta';
                 var valor = '#'+(i+1)+'valorFalta';
                 switch ($(indice).val()) {
-                    case 'clase': {
-                        $(clase).prop('checked', true);
-                        if($(valor).val()=='1/2'){
-                          $('.checkb').prop('checked', true); 
-                          habDeshabEF();
-                      }
-                      else{
-                         $('.checkb').prop('checked', false); 
-                         habDeshabEF();
-                     }
-
-                    }
-                    break;
-                    case 'edFisica': {
-                        $(ed_fisica).prop('checked', true);
-                        habDeshabEF();}
-                    break;
-                    case 'clase+edFisica':{
-                        $(clase).prop('checked', true);
-                        $(ed_fisica).prop('checked', true);
-                        $('.checkb').prop('checked', true);
-                        habDeshabEF();
-                        }
-                    break;
-                    case 'tarde':{
-                        $(tarde).prop('checked', true);
-                        $('.checkb').prop('checked', true);
-                        habDeshabEF();
-                        }
-                    break;
-                    case 'tarde+edFisica':{
-                        $(tarde).prop('checked', true);
-                        $(ed_fisica).prop('checked', true);
-                        $('.checkb').prop('checked', true);
-                        habDeshabEF();
-                        }
-                    break;
-
+                    case 'clase':
+                            {
+                              $(clase).prop('checked', true);
+                            }
+                            break;
+                          case 'edFisica':
+                            {
+                              $('.checkb').prop('checked', true);
+                              $(ed_fisica).prop('checked', true);
+                              //$('.hab_deshab').prop('disabled', true);
+                            }
+                            break;
+                          case 'clase+edFisica':
+                            {
+                              $(clase).prop('checked', true);
+                              $(ed_fisica).prop('checked', true);
+                              $('.checkb').prop('checked', true);
+                              //$('.hab_deshab').prop('disabled', true);
+                            }
+                            break;
+                          case 'tarde':
+                            {
+                              $(tarde).prop('checked', true);
+                            }
+                            break;
+                          case 'tarde+edFisica':
+                            {
+                              $(tarde).prop('checked', true);
+                              $(ed_fisica).prop('checked', true);
+                              $('.checkb').prop('checked', true);
+                            }
+                            break;
 
             }
         }
@@ -309,3 +307,8 @@ else{
 </script>
 </body>
 
+<?php
+} 
+else {
+  header('location: ../presentacion/login.php');
+}

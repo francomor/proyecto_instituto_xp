@@ -1,7 +1,10 @@
 <?php
+require_once "GUIPreceptor.class.php";
 require_once "../logica/Asistencia.php";
 require_once "../logica/Alumno.php";
-require_once "GUIPreceptor.class.php";
+if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+
+
 /**
  * Listar Inasistencias
  * @author 
@@ -138,4 +141,8 @@ $gui_preceptor = new GUIPreceptor();
 <?php
 //Agrega el footer comun a todas las secciones
 $gui_preceptor->cargarFooter();
-?>
+
+} 
+else {
+  header('location: ../presentacion/login.php');
+}

@@ -7,7 +7,10 @@ include_once "GUIPreceptor.class.php";
  * @author 
  * @version 1.0
  */
-$gui_preceptor = new GUIPreceptor();
+
+if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+
+    $gui_preceptor = new GUIPreceptor();
 ?>
 
  <div class="content-wrapper">
@@ -149,4 +152,7 @@ $gui_preceptor = new GUIPreceptor();
 //Agrega el footer comun a todas las secciones
 $gui_preceptor->cargarFooter();
 
-?>
+} 
+else {
+  header('location: ../presentacion/login.php');
+}

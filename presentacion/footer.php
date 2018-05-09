@@ -1,3 +1,7 @@
+<?php
+require_once "GUIPreceptor.class.php";
+if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+?>
 <!-- Footer -->
   
   <footer class="main-footer">
@@ -25,3 +29,9 @@
 
 </body>
 </html>
+
+<?php
+} 
+else {
+  header('location: ../presentacion/login.php');
+}
