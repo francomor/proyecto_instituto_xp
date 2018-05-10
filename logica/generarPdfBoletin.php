@@ -5,7 +5,7 @@ require "../logica/AlumnoxCurso.php";
 require "../logica/Asistencia.php";
 require "../logica/Alumno.php";
 require "../logica/Curso.php";
-
+date_default_timezone_set('America/Argentina/Buenos_Aires');
 /**
  * Genera el pdf del boletin por curso
  * @author Rodrigo Martin Vazquez Mauricio
@@ -18,32 +18,49 @@ $pdf = "<style>
         border: 1px solid black;
         border-collapse: collapse;
     }
-    th, td {
+    tr {
+    	display: table-row;
+    	vertical-align: inherit;
+   	 	border-color: inherit;
+    }
+    th {
+        text-align: center;
+        border: 2px solid black;
+        display: table-cell;
+    	vertical-align: inherit;
+    }
+    td {
         width: 10%;
         text-align: center;
         border: 2px solid black;
-
+        display: table-cell;
+    	vertical-align: inherit;
     }
-    #justificar{
+    p {
+		text-align:right;
+    	padding-right: 20px;
+    }
+    #justificar {
         width: 30%;
         text-align: center;
     }
     #firma{
         width: 20%;
     }
-    .cabeceraTabla{
-
+    .cabeceraTabla {
         text-align: center;
+        padding-top: 15px;
+        padding-bottom: 5px;
     }
             
     </style>
     ";
 
 if (isset($_POST["generarPdfPorCurso"])) {
-    date_default_timezone_set('UTC');
     $curso = $_POST['idCurso']; //se obtiene el id del curso seleccionado desde el archivo cursos.php
     $fecha1 = $_POST['fechadesde'];
     $fecha2 = $_POST['fechahasta'];
+   	$fechaInicioAnual = date("Y")."-"."01"."-"."01";
     $alumnos = AlumnoxCurso::obtenerAlumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del a�o actual
     $cantfilas = count($alumnos); //se cuentan los registros obtenidos de la consulta anterior
     $asistencia = New Asistencia();
@@ -60,12 +77,14 @@ if (isset($_POST["generarPdfPorCurso"])) {
         //$primeraPagina=true; 
         $cantInasistencias=count($inasistencias);
         if($cantInasistencias != 0 ){
-       
+    		$totalinasistencias = $asistencia->totalInasistencias($fechaInicioAnual, $fecha2, $alumno['dni']);
 
         $pdf.="<nobreak>   <table class='table table-bordered'>
             <thead>
             <tr>
-              <th colspan='7' class='cabeceraTabla'>Boletin de inasistencias de ".$nombreAlumno."</th>
+              <th colspan='7' class='cabeceraTabla'>Boletin de inasistencias de ".$nombreAlumno."
+        		<p>Total anual: " . $totalinasistencias[0]['valor']. "</p>
+        		</th>
               </tr>
               <tr>
                 <th>Fecha</th>
@@ -118,9 +137,9 @@ if (isset($_POST["generarPdfPorCurso"])) {
         $html2pdf->output('Boletin-Curso'.$nombreCurso[0]["anio"].$nombreCurso[0]["nombre"].'-'.date('d-m-Y').'.pdf');
 }
 if (isset($_POST["generarPDF"])) {
-    date_default_timezone_set('UTC');
-     $fecha1 = $_POST['fechadesde'];
+    $fecha1 = $_POST['fechadesde'];
     $fecha2 = $_POST['fechahasta'];
+    $fechaInicioAnual = date("Y")."-"."01"."-"."01";
     $asistencia = new Asistencia();
     $alumno = new Alumno();
     $dniAlumno = $_POST['dni'];
@@ -133,12 +152,15 @@ if (isset($_POST["generarPDF"])) {
     $inasistencias= $asistencia->listarInasistencia($fecha1, $fecha2, $dniAlumno);
     $cantInasistencias=count($inasistencias);
     if($cantInasistencias != 0 ){
-    $pdf.="
-    <table class='table table-bordered'>
-      
+    	$totalinasistencias=$asistencia->totalInasistencias($fechaInicioAnual, $fecha2, $dniAlumno);
+    	$pdf.="
+    <table>
+      <thead>
         <tr>
-          <th colspan='7' id='cabeceraTabla'>Boletin de inasistencias de ".$nombreAlumno."</th>
-          </tr>
+        <th colspan='7' class='cabeceraTabla'> 
+        Boletin de inasistencias de ".$nombreAlumno."
+        <p>Total anual: ".$totalinasistencias[0]['valor']."</p>
+        </th></tr>
           <tr>
             <th>Fecha</th>
             <th>Falto a</th>
@@ -148,7 +170,7 @@ if (isset($_POST["generarPDF"])) {
             <th>Total</th>
             <th>V°B°</th>
           </tr>
-        
+        </thead>
         <tbody>";
         $acumulado = 0;
         foreach ($inasistencias as $inasistencia) {
@@ -186,11 +208,10 @@ if (isset($_POST["generarPDF"])) {
     $html2pdf->writeHTML($pdf);
     $html2pdf->output('Boletin-'.$nombreAlumno.'-'.date('d-m-Y').'.pdf');
     
-    //echo $pdf;
+   // echo $pdf;
 }        
 
     
     
     
 
-?>

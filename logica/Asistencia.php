@@ -45,6 +45,19 @@ class Asistencia {
     }
 
     /**
+     * Obtiene el total de inasistencias entre 2 fechas por alumno
+     * @author Franco Morero y Francisco Herrero
+     * @version 1.0
+     * @param dni_alumno del cual se desean obtener inasistencias
+     * @return suma total
+     */
+    public function totalInasistencias($fecha1, $fecha2, $dni_alumno) {
+        $con = ConexionBD::getConexion();
+        $result = $con->recuperarAsociativo("select sum(valor) as valor from asistencia where alumnoxcurso_alumno_dni='" . $dni_alumno . "'  and fecha between '".$fecha1."' and '".$fecha2."'");
+        return $result;
+    }
+    
+    /**
      * Obtiene las asistencias de un alumno
      * @author Natali Martinez y Francisco Herrero
      * @version 1.0

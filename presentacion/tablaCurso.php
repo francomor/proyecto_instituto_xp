@@ -54,7 +54,9 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         ?>
         <form action="../logica/generarPdfBoletin.php" method="POST"  target="_blank">
         <div class="panel-heading row">
+        	Fecha desde:
             <input name="fechadesde" id="fechadesde" type="date" value="<?php echo date('Y-m-d', strtotime($fecha)) ?>" required onchange="cargarfecha()">
+            Fecha hasta:
             <input name="fechahasta" id="fechahasta" type="date" value="<?php echo date('Y-m-d', strtotime($fecha)) ?>" required onchange="cargarfecha()">
             <input type="hidden" name="idCurso" value="<?php echo $curso;?>">
             <input type="submit" style="float: right;" class="btn btn-danger " value="Imprimir curso completo" id="guardar" name="generarPdfPorCurso">
@@ -63,7 +65,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         
         <form action="listarInasistencias.php" method="POST" target="_blank">
             <!-- tabla donde estan contenidos todos los alumnos del curso seleccionado !-->
-            <table class="table table-bordered" border="1" width="100%">
+            <table class="table table-bordered table-hover" border="1" width="100%">
 
                 <tr>
                     <td rowspan="2" colspan="2">Curso: 
