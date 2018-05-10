@@ -119,6 +119,8 @@ if (isset($_POST["generarPdfPorCurso"])) {
 }
 if (isset($_POST["generarPDF"])) {
     date_default_timezone_set('UTC');
+     $fecha1 = $_POST['fechadesde'];
+    $fecha2 = $_POST['fechahasta'];
     $asistencia = new Asistencia();
     $alumno = new Alumno();
     $dniAlumno = $_POST['dni'];
@@ -127,7 +129,7 @@ if (isset($_POST["generarPDF"])) {
     //Si el nombre contiene acentos, permite hacer visible los caracteres
     if (mb_detect_encoding($nombreAlumno, 'utf-8', true) === false) {
         $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
-    }
+    };
     $inasistencias= $asistencia->listarInasistencia($fecha1, $fecha2, $dniAlumno);
     $cantInasistencias=count($inasistencias);
     if($cantInasistencias != 0 ){
