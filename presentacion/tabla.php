@@ -74,7 +74,7 @@ $gui_preceptor = new GUIPreceptor();
 
          </div>
          <!-- tabla donde estan contenidos todos los alumnos del curso seleccionado !-->
-         <table class="table table-bordered" border="1" width="80%">
+         <table class="table table-bordered table-hover" border="1" width="80%">
 
           <tr>
             <td rowspan="2" colspan="2">Curso: 
