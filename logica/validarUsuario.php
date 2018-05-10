@@ -6,6 +6,7 @@
  */
 
 require_once "../persistencia/conexionBD.php";
+
 ob_start();
 
 if (!empty($_POST)) {
@@ -29,6 +30,8 @@ if (!empty($_POST)) {
             } else {
 
                 $tipo = $resultado[0]['tipo'];
+                include ("realizarBackup.php");
+                realizarBackup();
 
                 session_start();
 
