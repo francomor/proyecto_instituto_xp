@@ -43,5 +43,17 @@ class GUIPreceptor {
     public static function cargarFooter() {
         include "footer.php";
     }
+    /**
+     * Cargar Alumnos
+     */
+    public static function altaAlumnos(){
+        include "../presentacion/altaAlumnos.php";
+    }
+    /**
+     * Mostrar Alumnos
+     */
+    public static function mostrarAlumnos(){
+        include "../presentacion/mostrarAlumnos.php";
+    }
 }
 

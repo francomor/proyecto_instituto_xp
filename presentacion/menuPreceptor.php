@@ -41,13 +41,13 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         </a>
         <ul class="treeview-menu">
           <li>
-            <a href="#">
+            <a href="mostrarAlumnos.php">
               <i class="ion-person"></i>  
               Mostrar Alumnos
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="altaAlumnos.php">
               <i class="ion-person-add"></i> 
               Agregar Alumno
             </a>

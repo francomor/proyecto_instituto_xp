@@ -73,11 +73,9 @@ class ConexionBD {
      */
     public function update($consulta) {
         if ($this->_connection->query($consulta) === true) {
-            $resp ="update successfully";
         } else {
-            $resp = "Error: " . $consulta . "<br>" . $this->_connection->error;
+            echo "Error: " . $consulta . "<br>" . $this->_connection->error;
         }
-        return $resp;
     }
 
     /**
