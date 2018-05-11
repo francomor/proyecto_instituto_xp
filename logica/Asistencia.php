@@ -102,7 +102,13 @@ class Asistencia {
         $con = ConexionBD::getConexion();
         $result = $con->recuperarAsociativo("SELECT `alumnoxcurso_alumno_dni` FROM `asistencia` WHERE `fecha` = '".$fecha1."' and `alumnoxcurso_curso_idcurso` = '".$curso."' and `alumnoxcurso_alumno_dni` IN (SELECT `alumnoxcurso_alumno_dni` FROM `asistencia` WHERE `fecha` = '".$fecha2."'  and `alumnoxcurso_curso_idcurso` = '".$curso."' and `alumnoxcurso_alumno_dni` IN (SELECT `alumnoxcurso_alumno_dni` FROM `asistencia` WHERE `fecha` = '".$fecha3."' and `alumnoxcurso_curso_idcurso` = '".$curso."' ))");
         return $result;
-    }   
+    }
+       
+        public function obtenerInasistenciasAlumno($dni){
+        $con = ConexionBD::getConexion();
+        $result = $con->recuperarAsociativo("select * from asistencia where alumnoxcurso_alumno_dni= ".$dni);
+        return $result;
+    }
 }
 
 ?>
