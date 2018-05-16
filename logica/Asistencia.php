@@ -19,7 +19,7 @@ class Asistencia {
      * @author Franco Morero y Nicolas Dechecchi
      * @version 1.0
      * @param tipo tiene que ser clase o edFisica (falta uno para indicar que asistio)
-     * @param valor valor de la falta 0,1,1/2 (el 0 falta en la bd, para indicar que asistio)
+     * @param valor valor de la falta 0,1,0.5 (el 0 falta en la bd, para indicar que asistio)
      * @param dni_alumno dni del alumno
      * @param id_curso id del curso
     

@@ -105,7 +105,7 @@ $gui_preceptor = new GUIPreceptor();
               if($faltoA == 'clase+edFisica'){
                 $faltoA = 'clase y ef';
               }
-              if ($row["valor"] == '1/2') {
+              if ($row["valor"] == '0.5') {
                   $falta = 0.5;
               } else if ($row["valor"] == '1') {
                   $falta = 1;

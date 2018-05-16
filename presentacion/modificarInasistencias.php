@@ -29,7 +29,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
           <!--checkbox para habilitar o deshabilitar los dias de educacion fisica o clase -->
           <input type="checkbox" class="checkb" disabled name="valorParcial" id="valorParcial" title="Para habilitar presione modificar">
           Habilitar ed-fisica 
-          <!--input hidden para enviar el valor de la falta correspondiente al dia, si es de clase solo, se envia un 1. Si es de clase y ed fisica se envia 1/2 -->
+          <!--input hidden para enviar el valor de la falta correspondiente al dia, si es de clase solo, se envia un 1. Si es de clase y ed fisica se envia 0.5 -->
           <input type="text" name="valorParcialEnvio" id="valorParcialEnvio" value="1" hidden>
 
       </div>

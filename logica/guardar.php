@@ -7,7 +7,7 @@ require_once "../logica/Asistencia.php";
  * Si falto a clase y a ed fisica (solo los dias en que haya edfisica y clase)
  * se computa 1 como valor total de la falta.
  * Si falto solo a clase o solo a ed fisica (solo los dias en que haya edfisica y clase)
- * se computa 1/2 como valor total de la falta.
+ * se computa 0.5 como valor total de la falta.
  * Si falto a clase el dia en que hay solo clase, se computa 1 como valor total de la falta.
  * NO se computa en la base de datos los alumnos que estan presentes a las clases, solo los ausentes.
  * @author Corrionero Federico y Herrero Francisco
@@ -38,10 +38,10 @@ for ($i = 0; $i < $cantAlumnos; $i++) {
         $a->cargarAsistencia($fecha, "clase", 1, $dni, $curso, 0);
     }
     if($falta_clase==null && $falta_ed_f=="edfisica" && $llegada_tarde==null){
-        $a->cargarAsistencia($fecha, "edFisica", "1/2", $dni, $curso, 0);
+        $a->cargarAsistencia($fecha, "edFisica", "0.5", $dni, $curso, 0);
     }
     if($falta_clase==null && $falta_ed_f==null && $llegada_tarde=="tarde"){
-        $a->cargarAsistencia($fecha, "tarde", "1/2", $dni, $curso, 0);
+        $a->cargarAsistencia($fecha, "tarde", "0.5", $dni, $curso, 0);
     }
     if($falta_clase=="clase" && $falta_ed_f=="edfisica" && $llegada_tarde==null){
         $a->cargarAsistencia($fecha, "clase+edFisica", 1, $dni, $curso, 0);
@@ -60,10 +60,10 @@ for ($i = 0; $i < $cantAlumnos; $i++) {
             $valorTotal = 1;
             $a->cargarAsistencia($fecha, "clase+edfisica", $valorTotal, $dni, $curso, 0);
         } else if ($falta_clase != null) { //si falto a clase
-            $valorTotal = "1/2";
+            $valorTotal = "0.5";
             $a->cargarAsistencia($fecha, "clase", $valorTotal, $dni, $curso, 0);
         } else if ($falta_ed_f != null) { //si falto a ed fisica...
-            $valorTotal = "1/2";
+            $valorTotal = "0.5";
             $a->cargarAsistencia($fecha, "edfisica", $valorTotal, $dni, $curso, 0);
         }
     } else { //si el dia que se computa la asistencia hay solo clase...

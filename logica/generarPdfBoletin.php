@@ -109,7 +109,7 @@ if (isset($_POST["generarPdfPorCurso"])) {
                if($faltoA == 'tarde+edFisica'){
                   $faltoA = 'tarde y ef';
                 }
-                if ($inasistencia["valor"] == '1/2') {
+                if ($inasistencia["valor"] == '0.5') {
                     $falta = 0.5;
                 } else if ($inasistencia["valor"] == '1') {
                     $falta = 1;
@@ -135,6 +135,7 @@ if (isset($_POST["generarPdfPorCurso"])) {
         $html2pdf = new Html2Pdf('P', 'A4');
         $html2pdf->writeHTML($pdf);
         $html2pdf->output('Boletin-Curso'.$nombreCurso[0]["anio"].$nombreCurso[0]["nombre"].'-'.date('d-m-Y').'.pdf');
+        // echo $pdf;
 }
 if (isset($_POST["generarPDF"])) {
     $fecha1 = $_POST['fechadesde'];
@@ -184,7 +185,7 @@ if (isset($_POST["generarPDF"])) {
            if($faltoA == 'tarde+edFisica'){
               $faltoA = 'tarde y ef';
                 }
-            if ($inasistencia["valor"] == '1/2') {
+            if ($inasistencia["valor"] == '0.5') {
                 $falta = 0.5;
             } else if ($inasistencia["valor"] == '1') {
                 $falta = 1;

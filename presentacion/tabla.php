@@ -69,7 +69,7 @@ $gui_preceptor = new GUIPreceptor();
            <!--checkbox para habilitar o deshabilitar los dias de educacion fisica o clase -->
            <input type="checkbox" class="checkb"  name="valorParcial" id="valorParcial">
            Habilitar ed-fisica 
-           <!--input hidden para enviar el valor de la falta correspondiente al dia, si es de clase solo, se envia un 1. Si es de clase y ed fisica se envia 1/2 -->
+           <!--input hidden para enviar el valor de la falta correspondiente al dia, si es de clase solo, se envia un 1. Si es de clase y ed fisica se envia 0.5 -->
            <input type="text" name="valorParcialEnvio" id="valorParcialEnvio" value="1" hidden>
 
          </div>
@@ -153,7 +153,7 @@ $gui_preceptor = new GUIPreceptor();
 
             <script>
             //funcion para cambiar el imput hidden que envia al servidor el valor de la falta, dependiendo el dia.
-            // si es de clase solo se cambia por 1, si es de clase y educacion fisica se cambia por 1/2.
+            // si es de clase solo se cambia por 1, si es de clase y educacion fisica se cambia por 0.5.
             function habDeshabEF() {
               var chkbox = document.getElementById("valorParcial");
               var envio = document.getElementById("valorParcialEnvio");
@@ -201,7 +201,7 @@ $gui_preceptor = new GUIPreceptor();
                 switch ($(indice).val()) {
                   case 'clase': {
                     $(clase).prop('checked', true);
-                    if($(valor).val()=='1/2'){
+                    if($(valor).val()=='0.5'){
                       $('.checkb').prop('checked', true); 
                       habDeshabEF();
                       $('.hab_deshab').prop('disabled', false);
