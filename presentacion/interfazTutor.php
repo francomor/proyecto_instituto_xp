@@ -42,7 +42,7 @@
                         <div class="panel-body">
 
                             <!-- formulario principal -->
-                            <form class="form-horizontal" novalidate>
+                            <div class="form-horizontal" novalidate>
                                 <h4>Ingrese DNI del alumno</h4>
                                 <div class="form-inline">
                                     <label style="margin: 5px 3px" for="dniAlumno">DNI</label>
@@ -51,7 +51,7 @@
                                         <span class="glyphicon glyphicon-search"></span> Buscar
                                     </button>
                                 </div>
-                            </form>
+                            </div>
                         </div>
 
                         
@@ -115,7 +115,25 @@
                         }
                     });
                 });
-                
+                $(document).keydown(function (e) {
+                  if (e.keyCode == 13) {
+                    var parametros = {
+                        "dniAlumno": $('#dniAlumno').val(),
+                    };
+                    $.ajax({
+                        data: parametros,
+                        type: "post",
+                        url: "../logica/inasistenciasxAlumno.php",
+                        datatype: "html",
+
+                        success: function (respuesta) {
+
+                            $('#panelInasistencias').html(respuesta);
+
+                        }
+                    });
+                  }
+                });
             });
         </script>
     </body>
