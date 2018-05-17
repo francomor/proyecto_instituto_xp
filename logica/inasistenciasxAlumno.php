@@ -3,7 +3,7 @@ require_once "../logica/Asistencia.php";
 require_once "../logica/Alumno.php";
 
 /**
- * Listar Inasistencias
+ * Listar Inasistencias x alumno
  * @author 
  * @version 1.0
  */
@@ -98,7 +98,7 @@ $resultado = $asistencia->listarInasistencia($fecha1, $fecha2,$dni_alumno);
         ?>
         <div class="container">
             <div class='alert alert-danger'>
-                <strong>Error!</strong> Alumno inexistente.
+                Alumno inexistente. Intente nuevamente.
             </div>
         </div>
         <?php
