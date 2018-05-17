@@ -31,7 +31,7 @@ class AlumnoxCurso {
 
         public function obtenerAlumnoxCursoAnio(){
         $con = ConexionBD::getConexion();
-        $result = $con->recuperarAsociativo("select distinct anio from AlumnoxCurso order by anio desc");
+        $result = $con->recuperarAsociativo("select distinct anio from alumnoxcurso order by anio desc");
         return $result;
     }
 }

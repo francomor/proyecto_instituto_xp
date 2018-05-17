@@ -64,12 +64,26 @@ $gui_preceptor = new GUIPreceptor();
       <small></small>
     </h1>
       <ol class="breadcrumb">
-      <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
-      <li><a href="formularioListarInasistencias.php">Asistencias</a></li>
-      <li class="active">Imprimir Asistencia</li>
-    </ol>
-  </section>
+          <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
+          <?php 
+          if ($_REQUEST['verInasistencias']!=null) {
+          ?>
+            <li><a href="seleccionarCursoxAnio.php">Seleccionar Curso por año</a></li>
+            <li class="active">Ver Asistencia</li>
+          <?php
 
+          } else {
+
+          ?>
+            <li><a href="formularioListarInasistencias.php">Asistencias</a></li>
+            <li class="active">Imprimir Asistencia</li>
+          <?php
+
+          }
+          ?>
+       </ol>
+  </section>
+  
   <!-- <title>Armar Boletín</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   -->
