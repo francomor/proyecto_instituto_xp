@@ -123,15 +123,21 @@ $gui_preceptor = new GUIPreceptor();
           ?>
           </tbody>
         </table>
-
-        <div class="col align-self-end">
-          <form class="form-horizontal" method="POST" action="../logica/generarPdfBoletin.php">
-            <button class="btn btn-danger col-md-2" type="submit" name="generarPDF">Imprimir</button>
-            <input type="hidden" name="fechadesde" id="fechadesdehiden"value="<?php echo $fecha1; ?>">
-            <input type="hidden" name="fechahasta" id="fechahastahiden"value="<?php echo $fecha2; ?>">
-            <input type="hidden" name="dni" value="<?php echo $dni_alumno;?>">
-          </form>
-        </div>
+        <?php 
+        if($_REQUEST['verInasistencias']==null){
+          ?>
+            <div class="col align-self-end">
+              <form class="form-horizontal" method="POST" action="../logica/generarPdfBoletin.php">
+                <button class="btn btn-danger col-md-2" type="submit" name="generarPDF">Imprimir</button>
+                <input type="hidden" name="fechadesde" id="fechadesdehiden"value="<?php echo $fecha1; ?>">
+                <input type="hidden" name="fechahasta" id="fechahastahiden"value="<?php echo $fecha2; ?>">
+                <input type="hidden" name="dni" value="<?php echo $dni_alumno;?>">
+              </form>
+       
+          </div>
+        <?php
+         }
+        ?>
       </div>
     </div>
   </div>  

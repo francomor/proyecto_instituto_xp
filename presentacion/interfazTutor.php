@@ -26,58 +26,30 @@
 
     <body class="hold-transition skin-red-light sidebar-mini">
         <div class="wrapper" style="height: auto;">
-            <header class="main-header">
-                <a href="#" class="logo">
-                    <span class="logo-mini">
-                        <img src="../recursos/imagenes/minilogo.jpeg">
-                    </span>
-                    <span class="logo-lg">
-                        <b>INS</b> Nuestra Señora</span>
-
-                </a>
-                <nav class="navbar navbar-static-top">
-
-                    <div class="navbar-custom-menu">
-                        <ul class="nav navbar-nav">
-
-                            <li class="dropdown user user-menu">
-                                <a href="login.php">
-                                    <i class="fa fa-arrow-circle-left"></i>
-                                </a>
-
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-            </header>
+            <nav class="navbar main-header" style="margin-bottom: 0; background-color: #dd4b39;">
+              <a class="navbar-brand logo" href="login.php">
+                <b>INS</b> Nuestra Señora
+              </a>
+            </nav>
 
             <div class="content-wrapper" style="margin-left: 0px;">
                 <div class="container">
                     <div class="panel panel-default" style="margin-top: 10px;">
                         <div class="panel-heading">
                             <h4>
-                                <i class='glyphicon glyphicon-search'></i> Visualizar inasistancias</h4>
+                                <i class='glyphicon glyphicon-search'></i> Visualizar inasistencias</h4>
                         </div>
                         <div class="panel-body">
 
                             <!-- formulario principal -->
                             <form class="form-horizontal" novalidate>
-
-                                <div class="box-header">
-                                    <h3 class="box-title">Ingrese DNI del alumno</h3>
-                                </div>
-
-                                <div class="form-group row">
-                                    <label for="dniTutor" class="col-md-1 control-label">DNI</label>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control input-sm" id="dniAlumno" name="dniAlumno" required>
-
-                                    </div>
-
-                                    <button type="button" class="btn btn-danger" id="botonBuscar">
+                                <h4>Ingrese DNI del alumno</h4>
+                                <div class="form-inline">
+                                    <label style="margin: 5px 3px" for="dniAlumno">DNI</label>
+                                    <input style="width: 200px; margin: 5px 3px" type="text" class="form-control" id="dniAlumno" name="dniAlumno" required>
+                                    <button style="margin: 5px 3px" class="btn btn-danger" id="botonBuscar">
                                         <span class="glyphicon glyphicon-search"></span> Buscar
                                     </button>
-
                                 </div>
                             </form>
                         </div>

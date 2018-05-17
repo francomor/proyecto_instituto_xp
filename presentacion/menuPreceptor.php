@@ -17,7 +17,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         </a>
         <ul class="treeview-menu">
           <li>
-            <a href="mostrarCursos.php">
+            <a href="#">
               <i class="glyphicon glyphicon-th-list"></i> 
               Mostrar Cursos
             </a>
@@ -41,13 +41,13 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         </a>
         <ul class="treeview-menu">
           <li>
-            <a href="mostrarAlumnos.php">
+            <a href="#">
               <i class="ion-person"></i>  
               Mostrar Alumnos
             </a>
           </li>
           <li>
-            <a href="altaAlumnos.php">
+            <a href="#">
               <i class="ion-person-add"></i> 
               Agregar Alumno
             </a>
@@ -58,7 +58,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
       <li class="treeview">
         <a href="#">
           <i class=" ion-pie-graph"></i>
-          <span>Asistencias</span>
+          <span>Inasistencias</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
@@ -67,7 +67,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         <li>
           <a href="registrarAsistencia.php">
             <i class=" glyphicon glyphicon-check"></i> 
-            Registrar Asistencias 
+            Registrar Inasistencias 
           </a>
         </li>
           <li>

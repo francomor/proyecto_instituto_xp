@@ -25,7 +25,7 @@ if (!empty($_POST)) {
 
             if ($cantidad == 0) {
                 ?>
-                <div class='alert alert-danger'>  <strong>Error!</strong> Datos incorrectos.</div>
+                <div class='alert alert-danger'> Datos incorrectos. Intente nuevamente</div>
                 <?php
             } else {
 
@@ -46,7 +46,7 @@ home <?php
             }
         } else {
             ?>
-            <div class='alert alert-danger'>  <strong>Error!</strong> Campos vacios.</div>
+            <div class='alert alert-danger'>  Complete campos vacios.</div>
             <?php
         }
     }

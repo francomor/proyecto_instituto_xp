@@ -28,6 +28,12 @@ class AlumnoxCurso {
         $result = $con->recuperarAsociativo("select * from AlumnoxCurso where alumno_dni= ".$dni);
         return $result;
     }
+
+        public function obtenerAlumnoxCursoAnio(){
+        $con = ConexionBD::getConexion();
+        $result = $con->recuperarAsociativo("select distinct anio from AlumnoxCurso order by anio desc");
+        return $result;
+    }
 }
 
 ?>

@@ -19,19 +19,19 @@
 
 <body class="hold-transition login-page" style="background-color: #ffffff;">
 
-  <div class="login-box">
+  <div class="login-box" style="text-align: center">
     <div class="login-logo">
       <span class="logo-mini">
         <img src="../recursos/imagenes/logo_index.jpeg"> </span>
     </div>
 
-    <div class="login-box-body" style="background-color: #F3EDED;">
-      <p class="login-box-msg">Bienvenido! Ingrese Id usuario y contraseña</p>
+    <div class="login-box-body" style="background-color: #F3EDED; margin-bottom: 20px">
+      <p class="login-box-msg">¡Bienvenido! Ingrese usuario y contraseña</p>
 
       <form name="login">
 
         <div class="form-group has-feedback">
-          <input type="text" class="form-control" id="username" name="username" placeholder="Id usuario">
+          <input type="text" class="form-control" id="username" name="username" placeholder="Usuario">
           <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
@@ -45,12 +45,9 @@
           </div>
         </div> -->
           <div class="col-xs-12">
-            <button type="button" id="enviar" class="btn btn-danger btn-primary btn-block btn-flat">Ingresar</button>
+            <button type="button" id="enviar" class="btn btn-primary btn-block btn-flat">Ingresar</button>
           </div>
-          <div class="col-xs-12" style="height:15px;"></div>
-          <div class="col-xs-12 text-center">
-            <button type="button" id="tutor" class="btn btn-light">Ingresar como tutor</button>
-          </div>
+
 
         </div>
 
@@ -59,38 +56,16 @@
     <div id="loginAjax">
     </div>
 
+    <a href="interfazTutor.php" id="tutor" >Visualizar como tutor</a>
+    
+
     <script src="../recursos/jquery-ajax.min.js">
       //script para traer la libreria de Jquery
     </script>
     <script src="recursos/bootstrap/js/bootstrap.min.js"></script>
     <script>
       $(document).ready(function () {
-        $('#enviar').click(function () {
-          var parametros = {
-            "username": $('#username').val(),
-            "password": $("#password").val()
-          };
-          $.ajax({
-            data: parametros,
-            type: "post",
-            url: "../logica/validarUsuario.php",
-            datatype: "html",
-
-            success: function (respuesta) {
-              if (respuesta == "home ") {
-                window.location.replace("../presentacion/home.php");
-              } else {
-                $('#loginAjax').html(respuesta);
-              }
-            }
-          });
-        });
-        $('#tutor').click(function () {
-          window.location.replace("../presentacion/interfazTutor.php");
-        });
-
-        $(document).keydown(function (e) {
-          if (e.keyCode == 13) {
+          $('#enviar').click(function () {
             var parametros = {
               "username": $('#username').val(),
               "password": $("#password").val()
@@ -109,8 +84,30 @@
                 }
               }
             });
-          }
-        });
+          });
+
+          $(document).keydown(function (e) {
+            if (e.keyCode == 13) {
+              var parametros = {
+                "username": $('#username').val(),
+                "password": $("#password").val()
+              };
+              $.ajax({
+                data: parametros,
+                type: "post",
+                url: "../logica/validarUsuario.php",
+                datatype: "html",
+
+                success: function (respuesta) {
+                  if (respuesta == "home ") {
+                    window.location.replace("../presentacion/home.php");
+                  } else {
+                    $('#loginAjax').html(respuesta);
+                  }
+                }
+              });
+            }
+          });
       });
     </script>
 
