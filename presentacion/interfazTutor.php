@@ -7,20 +7,19 @@
 ?>
     <!DOCTYPE html>
     <html>
-
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Sistema | Web</title>
+        <title>Instituto Nuestra Señora | Sistema de Inasistencias</title>
         <!-- Tell the browser to be responsive to screen width -->
         <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
         <!-- links -->
         <link rel="stylesheet" href="../recursos/bootstrap/css/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-        <link rel="stylesheet" href="../recursos/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
         <link rel="stylesheet" href="../recursos/dist/css/Style.min.css">
-        <link rel="stylesheet" href="../recursos/dist/css/skins/_all-skins.min.css">
+        <link rel="icon" type="image/png" sizes="192x192"  href="../recursos/favicon/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="../recursos/favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="../recursos/favicon/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../recursos/favicon/favicon-16x16.png">
 
     </head>
 
@@ -28,7 +27,7 @@
         <div class="wrapper" style="height: auto;">
             <nav class="navbar main-header" style="margin-bottom: 0; background-color: #dd4b39;">
               <a class="navbar-brand logo" href="login.php">
-                <b>INS</b> Nuestra Señora
+                <strong>INS</strong> Nuestra Señora
               </a>
             </nav>
 
@@ -78,7 +77,7 @@
 
         <footer class="main-footer" style=" margin-left: 0px;">
             <div class="pull-right hidden-xs">
-                <b>Sistema de Gestión</b>
+                <strong>Sistema de Gestión</strong>
             </div>
             <strong>INSTITUTO</strong> Nuestra Señora
         </footer>

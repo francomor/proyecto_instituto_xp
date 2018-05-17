@@ -8,7 +8,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sistema | Web</title>
+  <title>Instituto Nuestra Señora | Sistema de Inasistencias</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- links -->
@@ -18,7 +18,10 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
   <link rel="stylesheet" href="../recursos/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
   <link rel="stylesheet" href="../recursos/dist/css/Style.min.css">
   <link rel="stylesheet" href="../recursos/dist/css/skins/_all-skins.min.css">
-
+  <link rel="icon" type="image/png" sizes="192x192"  href="../recursos/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../recursos/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../recursos/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../recursos/favicon/favicon-16x16.png">
 </head>
 
 <body class="hold-transition skin-red-light sidebar-mini" >
@@ -26,8 +29,8 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 
   <header class="main-header">
     <a href="home.php" class="logo">
-      <span class="logo-mini"> <img src="../recursos/imagenes/minilogo.jpeg"></span>
-      <span class="logo-lg"><b>INS</b> Nuestra Señora</span>
+      <span class="logo-mini"> <img src="../recursos/imagenes/minilogo.jpeg" alt="Logo Instituto"></span>
+      <span class="logo-lg"><strong>INS</strong> Nuestra Señora</span>
          
     </a>
     <nav class="navbar navbar-static-top">

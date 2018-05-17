@@ -4,16 +4,16 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Sistema | Web</title>
+  <title>Instituto Nuestra Señora | Sistema de Inasistencias</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- links -->
   <link rel="stylesheet" href="../recursos/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-  <link rel="stylesheet" href="../recursos/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
   <link rel="stylesheet" href="../recursos/dist/css/Style.min.css">
-  <link rel="stylesheet" href="../recursos/dist/css/skins/_all-skins.min.css">
+  <link rel="icon" type="image/png" sizes="192x192"  href="../recursos/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../recursos/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="../recursos/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../recursos/favicon/favicon-16x16.png">
 
 </head>
 
@@ -22,7 +22,7 @@
   <div class="login-box" style="text-align: center">
     <div class="login-logo">
       <span class="logo-mini">
-        <img src="../recursos/imagenes/logo_index.jpeg"> </span>
+        <img src="../recursos/imagenes/logo_index.jpg" alt="Logo del Instituto"> </span>
     </div>
 
     <div class="login-box-body" style="background-color: #F3EDED; margin-bottom: 20px">
@@ -62,7 +62,6 @@
     <script src="../recursos/jquery-ajax.min.js">
       //script para traer la libreria de Jquery
     </script>
-    <script src="recursos/bootstrap/js/bootstrap.min.js"></script>
     <script>
       $(document).ready(function () {
           $('#enviar').click(function () {

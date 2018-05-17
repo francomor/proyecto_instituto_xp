@@ -6,7 +6,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
   
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>Sistema de Gestión</b>  
+      <strong>Sistema de Gestión</strong>  
     </div>
     <strong>INSTITUTO</strong>  Nuestra Señora
   </footer>
