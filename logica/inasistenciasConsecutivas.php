@@ -5,92 +5,107 @@
     require_once "../recursos/phpmailer/src/PHPMailer.php";
     require_once "../recursos/phpmailer/src/SMTP.php";
     require_once "../recursos/phpmailer/src/Exception.php";
-
+    require_once "../logica/DiasHabiles.php";
+    /**
+ * Este archivo registra inasistencias consecutivas, y manda mail a los tutores
+ * @author Dechecchi Nicolás, Martin Rodrigo
+ * @version 1.0
+ */
+    /**
+ * Se completó la idea en otra iteración.
+ * @author Dechecchi Nicolás, Silvera Nicolás
+ * @version 1.1
+ */
     $a = new Asistencia();
     $alumno = new Alumno();
     $tutor = new Tutor();
+    $dhabiles=new DiasHabiles();
     $fecha = $_GET['fecha'];
+    $fechaActual = date("Y")."-".date("m")."-".date("d"); // obtenermos la fecha de hoy y le damos formato de bdd
     $curso = $_GET['curso'];
-    $dia = date('D', strtotime($fecha));
-    switch ($dia) {
-        case 'Mon':
-            $ant = 3;
-            $aAnt = 4;
-            break;
-        case 'Tue':
-            $ant = 1;
-            $aAnt = 4;
-            break;
-        default:
-            $ant = 1;
-            $aAnt = 2;
-            break;
-    }
-    $par1 = "-".$ant." day";
-    $par2 = "-".$aAnt." day";
-    $nuevafecha = strtotime($par1, strtotime($fecha));
-    $nuevafecha = date('Y-m-j', $nuevafecha);
-    $diaA = date('D', strtotime($nuevafecha));
-    $nuevafecha2 = strtotime($par2, strtotime($fecha));
-    $nuevafecha2 = date('Y-m-j', $nuevafecha2);
-    $diaAA = date('D', strtotime($nuevafecha2));
-    $res = $a->inasistenciasConsecutivas($nuevafecha2, $nuevafecha, $fecha,$curso);
-    foreach ($res as $row) {    
-        $a = $alumno->obtenerAlumno($row['alumnoxcurso_alumno_dni']);
-        $dniTutor = $a[0]['tutor_dni'];
-        $t = $tutor->obtenerTutor($dniTutor);
-        $email = $t[0]['email'];
-        //mensaje
-        $msn = "Sr/a " . $t[0]['nombre'] . ", se le informa que el/la alumno/a ". $a[0]['nombre'] . " " . $a[0]['apellido'] ." registra 3 faltas consecutivas";
-        
-        //Titulo
-        $titulo = "Notificacion";
-        
-        //Enviamos el mensaje al tutor 
-        $mail = new \PHPMailer\PHPMailer\PHPMailer();
-        $mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ));
-        //Luego tenemos que iniciar la validación por SMTP:
-        $mail->isSMTP();
+    $dias=$dhabiles->recuperarDias();
+    $cantidadDias=count($dias);
 
-        $mail->SMTPAuth = true;
-        $mail->SMTPSecure ="ssl";
+    if($cantidadDias>2){
+        $res = $a->inasistenciasConsecutivas($dias[0]['fecha'], $dias[1]['fecha'], $dias[2]['fecha'],$curso);   //No es recursiva, llama a un metodo de Alumno.
+        foreach ($res as $row) {    
+            $a = $alumno->obtenerAlumno($row['alumnoxcurso_alumno_dni']);
+            $dniTutor = $a[0]['tutor_dni'];
+            $t = $tutor->obtenerTutor($dniTutor);
 
-        //Aquí pondremos el SMTP a utilizar. Por ej. mail.midominio.com
-        $mail->Host = "smtp.gmail.com";
+           if($t[0]['fechaMail']!=null){
+                 $inicio = strtotime($t[0]['fechaMail']);
+                 $fin = strtotime($fechaActual);
+                 $dif = $fin - $inicio;
+                 $diasFalt = (( ( $dif / 60 ) / 60 ) / 24);
+                 $interval=ceil($diasFalt);
 
-        //Email de la cuenta de correo.
-        $mail->Username = "ins.nuestrasenora755@gmail.com"; 
+                } else{
+                $interval=4;        //trampita, si es null, quiere decir que nunca hubo mail enviado, entonces puede entrar al proximo if.
+                  }
 
-        //Contraseña de la cuenta de correo
-        $mail->Password = "INSins2018"; 
+            if($interval>3){
+                $emailTutor = $t[0]['email'];
+                
+                //mensaje
+                $msn = "Sr/a " . $t[0]['nombre'] . ", se le informa que el/la alumno/a ". $a[0]['nombre'] . " " . $a[0]['apellido'] ." registra 3 faltas consecutivas";
+                
+                //Titulo
+                $titulo = "Notificacion";
+                
+                //Enviamos el mensaje al tutor 
+                $mail = new \PHPMailer\PHPMailer\PHPMailer();
+                $mail->SMTPOptions = array( 'ssl' => array( 'verify_peer' => false, 'verify_peer_name' => false, 'allow_self_signed' => true ));
+                //Luego tenemos que iniciar la validación por SMTP:
+                $mail->isSMTP();
 
-        // Puerto de conexión al servidor de envio.
-        $mail->Port = 465;
+                $mail->SMTPAuth = true;
+                $mail->SMTPSecure ="ssl";
 
-        // Desde donde enviamos (Para mostrar).
-        $mail->From = "ins.nuestrasenora755@gmail.com"; 
+                //Aquí pondremos el SMTP a utilizar. Por ej. mail.midominio.com
+                $mail->Host = "smtp.gmail.com";
 
-        //Nombre a mostrar del remitente. 
-        $mail->FromName = "Administrador";
+                //Email de la cuenta de correo.
+                $mail->Username = "ins.nuestrasenora755@gmail.com"; 
 
-        // Esta es la dirección a donde enviamos 
-        $mail->addAddress($email);
+                //Contraseña de la cuenta de correo
+                $mail->Password = "INSins2018"; 
 
-        // El correo se envía como HTML 
-        $mail->isHTML(true); 
+                // Puerto de conexión al servidor de envio.
+                $mail->Port = 465;
 
-        // Este es el titulo del email. 
-        $mail->Subject = $titulo;
+                // Desde donde enviamos (Para mostrar).
+                $mail->From = "ins.nuestrasenora755@gmail.com"; 
 
-        // Mensaje a enviar.
-        $mail->Body = $msn; 
+                //Nombre a mostrar del remitente. 
+                $mail->FromName = "Instituto Nuestra Sra";
 
-        // Envía el correo.
-        $exito = $mail->send();
-    }
-    
-    //eliminar cuando ande bien
-    //echo ("<script> alert ('verificado correctamente') </script>");
+                // Esta es la dirección a donde enviamos 
+                $mail->addAddress($emailTutor);
+
+                // El correo se envía como HTML 
+                $mail->isHTML(true); 
+
+                // Este es el titulo del email. 
+                $mail->Subject = $titulo;
+
+                // Mensaje a enviar.
+                $mail->Body = $msn; 
+
+                // Envía el correo.
+                $exito = $mail->send();
+
+                if ($exito){
+                    $exito2 = $tutor->cambiarFechaMail($fechaActual,$dniTutor);
+                    echo "<script>alert('El mensaje se ha enviado exitosamente a " .$emailTutor. "')</script>";
+                } else{
+                    echo "<script>alert('Falló el envio')</script>";
+                }
+
+                
+                }
+              }
+         }
     
     //una vez verificadas las inasistencias consecutivas, redireccionar a la pagina de seleccion de cursos
     print("<script>window.location='../presentacion/registrarAsistencia.php';</script>"); 

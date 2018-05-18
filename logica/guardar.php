@@ -1,5 +1,6 @@
 <?php
 require_once "../logica/Asistencia.php";
+require_once "../logica/DiasHabiles.php";
 /**
  * En este archivo, se guardan las inasistencias de todos los alumnos que se
  * envien por el formulario tabla.php
@@ -19,8 +20,19 @@ require_once "../logica/Asistencia.php";
  * @author Martinez Natali y Herrero Francisco
  * @version 1.0
  */
+/**
+ * En este archivo, Además se guardan los dias habiles.
+ * @author Dechecchi Nicolás, Silvera Nicolas.
+ * @version 1.1
+ */
 
-$fecha = $_POST['fecha']; //se recupera la fecha
+$fecha = $_POST['fecha']; //se recupera la fecha del formulario
+$diaHabil=new DiasHabiles();            //se guarda la fecha como dia habil
+ 
+if(!$diaHabil->existeDia($fecha)) {       //compruaba que no se haya cargado previamente.
+    $diaHabil->guardarFecha($fecha);
+}
+
 $curso = (int) $_POST["cursoActual"]; //se recupera el id del curso.
 Asistencia::borrarInasistenciaxCurso($curso, $fecha); //antes de guardar se borra todas las asistencias de ese curso en la fecha dada.
 $cantAlumnos = (int) $_POST["cantAlumnos"]; // se recupera la cantidad de alumnos de ese curso.
@@ -76,10 +88,8 @@ for ($i = 0; $i < $cantAlumnos; $i++) {
     echo ("<script>");
     echo ("alert ('guardado correctamente')");
     echo ("</script>");
-    print("<script>window.location='../presentacion/registrarAsistencia.php';</script>"); //una vez guardado, redireccionar a la pagina de seleccion de cursos.
-
     //una vez guardado, habria que verificar inasistencias consecutivas
-    //print("<script>window.location='../logica/inasistenciasConsecutivas.php?fecha=".$fecha."&curso=".$curso."';</script>");
+    print("<script>window.location='../logica/inasistenciasConsecutivas.php?fecha=".$fecha."&curso=".$curso."';</script>");
      }
      
 

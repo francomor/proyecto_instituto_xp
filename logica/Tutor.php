@@ -81,5 +81,21 @@ class Tutor {
       $result = $con->delete("DELETE FROM `tutor` WHERE dni=".$dni);
       return $result;  
     }
+
+     /**
+ * La siguiente funcion recibe un tutor, lo crea y lo asocia a un alumno. Además, si el tutor anteriormente asignado al alumno,
+ * no esta relacionado a ningun otro, se elimina.
+ * @author Nicolas Silvera, Nicolas Dechecchi. 
+ * @version 1.1
+ */
+
+    public function cambiarFechaMail($fechaMail,$dni){
+      $con = ConexionBD::getConexion();
+      $result = $con->update("update tutor SET `fechaMail`='".$fechaMail."' WHERE dni=".$dni);
+      return $result;  
+    }
+
+
+
 }
 
