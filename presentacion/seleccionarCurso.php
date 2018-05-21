@@ -20,9 +20,8 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
               <small> </small>
             </h1> 
              <ol class="breadcrumb">
-              <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
-              <li><a href="registrarAsistencia.php">Asistencias</a></li>
-              <li class="active">Seleccionar Curso</li>
+              <li><a href="home.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
+              <li class="active">Seleccionar curso</li>
             </ol>
           </section>
           

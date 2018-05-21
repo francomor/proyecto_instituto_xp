@@ -16,9 +16,8 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
             <section class="content-header">
               <h1>REGISTRAR ASISTENCIA</h1> 
                <ol class="breadcrumb">
-                <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
-                <li><a href="registrarAsistencia.php">Asistencias</a></li>
-                <li class="active">Registrar asistencias</li>
+                <li><a href="home.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
+                <li class="active">Seleccionar curso</li>
               </ol>
             </section>
             

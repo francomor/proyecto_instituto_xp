@@ -73,7 +73,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
           <li>
             <a href="formularioListarInasistencias.php">
               <i class=" glyphicon glyphicon-search"></i> 
-              Buscar Alumno
+              Buscar por DNI
             </a>
           </li>
           <li>

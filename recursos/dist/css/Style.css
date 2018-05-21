@@ -1,6 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
  
-html,
 body {
   height: 100%;
 }
@@ -62,6 +61,7 @@ body {
   .main-footer {
     margin-left: 0;
   }
+
 }
 @media (min-width: 768px) {
   .sidebar-collapse .content-wrapper,
@@ -187,7 +187,6 @@ a:focus {
   -o-transition: margin-left 0.3s ease-in-out;
   transition: margin-left 0.3s ease-in-out;
   margin-bottom: 0;
-  margin-left: 230px;
   border: none;
   min-height: 50px;
   border-radius: 0;
@@ -281,7 +280,6 @@ a:focus {
   font-size: 20px;
   line-height: 50px;
   text-align: center;
-  width: 230px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 0 15px;
   font-weight: 300;
@@ -373,10 +371,7 @@ a:focus {
   .main-header {
     position: relative;
   }
-  .main-header .logo,
-  .main-header .navbar {
-    width: 100%;
-    float: none;
+  .main-header .logo {
   }
   .main-header .navbar {
     margin: 0;
@@ -405,7 +400,7 @@ a:focus {
   position: absolute;
   top: 0;
   left: 0;
-  padding-top: 50px;
+  padding-top: 20px;
   min-height: 100%;
   width: 230px;
   z-index: 810;
@@ -417,9 +412,11 @@ a:focus {
 @media (max-width: 767px) {
   .main-sidebar,
   .left-side {
-    padding-top: 100px;
+    padding-top: 20px;
   }
 }
+
+
 @media (max-width: 767px) {
   .main-sidebar,
   .left-side {
@@ -586,6 +583,7 @@ a:focus {
     z-index: 840;
   }
   .sidebar-mini.sidebar-collapse .main-sidebar {
+  	padding-top: 55px;
     -webkit-transform: translate(0, 0);
     -ms-transform: translate(0, 0);
     -o-transform: translate(0, 0);
@@ -648,7 +646,7 @@ a:focus {
     -webkit-transform: translateZ(0);
   }
   .sidebar-mini.sidebar-collapse .main-header .logo {
-    width: 50px;
+    
   }
   .sidebar-mini.sidebar-collapse .main-header .logo > .logo-mini {
     display: block;
@@ -660,7 +658,7 @@ a:focus {
     display: none;
   }
   .sidebar-mini.sidebar-collapse .main-header .navbar {
-    margin-left: 50px;
+    
   }
 }
 .sidebar-menu,

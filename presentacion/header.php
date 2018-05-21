@@ -16,7 +16,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
   <link rel="stylesheet" href="../recursos/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
-  <link rel="stylesheet" href="../recursos/dist/css/Style.min.css">
+  <link rel="stylesheet" href="../recursos/dist/css/Style.css">
   <link rel="stylesheet" href="../recursos/dist/css/skins/_all-skins.min.css">
   <link rel="icon" type="image/png" sizes="192x192"  href="../recursos/favicon/android-icon-192x192.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../recursos/favicon/favicon-32x32.png">
@@ -28,15 +28,18 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 <div class="wrapper">
 
   <header class="main-header">
-    <a href="home.php" class="logo">
-      <span class="logo-mini"> <img src="../recursos/imagenes/minilogo.jpeg" alt="Logo Instituto"></span>
-      <span class="logo-lg"><strong>INS</strong> Nuestra Señora</span>
-         
-    </a>
+    
     <nav class="navbar navbar-static-top">
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
 
+      </a>
+      <a href="home.php" class="logo">
+        <span class="logo-mini" style="margin-left: 0px; margin-right: 0px; font-size: 20px; "> 
+          <strong>INS</strong> Nuestra Señora
+        </span>
+        <span class="logo-lg"><strong>INS</strong> Nuestra Señora</span>
+           
       </a>
 
        <div class="navbar-custom-menu">
@@ -53,7 +56,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
               <li class="user-header">
                 <img src="../recursos/imagenes/logo_user.png" class="img-circle" alt="User Image">
 
-                <p>
+                <p style="text-transform: capitalize;">
                   <?php
                   /**
                    * Se consultan los datos de los usuarios para que aparezcan en dropdown, al cerrar sesión.

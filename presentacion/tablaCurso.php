@@ -21,8 +21,8 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         <small> </small>
       </h1>
         <ol class="breadcrumb">
-        <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="registrarAsistencia.php">Asistencias</a></li>
+        <li><a href="home.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
+        <li><a href="seleccionarCurso.php">Seleccionar curso</a></li>
         <li class="active">Impresion de boletines</li>
       </ol> 
     </section>
@@ -54,16 +54,16 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         ?>
         <form action="../logica/generarPdfBoletin.php" method="POST"  target="_blank">
         <div class="panel-heading row">
-        	Fecha desde:
+        	<label for="fechadesde" style="font-weight: 500;">Fecha desde:</label>
             <input name="fechadesde" id="fechadesde" type="date" value="<?php echo date('Y-m-d', strtotime($fecha)) ?>" required onchange="cargarfecha()">
-            Fecha hasta:
+            <label for="fechahasta" style="font-weight: 500;">Fecha hasta:</label>
             <input name="fechahasta" id="fechahasta" type="date" value="<?php echo date('Y-m-d', strtotime($fecha)) ?>" required onchange="cargarfecha()">
             <input type="hidden" name="idCurso" value="<?php echo $curso;?>">
             <input type="submit" style="float: right;" class="btn btn-danger " value="Imprimir curso completo" id="guardar" name="generarPdfPorCurso">
         </div>
         </form>
         
-        <form action="listarInasistencias.php" method="POST" target="_blank">
+        <form action="listarInasistencias.php" method="POST">
             <!-- tabla donde estan contenidos todos los alumnos del curso seleccionado !-->
             <table class="table table-bordered table-hover" border="1" width="100%">
 
@@ -107,7 +107,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
                         <!-- se muestra el nombre y apellido del alumno en la tabla --> 
                         <td>
                             <!--checkbox para computar la asistencia a ed fisica -->
-                            <input  class="btn btn-danger" value="Ver Boletin" type="submit" onclick="cargarDni(<?php echo $alumnos[$i]['dni'];?>)">
+                            <input  class="btn btn-danger" value="Ver Boletin" type="submit" name="imprimirBoletin" onclick="cargarDni(<?php echo $alumnos[$i]['dni'];?>)">
                             <!--formaction="listarInasistencias.php?dni=<?php// echo $alumnos[$i]['dni'];?>">-->
                         </td>
                     </tr>

@@ -68,7 +68,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         </div>
         </form> -->
         
-        <form action="listarInasistencias.php" method="POST" target="_blank">
+        <form action="listarInasistencias.php" method="POST">
             <!-- tabla donde estan contenidos todos los alumnos del curso seleccionado !-->
             <table class="table table-bordered table-hover" border="1" width="100%">
 

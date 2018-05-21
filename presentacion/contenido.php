@@ -22,7 +22,6 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
     <section class="content-header">
       <h1>
         PANEL PRINCIPAL
-        <small>vista principal</small>
       </h1> 
     </section>
     

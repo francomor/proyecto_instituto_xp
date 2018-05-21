@@ -27,7 +27,7 @@ $gui_preceptor = new GUIPreceptor();
       <small> </small>
     </h1>
     <ol class="breadcrumb">
-      <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
+      <li><a href="home.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
       <li><a href="registrarAsistencia.php">Asistencias</a></li>
       <li class="active">Registrar asistencias</li>
     </ol> 

@@ -64,7 +64,7 @@ $gui_preceptor = new GUIPreceptor();
       <small></small>
     </h1>
       <ol class="breadcrumb">
-          <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
+          <li><a href="home.php"><i class="fa fa-dashboard"></i> Inicio</a></li>
           <?php 
           if ($_REQUEST['verInasistencias']!=null) {
           ?>
@@ -72,7 +72,14 @@ $gui_preceptor = new GUIPreceptor();
             <li class="active">Ver Asistencia</li>
           <?php
 
-          } else {
+          }
+          elseif ($_REQUEST['imprimirBoletin']!=null) {
+          ?>
+            <li><a href="seleccionarCurso.php">Seleccionar curso</a></li>
+            <li class="active">Imprimir Asistencia</li>
+          <?php  
+          }
+           else {
 
           ?>
             <li><a href="formularioListarInasistencias.php">Asistencias</a></li>
@@ -87,9 +94,10 @@ $gui_preceptor = new GUIPreceptor();
   <!-- <title>Armar Boletín</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   -->
+  <section class="content">
   <div class="box">
     <div class="box-body">
-      <div class="container">
+      <div class="container" style="width: auto;">
         <table class="table table-bordered">
           <thead>
             <tr>
@@ -102,10 +110,7 @@ $gui_preceptor = new GUIPreceptor();
               <th>Fecha</th>
               <th>Falto a</th>
               <th>Falta</th>
-              <th style='width: 30%;text-align: center;'>Causas de inasistencia</th>
-              <th>Firma</th>
               <th>Total</th>
-              <th>V°B°</th>
             </tr>
           </thead>
           <tbody>
@@ -128,9 +133,7 @@ $gui_preceptor = new GUIPreceptor();
               echo "<tr><td>" . $fecha . "</td>";
               echo "<td>" . $faltoA . "</td>";
               echo "<td>" . $row["valor"] . "</td>";
-              echo "<td id='justificar' ></td> <td id='firma'></td>";
               echo "<td>" . $acumulado . "</td>";
-              echo "<td> </td>";
               echo "</tr>";
           }
 
@@ -141,7 +144,7 @@ $gui_preceptor = new GUIPreceptor();
         if($_REQUEST['verInasistencias']==null){
           ?>
             <div class="col align-self-end">
-              <form class="form-horizontal" method="POST" action="../logica/generarPdfBoletin.php">
+              <form class="form-horizontal" method="POST" action="../logica/generarPdfBoletin.php" target="_blank">
                 <button class="btn btn-danger col-md-2" type="submit" name="generarPDF">Imprimir</button>
                 <input type="hidden" name="fechadesde" id="fechadesdehiden"value="<?php echo $fecha1; ?>">
                 <input type="hidden" name="fechahasta" id="fechahastahiden"value="<?php echo $fecha2; ?>">
@@ -155,6 +158,7 @@ $gui_preceptor = new GUIPreceptor();
       </div>
     </div>
   </div>  
+</section>
 </div>
 </body>
 </html>
