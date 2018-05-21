@@ -95,9 +95,9 @@ $gui_preceptor = new GUIPreceptor();
           <tr>
             <td width="2%">#</td>
             <td width="40%">Apellido y nombre</td>
-            <td width="7%">Clase</td>
-            <td width="7%"> Llegada tarde </td>
-            <td width="7%">Ed-Fisica</td>
+            <td width="7%" style="text-align: center;">Clase</td>
+            <td width="7%" style="text-align: center;"> Llegada tarde </td>
+            <td width="7%" style="text-align: center;">Ed-Fisica</td>
           </tr>       
 
           <?php
@@ -114,15 +114,15 @@ $gui_preceptor = new GUIPreceptor();
                         } 
                         echo $nombreAlumno ?> </td> 
               <!-- se muestra el nombre y apellido del alumno en la tabla --> 
-              <td>
+              <td style="text-align: center;">
                 <!--checkbox para computar la asistencia a clase-->
                 <input value="clase"  type="checkbox" name="<?php echo ($i + 1) . "claseAusente" ?>" id="<?php echo ($i + 1) . "claseAusente" ?>" onClick="controlarCB('<?php echo ($i + 1) ?>',1)"> 
               </td>
-              <td>
+              <td style="text-align: center;">
                 <!--checkbox para computar la llegada tarde a clase-->
                 <input value="tarde"  type="checkbox" name="<?php echo ($i + 1) . "claseTarde" ?>" id="<?php echo ($i + 1) . "claseTarde" ?>" onClick="controlarCB('<?php echo ($i + 1) ?>',2)"> 
               </td>
-              <td>
+              <td style="text-align: center;">
                <!--input hidden para obtener el tipo de falta que tienen los alumnos que queremos modificar -->
                <input hidden value="<?php echo $inasistencia[$i]["tipo"] ?>" id="<?php echo ($i + 1) . "tipoFalta" ?>">
                <!--input hidden para obtener el valor de falta que tienen los alumnos que queremos modificar -->

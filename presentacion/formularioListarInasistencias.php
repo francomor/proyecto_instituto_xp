@@ -29,7 +29,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
                   <div class="box-header">
                     <h3 class="box-title">Ingrese DNI del alumno</h3>
                   </div>
-                  <div class="form-inline" style="padding: 15px;">
+                  <div class="form-inline" style="padding: 0 15px 15px;">
                     <label style="margin: 5px 10px" for="dni">DNI</label>
                     <input type="text" style="width: 200px; margin: 5px 3pxx" class="form-control" id="dni" name="dni" size="30" pattern="[0-9]{8}" required>
                     <button class="btn btn-danger" style="margin: 5px 3px" type="submit">Buscar</button>

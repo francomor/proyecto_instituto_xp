@@ -55,9 +55,9 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         <tr>
             <td width="2%">#</td>
             <td width="40%">Apellido y nombre</td>
-            <td width="7%">Clase</td>
-            <td width="7%"> Llegada tarde </td>
-            <td width="7%">Ed-Fisica</td>
+            <td width="7%" style="text-align: center;">Clase</td>
+            <td width="7%" style="text-align: center;"> Llegada tarde </td>
+            <td width="7%" style="text-align: center;">Ed-Fisica</td>
           </tr>        
 
         <?php
@@ -90,15 +90,15 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
                         echo $nombreAlumno ?>  </td> 
 
 
-                <td>
+                <td style="text-align: center;">
                     <!--checkbox para computar la asistencia a clase-->
                     <input disabled class="hab_deshab_clase" value="clase"  type="checkbox" name="<?php echo ($i + 1) . "claseAusente" ?>" id="<?php echo ($i + 1) . "claseAusente" ?>" title="Para habilitar presione modificar" onClick="controlarCB('<?php echo ($i + 1) ?>',1)"> 
                 </td>
-                <td>
+                <td style="text-align: center;">
                 <!--checkbox para computar la llegada tarde a clase-->
                 <input disabled class="hab_deshab_tarde" value="tarde"  type="checkbox" name="<?php echo ($i + 1) . "claseTarde" ?>" id="<?php echo ($i + 1) . "claseTarde" ?>" onClick="controlarCB('<?php echo ($i + 1) ?>',2)">
               </td>
-                <td>
+                <td style="text-align: center;">
                     <!--checkbox para computar la asistencia a ed fisica -->
                     <input disabled class="hab_deshab" value="edfisica" type="checkbox" name="<?php echo ($i + 1) . "edFAusente" ?>" id="<?php echo ($i + 1) . "edFAusente" ?>" title="Para habilitar presione modificar"> 
 
