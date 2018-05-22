@@ -112,7 +112,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 
         </table>
 
-        <div class="float-right">
+        <div class="float-left">
             <input type="submit" class="btn btn-danger" value="GUARDAR" id="guardar">
         </div>
     </form>

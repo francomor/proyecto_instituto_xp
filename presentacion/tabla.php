@@ -146,7 +146,7 @@ $gui_preceptor = new GUIPreceptor();
 
               </table>
 
-              <div class="float-right">
+              <div class="float-left">
                 <input type="submit" class="btn btn-danger" value="GUARDAR" id="guardar"> <!-- Envio de formulario !-->
               </div>
             </form>
