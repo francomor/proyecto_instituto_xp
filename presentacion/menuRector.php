@@ -79,6 +79,30 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 
       <li class="treeview">
         <a href="#">
+          <i class="ion-person-stalker"></i>
+          <span>Preceptores</span>
+          <span class="pull-right-container">
+            <i class="fa fa-angle-left pull-right"></i>
+          </span>
+        </a>
+        <ul class="treeview-menu">
+          <li>
+            <a href="mostrarPreceptores.php">
+              <i class="ion-person"></i>  
+              Modificar Contraseña
+            </a>
+          </li>
+          <li>
+            <a href="mostrarHistorialInasistencias.php">
+              <i class="glyphicon glyphicon-th-list"></i> 
+              Ver Historial
+            </a>
+          </li>
+        </ul>
+      </li>
+
+      <li class="treeview">
+        <a href="#">
           <i class=" ion-pie-graph"></i>
           <span>Inasistencias</span>
           <span class="pull-right-container">

@@ -109,6 +109,14 @@ class Asistencia {
         $result = $con->recuperarAsociativo("select * from asistencia where alumnoxcurso_alumno_dni= ".$dni);
         return $result;
     }
+
+    public function obtenerHistorialDeInasistencias() {
+        $con = ConexionBD::getConexion();
+        $result = $con->recuperarAsociativo("select fecha,preceptor_id, anio, nombre  from asistencia INNER JOIN curso ON asistencia.alumnoxcurso_curso_idcurso=curso.idcurso GROUP BY anio,nombre ORDER BY fecha DESC");
+        return $result;
+    }
 }
 
 ?>
+
+
