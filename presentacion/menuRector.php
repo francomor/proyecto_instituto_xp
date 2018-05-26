@@ -39,15 +39,15 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         </a>
         <ul class="treeview-menu">
           <li>
-            <a href="#">
+            <a href="mostrarCursos.php">
               <i class="glyphicon glyphicon-th-list"></i> 
               Mostrar Cursos
             </a>
           </li>
           <li class="active">
-            <a href="#">
+            <a href="asignarAlumnos.php">
               <i class="glyphicon glyphicon-indent-left"></i> 
-              Agregar Curso 
+              Asignar alumnos al Curso 
             </a>
           </li>
         </ul>
@@ -63,39 +63,15 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         </a>
         <ul class="treeview-menu">
           <li>
-            <a href="#">
+            <a href="mostrarAlumnos.php">
               <i class="ion-person"></i>  
               Mostrar Alumnos
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="altaAlumnos.php">
               <i class="ion-person-add"></i> 
               Agregar Alumno
-            </a>
-          </li>
-        </ul>
-      </li>
-
-      <li class="treeview">
-        <a href="#">
-          <i class="ion-person-stalker"></i>
-          <span>Preceptores</span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li>
-            <a href="mostrarPreceptores.php">
-              <i class="ion-person"></i>  
-              Modificar Contraseña
-            </a>
-          </li>
-          <li>
-            <a href="mostrarHistorialInasistencias.php">
-              <i class="glyphicon glyphicon-th-list"></i> 
-              Ver Historial
             </a>
           </li>
         </ul>

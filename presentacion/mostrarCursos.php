@@ -1,102 +1,218 @@
-<?php
-require_once "GUIPreceptor.class.php";
+ <?php
 
 /**
- * Mostrar cursos
- * @author 
+ *  En este archivo se selecciona un curso al que se le quiere asignar alumnos.
+ * @author Piñero Luciana  
  * @version 1.0
  */
 
+
+
+require_once "GUIPreceptor.class.php";
+require_once "../logica/Curso.php";
+require_once "../logica/Alumno.php";
+require_once "../logica/Tutor.php";
+require_once "../logica/Preceptor.php";
+ 
+
+
+
+//Agrega la interfaz del preceptor comun a todas las secciones
+include_once "GUIPreceptor.class.php";
+
 if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 
-  $gui_preceptor = new GUIPreceptor();
+    $gui_preceptor = new GUIPreceptor();
 ?>
-  
-	<div class="content-wrapper">
+
+
+   <div class="content-wrapper">
  
     <section class="content-header">
       <h1>
-      	  CURSOS
-        <small> </small>
+        CURSOS -  AÑO     <?php date_default_timezone_set('America/Argentina/Buenos_Aires');  echo date('Y')?>
       </h1> 
-       <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Cursos</a></li>
-        <li class="active">Lista</li>
-      </ol>
     </section>
     
-   
-   <section class="content">
+    <section class="content">
+
       <div class="row">
-        <div class="col-xs-12">
-          <div class="box">
-              <div class="box-header">
-                <div class="container">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua">1° I</span>
 
-
-
-
-       <div class="panel-heading ">
-       
-       <!-- Button trigger modal -->
-        <button type="button " class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-          Agregar curso
-        </button>
- 
-     </div>
-      
-
-      
-      <div class="panel-body">
-        <form class="form-horizontal" role="form" id="datos_pedido">
-        
-          <div class="form-group row">
-           
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-          </div>  
-
-          <div>
-            <h4><i class='glyphicon glyphicon-list'></i> Lista  </h4> 
-          </div>
-          </form>  
-      </div>
-    </div>  
-
-
-                </div>
-              </div>
+            <div class="info-box-content">
+              <span class="info-box-text">ALUMNOS</span>
+              <span class="info-box-number">#</span>
+            <a href="#" class="card-link"> VER </a>
             </div>
-            <!-- /.box-body -->
+            <!-- /.info-box-content -->
           </div>
+          <!-- /.info-box -->
         </div>
-  </section>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-aqua">1° II </span>
 
- 
-</div>
-   
+            <div class="info-box-content">
+              <span class="info-box-text">ALUMNOS</span>
+              <span class="info-box-number">#</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+             <span class="info-box-icon bg-yellow">4° E</i></span>
+            <div class="info-box-content">
+              <span class="info-box-number">ECONOMICO</span>
+              <span class="info-box-text">ALUMNOS</span>
+              <span class="info-box-number"> #</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-yellow">4° B</i></span>
+            <div class="info-box-content">
+              <span class="info-box-number">BIOLOGICO</span>
+              <span class="info-box-text">ALUMNOS</span>
+              <span class="info-box-number"> #</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- =========================================================== -->
+
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-light-blue">2° I</span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">ALUMNOS</span>
+              <span class="info-box-number">#</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-light-blue">2° II</span>
+
+            <div class="info-box-content">
+              <span class="info-box-text">ALUMNOS</span>
+              <span class="info-box-number">#</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-orange">5° E</i></span>
+            <div class="info-box-content">
+              <span class="info-box-number">ECONOMICO</span>
+              <span class="info-box-text">ALUMNOS</span>
+              <span class="info-box-number"> #</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+             <span class="info-box-icon bg-orange">5° B</i></span>
+            <div class="info-box-content">
+              <span class="info-box-number">BIOLOGICO</span>
+              <span class="info-box-text">ALUMNOS</span>
+              <span class="info-box-number"> #</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+
+      <!-- =========================================================== -->
+
+      <div class="row">
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-blue">3° I </i></span>
+            <div class="info-box-content"> 
+              <span class="info-box-text">ALUMNOS</span>
+              <span class="info-box-number"># </span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-blue">3° II </i></span>
+            <div class="info-box-content"> 
+              <span class="info-box-text">ALUMNOS</span>
+              <span class="info-box-number">#</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+            <span class="info-box-icon bg-red">6° E</i></span>
+            <div class="info-box-content">
+              <span class="info-box-number">ECONOMICO</span>
+              <span class="info-box-text">ALUMNOS</span>
+              <span class="info-box-number"> #</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box">
+             <span class="info-box-icon bg-red">6° B</i></span>
+            <div class="info-box-content">
+              <span class="info-box-number">BIOLOGICO</span>
+              <span class="info-box-text">ALUMNOS</span>
+              <span class="info-box-number"> #</span>
+            </div>
+            <!-- /.info-box-content -->
+          </div>
+          <!-- /.info-box -->
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </section>
 
 
-<?php
+  </div>
+ <?php
+
+//Agrega el footer comun a todas las secciones
 $gui_preceptor->cargarFooter();
 
 } 

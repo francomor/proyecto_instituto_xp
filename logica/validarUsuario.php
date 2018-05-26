@@ -40,8 +40,7 @@ if (!empty($_POST)) {
                 $_SESSION["clave"] = $password;
                 $_SESSION["login"] = true;
 
-                ?>
-home <?php
+                echo "1";
 
             }
         } else {

@@ -34,6 +34,17 @@ class AlumnoxCurso {
         $result = $con->recuperarAsociativo("select distinct anio from alumnoxcurso order by anio desc");
         return $result;
     }
+
+     /**
+     * carga los alumnos x curso
+     * @author Piñero Luciana  
+     * @version 1.0
+      */
+     public static function cargarAlumnoxCurso( $dniAlu,$id_curso, $anio) {
+        $con = ConexionBD::getConexion();
+         $con->insertar("INSERT INTO `alumnoxcurso` (`alumno_dni`, `curso_idcurso`, `anio`) VALUES ('".$dniAlu."', '".$id_curso."', '".$anio."'); ");
+    }
+    
 }
 
 ?>

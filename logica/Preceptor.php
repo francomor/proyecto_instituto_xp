@@ -26,29 +26,9 @@ class Preceptor{
         $result = $con->recuperarAsociativo("select nombre,apellido from alumno where dni='" . $dni_alumno . "'");
         return $result;
     }
-
-    public function obtenerPreceptor() {
-        $con = ConexionBD::getConexion();
-        $result = $con->recuperarAsociativo("select nombre,apellido,id_usuario from preceptor");
-        return $result;
-    }
-
-    public function obtenerPreceptorXid($id) {
-        $con = ConexionBD::getConexion();
-        $result = $con->recuperarAsociativo("select nombre,apellido,id_usuario  from preceptor where id_usuario='" . $id . "'");
-        return $result;
-    }
-
-
     public function cantRegistros() {
         $con = ConexionBD::getConexion();
         $result = $con->cantidadRegistros("select id_usuario from preceptor");
-        return $result;
-    }
-
-     public function modificarContraseña($id,$clave) {
-        $con = ConexionBD::getConexion();
-        $result = $con->update("update user set clave='" . $clave . "' where usuario='" . $id . "'");
         return $result;
     }
 

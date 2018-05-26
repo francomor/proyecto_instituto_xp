@@ -38,6 +38,9 @@ class Alumno {
         return $result;
     }
 
+
+   
+
      public function guardarAlumno($apellido,$nombre, $dni, $fechaNacimiento,$direccion, $email, $lugarNacimiento, $dniTutor){
         $con = ConexionBD::getConexion();
         $result = $con->insertar("INSERT INTO `alumno`(`apellido`, `nombre`, `dni`, `fechaNacimiento`, `direccion`, `email`, `lugarNacimiento`, `tutor_dni`) VALUES ('".$apellido."','".$nombre."','".$dni."','".$fechaNacimiento."','".$direccion."','".$email."','".$lugarNacimiento."','".$dniTutor."')");
@@ -47,6 +50,13 @@ class Alumno {
     public function existeAlumno($dniAlu){
         $con = ConexionBD::getConexion();
         $result = $con->recuperarAsociativo("select dni from alumno where dni=".$dniAlu);
+        return $result;
+    }
+
+
+     public function existeAlumnoNombre($apeAlu){
+        $con = ConexionBD::getConexion();
+        $result = $con->recuperarAsociativo("select apellido from alumno where apellido=".$apeAlu);
         return $result;
     }
 

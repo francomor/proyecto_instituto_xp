@@ -76,7 +76,7 @@
               datatype: "html",
 
               success: function (respuesta) {
-                if (respuesta == "home ") {
+                if (respuesta[1] == "1") {
                   window.location.replace("../presentacion/home.php");
                 } else {
                   $('#loginAjax').html(respuesta);

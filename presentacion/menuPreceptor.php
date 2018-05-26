@@ -23,9 +23,15 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
             </a>
           </li>
           <li class="active">
-            <a href="#">
+            <a href="asignarAlumnos.php">
               <i class="glyphicon glyphicon-indent-left"></i> 
-              Agregar Curso 
+              Asignar alumnos al Curso 
+            </a>
+          </li>
+          <li class="active">
+            <a href="pasarDeAnio.php">
+              <i class="glyphicon glyphicon-indent-left"></i> 
+              Pasar alumnos de anio 
             </a>
           </li>
         </ul>
@@ -41,13 +47,13 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         </a>
         <ul class="treeview-menu">
           <li>
-            <a href="#">
+            <a href="mostrarAlumnos.php">
               <i class="ion-person"></i>  
               Mostrar Alumnos
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="altaAlumnos.php">
               <i class="ion-person-add"></i> 
               Agregar Alumno
             </a>

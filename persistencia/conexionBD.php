@@ -1,4 +1,4 @@
-<?php
+ <?php
 ini_set('display_errors', 'On');
 error_reporting(E_ALL);
 
@@ -13,7 +13,7 @@ class ConexionBD {
     private static $_instance; //The single instance
     private $_host = "localhost";
     private $_username = "root";
-    private $_password = ""; //admin
+    private $_password = "admin"; //admin
     private $_database = "instituto";
 
     /**
