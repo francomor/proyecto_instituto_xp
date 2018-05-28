@@ -93,9 +93,11 @@ function backup_tables($host,$user,$pass,$name,$tables = '*')
       $headers = "MIME-Version: 1.0\r\n"; 
       $headers .= "Content-type: text/csv; charset=iso-8859-1\r\n"; 
       //dirección del remitente 
-      $headers .= "Webmaster <karenariananavarroo@gmail.com>r\n";
+      
 
-       $enviado = mail("institutonuestrasenora@gmail.com","Backup-".$fecha,$return,$headers,"karenariananavarroo@gmail.com");
+     
+      $enviado = mail("institutonuestrasenora@gmail.com","Backup-".$fecha,$return,$headers);
+
 
 
 }
