@@ -48,7 +48,7 @@
                 $emailTutor = $t[0]['email'];
                 
                 //mensaje
-                $msn = "Sr/a " . $t[0]['nombre'] . ", se le informa que el/la alumno/a ". $a[0]['nombre'] . " " . $a[0]['apellido'] ." registra 3 faltas consecutivas";
+                $msn = "Sr/a " . $t[0]['nombre'] . ", se le informa que el/la alumno/a ". $a[0]['nombre'] . " " . $a[0]['apellido'] ." registra 3 inasistencias consecutivas, para mas detalle acceda al siguiente link http://institutonuestrasenora.000webhostapp.com/presentacion/interfazTutor.php";
                 
                 //Titulo
                 $titulo = "Notificacion";
