@@ -14,7 +14,7 @@ $gui_preceptor = new GUIPreceptor();
 if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 ?> 
 
-
+<body onkeypress="return pulsar(event)"> 
 <div class="content-wrapper">
 
  <section class="content-header">
@@ -101,6 +101,13 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 </script>
 
 <script>
+function pulsar(e) {
+    tecla=(document.all) ? e.keyCode : e.which;
+  if(tecla==13) return false;
+}
+</script>
+
+<script>
 // funcion para que cuando vayamos ingresando el dni del tutor, se verifique su existencia. En caso afirmativo, 
 //se habilita el panel "cargarTutores.php"
 $( "#dniTutor" ).keyup(function() {
@@ -136,6 +143,7 @@ $("[id='botonNuevoTutor']").click(function() {
 	<?php
 	$gui_preceptor->cargarFooter();
 }
+
 
 else{
 	?>

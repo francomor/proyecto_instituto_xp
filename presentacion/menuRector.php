@@ -39,7 +39,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         </a>
         <ul class="treeview-menu">
           <li>
-            <a href="mostrarCursos.php">
+            <a href="seleccionarCursoMostrarAlumnos.php">
               <i class="glyphicon glyphicon-th-list"></i> 
               Mostrar Cursos
             </a>

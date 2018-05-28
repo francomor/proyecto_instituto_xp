@@ -8,7 +8,9 @@
  */
 include_once("../logica/Alumno.php");
 include_once("../logica/Tutor.php");
+include_once("../logica/AlumnoxCurso.php");
 $dni = (int)$_POST['dni'];
+$curso = $_POST['curso'];
 $a = new Alumno();
 $t = new Tutor();
 $alumno=$a->obtenerAlumno($dni);
@@ -43,8 +45,10 @@ else{
                </thead>
    
                 <?php
-                $a=new Alumno();
-                $alumnos=$a->obtenerAlumnos();
+                date_default_timezone_set('America/Argentina/Buenos_Aires');
+                $a=new AlumnoxCurso();
+                $alumnos=$a->obtenerAlumnoxCurso($curso,date('Y'));  
+
                 for ($i = 0; $i < count($alumnos); $i++) {
                     ?>
                     <tr>
@@ -68,6 +72,7 @@ else{
 
     
                             <input hidden type="text" name="dniAlu" id="dniAlu">
+                            <input hidden type="text" name="curso" id="curso" value="<?php echo $curso;?>" >
                         </td>
                     </tr>
 
@@ -105,7 +110,8 @@ $("[name='botonEliminar']").on('click', function(){
 
     if (opcion == true) {
         var parametros = {
-                    "dni" : $(this).attr('id')
+                    "dni" : $(this).attr('id'),
+                    "curso" : $("[id='curso']").val()
                   };
                   $.ajax({
                    data: parametros,
@@ -121,9 +127,9 @@ $("[name='botonEliminar']").on('click', function(){
 
 	}
 }); 
-$("[name='botonEditar']").on('click', function(){
+  $("[name='botonEditar']").on('click', function(){
   var parametros = {
-                    "dni" : $(this).attr('id')
+                    "dni" : $(this).attr('id'),
                   };
                   $.ajax({
                    data: parametros,

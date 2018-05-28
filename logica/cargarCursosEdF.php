@@ -30,6 +30,8 @@ if ($_REQUEST['funcion'] == 'imprimirCurso') {
     echo ("<form class='form-inline' action=tablaCurso.php>");
 } elseif ($_REQUEST['funcion'] == 'verInasistenciasAnio') {
 	echo ("<form class='form-inline' action=verInasistencias.php>");
+}elseif ($_REQUEST['funcion'] == 'mostrarAlumnos'){
+	echo ("<form class='form-inline'  action=../presentacion/mostrarAlumnos.php>");
 }
 else {
     echo ("<form class='form-inline' action=tabla.php>");

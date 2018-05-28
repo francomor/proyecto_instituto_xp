@@ -10,6 +10,7 @@
 //Agrega la interfaz del preceptor comun a todas las secciones
 include_once "GUIPreceptor.class.php";
 include_once("../logica/Alumno.php");
+include_once("../logica/AlumnoxCurso.php");
 
 
 $gui_preceptor = new GUIPreceptor();
@@ -24,6 +25,7 @@ $gui_preceptor = new GUIPreceptor();
       </h1>
         <ol class="breadcrumb">
         <li><a href="home.php"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><a href="seleccionarCursoMostrarAlumnos.php"><i class="fa fa-dashboard"></i> Seleccionar Curso</a></li>
         <li class="active">Mostrar Alumnos</li>
       </ol> 
     </section>
@@ -58,8 +60,11 @@ $gui_preceptor = new GUIPreceptor();
 
 
                 <?php
-                $a=new Alumno();
-                $alumnos=$a->obtenerAlumnos();
+                date_default_timezone_set('America/Argentina/Buenos_Aires');
+                $a=new AlumnoxCurso();
+                $curso=$_REQUEST['sel'];
+                $alumnos=$a->obtenerAlumnoxCurso($curso,date('Y'));   
+
                 for ($i = 0; $i < count($alumnos); $i++) {
                     
                     ?>
@@ -78,6 +83,7 @@ $gui_preceptor = new GUIPreceptor();
                          <td>
                             <input  class="btn btn-danger" name="botonEliminar" id="<?php echo $alumnos[$i]['dni'];?>" value="Eliminar">
                             <input hidden type="text" name="dniAlu" id="dniAlu">
+                            <input hidden type="text" name="curso" id="curso" value="<?php echo $curso; ?>" >
                         </td>
                     </tr>
 
@@ -99,14 +105,11 @@ $gui_preceptor = new GUIPreceptor();
  </div>   
 
 </div>
-  <script src="../recursos/jquery-2.2.3.min.js">
-            //script para traer la libreria de Jquery
-          </script>
+
 
           <script src="../recursos/jquery-ajax.min.js">
             //script para traer la libreria de Jquery
           </script>
-          jquery-2.2.3.min
 
 <script>
   $(document).ready(function() {
@@ -117,7 +120,8 @@ $("[name='botonEliminar']").on('click', function(){
     var opcion = confirm("¿Está seguro que quiere borrar?");
     if (opcion == true) {
   var parametros = {
-                    "dni" : $(this).attr('id')
+                    "dni" : $(this).attr('id'),
+                    "curso" : $("[id='curso']").val()
                   };
                   $.ajax({
                    data: parametros,
