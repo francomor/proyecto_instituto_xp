@@ -118,7 +118,12 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
           </li>
         </ul>
       </li>
-      
+	 	<li class="treeview">
+          <a href="../logica/modificarDiasHabiles.php">
+            <i class="glyphicon glyphicon-calendar"></i>
+            <span>Dias Habiles</span>
+         </a>
+      </li>      
     </ul>
   </section>
 </aside>
