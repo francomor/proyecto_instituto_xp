@@ -39,7 +39,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
         </a>
         <ul class="treeview-menu">
           <li>
-            <a href="seleccionarCursoMostrarAlumnos.php">
+            <a href="mostrarCursos.php">
               <i class="glyphicon glyphicon-th-list"></i> 
               Mostrar Cursos
             </a>
@@ -48,6 +48,12 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
             <a href="asignarAlumnos.php">
               <i class="glyphicon glyphicon-indent-left"></i> 
               Asignar alumnos al Curso 
+            </a>
+          </li>
+          <li class="active">
+            <a href="pasarDeAnio.php">
+              <i class="glyphicon glyphicon-indent-left"></i> 
+              Pasar alumnos de año 
             </a>
           </li>
         </ul>

@@ -64,7 +64,30 @@
     </script>
     <script>
       $(document).ready(function () {
-          $('#enviar').click(function () {
+        $('#enviar').click(function () {
+          var parametros = {
+            "username": $('#username').val(),
+            "password": $("#password").val()
+          };
+          $.ajax({
+            data: parametros,
+            type: "post",
+            url: "../logica/validarUsuario.php",
+            datatype: "html",
+            success: function (respuesta) {
+              if (respuesta == " home") {
+                window.location.replace("../presentacion/home.php");
+              } else {
+                $('#loginAjax').html(respuesta);
+              }
+            }
+          });
+        });
+        $('#tutor').click(function () {
+          window.location.replace("../presentacion/interfazTutor.php");
+        });
+        $(document).keydown(function (e) {
+          if (e.keyCode == 13) {
             var parametros = {
               "username": $('#username').val(),
               "password": $("#password").val()
@@ -74,39 +97,16 @@
               type: "post",
               url: "../logica/validarUsuario.php",
               datatype: "html",
-
               success: function (respuesta) {
-                if (respuesta[1] == "1") {
+                if (respuesta == " home") {
                   window.location.replace("../presentacion/home.php");
                 } else {
                   $('#loginAjax').html(respuesta);
                 }
               }
             });
-          });
-
-          $(document).keydown(function (e) {
-            if (e.keyCode == 13) {
-              var parametros = {
-                "username": $('#username').val(),
-                "password": $("#password").val()
-              };
-              $.ajax({
-                data: parametros,
-                type: "post",
-                url: "../logica/validarUsuario.php",
-                datatype: "html",
-
-                success: function (respuesta) {
-                  if (respuesta == "home ") {
-                    window.location.replace("../presentacion/home.php");
-                  } else {
-                    $('#loginAjax').html(respuesta);
-                  }
-                }
-              });
-            }
-          });
+          }
+        });
       });
     </script>
 

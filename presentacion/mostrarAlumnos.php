@@ -31,9 +31,7 @@ $gui_preceptor = new GUIPreceptor();
     </section>
      
 <div id="editar">
-     <section class="content">
-      <div class="row">
-        <div class="col-xs-12">
+    <section class="content">
           <div class="box">
             <div class="box-header">
               <h3 class="box-title"> </h3>
@@ -41,7 +39,7 @@ $gui_preceptor = new GUIPreceptor();
             <!-- /.box-header -->
           <div class="box-body">  
 
-            <div class="container">
+
         
         <!-- formulario donde estará contenida la tabla con los alumnos y sus respectivos botones -->
         <form id="formu" name="formu">
@@ -97,10 +95,9 @@ $gui_preceptor = new GUIPreceptor();
         </form>
           <!-- fin formulario -->
         </div>
-        </div>
+
       </div>
-      </div>
-      </div>
+
     </section>
  </div>   
 

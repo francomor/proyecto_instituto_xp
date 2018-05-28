@@ -28,72 +28,53 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
   </section>
 
 
-    <div class="container">
-	<div class="panel panel-default">
-		<div class="panel-heading">
-			<h4><i class='fa fa-user-plus'></i> Nuevo Alumno</h4>
-		</div>
-		<div class="panel-body">
-
-		<?php 
-			include("registroTutor.php"); // se incluye el modal para ingresar un tutor.
-		?>
-			<!-- formulario principal -->
-			<form class="form-horizontal" role="form" id="datos_alumno" action="../logica/cargaAlumnos.php" method="post">
-				
-				 <div class="box-header">
-           			 <h3 class="box-title">Datos del Tutor</h3>
-
-           			 <div class="col-md-12">
-						<div class="pull-right">
-						 
-						<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#nuevoTutor" id="botonNuevoTutor">
-						 <span class="fa fa-user-plus"></span> Nuevo Tutor
-						</button>
-						 
-						</div>	
-					</div>
-
-         		 </div>
-
-
-         		 
-				<div class="form-group row">
-				  <label for="dniTutor" class="col-md-1 control-label">DNI</label>
-				  <div class="col-md-3">
-				 
-					  <input type="text" class="form-control input-sm" id="dniTutor" name="dniTutor" placeholder="Buscar Tutor" required >
-				  
-				  </div>
-				  <div id="dniTutorAjax"> <!-- En este div se carga el resultado de cargaTutores.php -->
-
-				  <label for="apeTutor" class="col-md-1 control-label">Apellidos</label>
-							<div class="col-md-2">
-								<input type="text" class="form-control input-sm" name="apeTutor" placeholder="apellidos" readonly>
-							</div>
-					<label for="" class="col-md-1 control-label">Nombre</label>
-							<div class="col-md-3">
-								<input type="text" class="form-control input-sm" name="nomTutor" placeholder="nombre" readonly>
-							</div>
+  <section class="content">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4><i class='fa fa-user-plus'></i> Nuevo Alumno</h4>
+			</div>
+			<div class="panel-body">
+				<?php 
+				include("registroTutor.php"); // se incluye el modal para ingresar un tutor.
+				?>
+				<!-- formulario principal -->
+				<form class="form-horizontal" role="form" id="datos_alumno" action="../logica/cargaAlumnos.php" method="post">
+					 <div class="box-header">
+			   			 <h3 class="box-title">Datos del Tutor</h3>
+			   			 
+							<div class="pull-right">
+								<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#nuevoTutor" id="botonNuevoTutor">
+								 <span class="fa fa-user-plus"></span> Nuevo Tutor
+								</button>
+							</div>	
+						
+			 		 </div>
+		     		 
+					<div class="form-group row">
+					  <label for="dniTutor" class="col-md-1 control-label">DNI</label>
+					  <div class="col-md-3">
 					 
-				  </div>
-				</div>	 
+						  <input type="text" class="form-control input-sm" id="dniTutor" name="dniTutor" placeholder="Buscar Tutor" required >
+					  
+					  </div>
+					  <div id="dniTutorAjax"> <!-- En este div se carga el resultado de cargaTutores.php -->
 
-            </div>
-
-			</form>	
-			<!-- fin formulario principal -->	
+					  <label for="apeTutor" class="col-md-1 control-label">Apellidos</label>
+								<div class="col-md-2">
+									<input type="text" class="form-control input-sm" name="apeTutor" placeholder="apellidos" readonly>
+								</div>
+						<label for="" class="col-md-1 control-label">Nombre</label>
+								<div class="col-md-3">
+									<input type="text" class="form-control input-sm" name="nomTutor" placeholder="nombre" readonly>
+								</div>
+						 
+					  </div>
+					</div>	 
+				</form>	
+				<!-- fin formulario principal -->	
+			</div>
 		</div>
-	</div>		
-		  <div class="row-fluid">
-			<div class="col-md-12">
-			
-	
-
-			
-			</div>	
-		 </div>
-	</div>
+	</section>
 </div>
 
 <script src="../recursos/jquery-ajax.min.js">

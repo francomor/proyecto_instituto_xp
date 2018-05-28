@@ -32,30 +32,30 @@ $gui_preceptor = new GUIPreceptor();
 
 
   
-  <div class="container">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h4><i class='glyphicon glyphicon-search'></i> Buscar Alumno</h4>
-    </div>
-    <div class="panel-body">
+  <section class="content">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4><i class='glyphicon glyphicon-search'></i> Buscar Alumno</h4>
+      </div>
+      <div class="panel-body">
 
-   
-      <!-- formulario principal -->
- <form class="form-horizontal" role="form" id="datos_alumno" action="../logica/cargaAlumnosAlCurso.php" method="post">
-      
-    <div class="form-group row">
-          
-          <label for="dniAlumno" class="col-md-1 control-label">DNI</label>
-          <div class="col-md-3">
-            <input type="text" class="form-control input-sm" id="dniAlumno" name="dniAlumno" placeholder="Buscar Alumno" required >
-          </div>
-          
-          <div id="dniAlumnoAjax"> <!-- En este div se carga el resultado de cargaAlumnosAlCurso.php -->
+        <!-- formulario principal -->
+        <form class="form-horizontal" role="form" id="datos_alumno" action="../logica/cargaAlumnosAlCurso.php" method="post">
+        
+          <div class="form-group row">
+                
+                <label for="dniAlumno" class="col-md-1 control-label">DNI</label>
+                <div class="col-md-3">
+                  <input type="text" class="form-control input-sm" id="dniAlumno" name="dniAlumno" placeholder="Buscar Alumno" required >
+                </div>
+                
+                <div id="dniAlumnoAjax"> <!-- En este div se carga el resultado de cargaAlumnosAlCurso.php -->
+                 
+                 
+                </div>
+          </div>   
+        </form>
            
-           
-          </div>
-    </div>   
-         
         <?php
              
         date_default_timezone_set('America/Argentina/Buenos_Aires');
@@ -71,7 +71,7 @@ $gui_preceptor = new GUIPreceptor();
     
             ?>
          
-           <hr/>
+        <hr/>
 
         <div class="panel-heading ">
           <div class="box-header">
@@ -94,49 +94,49 @@ $gui_preceptor = new GUIPreceptor();
           </div>
         </div>
 
-    <!-- tabla donde estan contenidos todos los alumnos del curso seleccionado !-->
-    <table class="table table-bordered table-hover" border="1" width="50%">
-                <thead>
-                  <tr>
-                    <th scope="col" width="5%">#</th>
-                    <th scope="col" width="80%">Apellido y Nombre</th>
-                    <th scope="col">Dar de baja</th>
-                  </tr>
+        <!-- tabla donde estan contenidos todos los alumnos del curso seleccionado !-->
+        <table class="table table-bordered table-hover" border="1" width="50%">
+          <thead>
+            <tr>
+              <th scope="col" width="5%">#</th>
+              <th scope="col" width="80%">Apellido y Nombre</th>
+              <th scope="col">Dar de baja</th>
+            </tr>
 
-                   
-                </thead>
-                  
-                <?php
-               
-                for ($i = 0; $i < $cantfilas; $i++) {
-                    
-                    //se hace de manera dinamica la carga de los alumnos a la tabla, con sus respectivos 
-                    //checkbox donde se computan las faltas a clase y a ed-fisica.
-                    ?>
-                
-                    <tr>
-                        <td><?php echo $i + 1 ?></td> <!-- se muestra el numero del alumno en la tabla -->
-                        <td><?php 
-                        $nombreAlumno=$alumnos[$i]["apellido"] . ", " . $alumnos[$i]["nombre"];
-                        if (mb_detect_encoding($nombreAlumno, 'utf-8', true) === false) {
-                        $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
-                        } 
-                        echo $nombreAlumno; ?> </td> 
-                        <!-- se muestra el nombre y apellido del alumno en la tabla --> 
-                       <td> 
-
-                          <a href="#" class='btn btn-default bg-red' title='Borrar cliente' onclick="eliminar('<?php echo $id_cliente; ?>')"><i class="glyphicon glyphicon-trash"></i> </a></span></td>
-                       </td>
-                    </tr>
-                    <?php
-                   
-                }//cierre del for
-                ?>
-    </table>
-  </form>
-
-</div>      
+             
+          </thead>
             
+          <?php
+         
+          for ($i = 0; $i < $cantfilas; $i++) {
+              
+              //se hace de manera dinamica la carga de los alumnos a la tabla, con sus respectivos 
+              //checkbox donde se computan las faltas a clase y a ed-fisica.
+              ?>
+          
+              <tr>
+                  <td><?php echo $i + 1 ?></td> <!-- se muestra el numero del alumno en la tabla -->
+                  <td><?php 
+                  $nombreAlumno=$alumnos[$i]["apellido"] . ", " . $alumnos[$i]["nombre"];
+                  if (mb_detect_encoding($nombreAlumno, 'utf-8', true) === false) {
+                  $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
+                  } 
+                  echo $nombreAlumno; ?> </td> 
+                  <!-- se muestra el nombre y apellido del alumno en la tabla --> 
+                 <td> 
+
+                    <a href="#" class='btn btn-default bg-red' title='Borrar cliente' onclick="eliminar('<?php echo $id_cliente; ?>')"><i class="glyphicon glyphicon-trash"></i> </a></span></td>
+                 </td>
+              </tr>
+              <?php
+             
+          }//cierre del for
+          ?>
+        </table>
+      </div>      
+    </div>
+  </section>   
+</div> 
  <script src="../recursos/jquery-ajax.min.js">  //script para traer la libreria de Jquery </script>
  
 

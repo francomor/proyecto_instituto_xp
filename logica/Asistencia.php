@@ -1,7 +1,6 @@
 <?php
 require_once "../persistencia/conexionBD.php";
 error_reporting(E_ALL ^ E_NOTICE);
-
 /**
  * Clase ALumnoxCurso
  * @author 
@@ -13,7 +12,6 @@ class Asistencia {
      */
     public function __construct() {
     }
-
     /**
      * Carga la asistencia para un alumnoxcurso
      * @author Franco Morero y Nicolas Dechecchi
@@ -30,7 +28,6 @@ class Asistencia {
         $con = ConexionBD::getConexion();
         $con->insertar("INSERT INTO `asistencia`(`idasistencia`, `fecha`, `tipo`, `valor`, `alumnoxcurso_alumno_dni`, `alumnoxcurso_curso_idcurso`) VALUES (default,'" . $fecha . "','" . $tipo . "','" . $valor . "','" . $dni_alumno . "','" . $id_curso . "')");
     }
-
     /**
      * Obtiene las inasistencias de un alumno
      * @author Gabriela Peralta y Nicolas Silvera
@@ -43,7 +40,6 @@ class Asistencia {
         $result = $con->recuperarAsociativo("select fecha,tipo,valor from asistencia where alumnoxcurso_alumno_dni='" . $dni_alumno . "'  and fecha between '".$fecha1."' and '".$fecha2."' ORDER BY `asistencia`.`fecha` ASC");
         return $result;
     }
-
     /**
      * Obtiene el total de inasistencias entre 2 fechas por alumno
      * @author Franco Morero y Francisco Herrero
@@ -67,10 +63,9 @@ class Asistencia {
     public function inasistenciaxCurso($idcurso,$fecha,$anio) {
         $con = ConexionBD::getConexion();
         $result = $con->recuperarAsociativo("SELECT alumno.apellido,alumno.nombre, A.alumno_dni,N.tipo,N.valor  FROM ((SELECT * FROM alumnoxcurso WHERE alumnoxcurso.curso_idcurso = ".$idcurso." and alumnoxcurso.anio='".$anio."' ) AS A 
-    	LEFT JOIN (SELECT * FROM asistencia WHERE asistencia.fecha = '".$fecha."')as N ON A.alumno_dni = N.alumnoxcurso_alumno_dni), alumno WHERE alumno.dni = A.alumno_dni ORDER BY alumno.apellido , alumno.nombre ASC");
+        LEFT JOIN (SELECT * FROM asistencia WHERE asistencia.fecha = '".$fecha."')as N ON A.alumno_dni = N.alumnoxcurso_alumno_dni), alumno WHERE alumno.dni = A.alumno_dni ORDER BY alumno.apellido , alumno.nombre ASC");
         return $result;
     }
-
        /**
      * Borrar las inasistencias de un curso
      * @author Natali Martinez y Francisco Herrero
@@ -84,7 +79,6 @@ class Asistencia {
         return $result;
     }
     
-
         /**
      * obtiene el numero de inasistencias de un curso en determinada fecha
      * @author Herrero Francisco
@@ -97,7 +91,6 @@ class Asistencia {
         return $result;
         
     }
-
     public function inasistenciasConsecutivas($fecha1, $fecha2, $fecha3, $curso){
         $con = ConexionBD::getConexion();
         $result = $con->recuperarAsociativo("SELECT `alumnoxcurso_alumno_dni` FROM `asistencia` WHERE `fecha` = '".$fecha1."' and `alumnoxcurso_curso_idcurso` = '".$curso."' and `alumnoxcurso_alumno_dni` IN (SELECT `alumnoxcurso_alumno_dni` FROM `asistencia` WHERE `fecha` = '".$fecha2."'  and `alumnoxcurso_curso_idcurso` = '".$curso."' and `alumnoxcurso_alumno_dni` IN (SELECT `alumnoxcurso_alumno_dni` FROM `asistencia` WHERE `fecha` = '".$fecha3."' and `alumnoxcurso_curso_idcurso` = '".$curso."' ))");
@@ -109,6 +102,9 @@ class Asistencia {
         $result = $con->recuperarAsociativo("select * from asistencia where alumnoxcurso_alumno_dni= ".$dni);
         return $result;
     }
+    public function obtenerHistorialDeInasistencias() {
+        $con = ConexionBD::getConexion();
+        $result = $con->recuperarAsociativo("select fecha,preceptor_id, anio, nombre  from asistencia INNER JOIN curso ON asistencia.alumnoxcurso_curso_idcurso=curso.idcurso GROUP BY anio,nombre ORDER BY fecha DESC");
+        return $result;
+    }
 }
-
-?>

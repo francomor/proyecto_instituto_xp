@@ -31,11 +31,10 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
     </section>
      
 
-    <section class="content">          
-    <div class="container">
+    <section class="content">   
 	   <div class="panel panel-default">
 		  <div class="panel-heading">
-			<h4><i class='fa fa-user-plus'></i> Seleccionar Curso</h4>
+			<h4>Seleccionar Curso</h4>
 		  </div>
 		  
             <div class="panel-body">    
@@ -44,8 +43,6 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
                 </body>
             </div>
         </div>   
-           
-    </div>
     </section>
 
  </div>
