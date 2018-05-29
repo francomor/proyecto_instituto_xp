@@ -1,4 +1,4 @@
- <?php
+<?php
 
 /**
  *  En este archivo se selecciona un curso al que se le quiere asignar alumnos.
@@ -18,7 +18,7 @@ require_once "../logica/Preceptor.php";
 
 
 //Agrega la interfaz del preceptor comun a todas las secciones
-include_once "GUIPreceptor.class.php";
+
 
 if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 

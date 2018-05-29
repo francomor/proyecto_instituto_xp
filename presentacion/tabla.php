@@ -17,7 +17,13 @@ require_once "GUIPreceptor.class.php";
  */
 $gui_preceptor = new GUIPreceptor();
 ?>
-
+<style>
+  input[type=checkbox], input[type=radio]{
+    margin: 1px 1px 1px 1px;
+    width: 20px;
+    height: 20px;
+  }
+</style>
 
 <div class="content-wrapper">
 

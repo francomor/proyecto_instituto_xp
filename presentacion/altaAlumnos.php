@@ -1,4 +1,4 @@
- <?php
+<?php
 require_once "GUIPreceptor.class.php";
 /**
  * Funcion principal para agregar un nuevo alumno al sistema. 
@@ -10,8 +10,9 @@ require_once "GUIPreceptor.class.php";
  * @author Herrero Francisco Piñero Luciana
  * @version 1.0
  */
-$gui_preceptor = new GUIPreceptor();
+
 if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+	$gui_preceptor = new GUIPreceptor();
 ?> 
 
 <body onkeypress="return pulsar(event)"> 

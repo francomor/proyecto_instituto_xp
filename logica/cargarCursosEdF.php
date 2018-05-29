@@ -29,7 +29,7 @@ else{
 if ($_REQUEST['funcion'] == 'imprimirCurso') {
     echo ("<form class='form-inline' action=tablaCurso.php>");
 } elseif ($_REQUEST['funcion'] == 'verInasistenciasAnio') {
-	echo ("<form class='form-inline' action=verInasistencias.php>");
+	echo ("<form class='form-inline' id='formuVerInasistencias' action=verInasistencias.php>");
 }elseif ($_REQUEST['funcion'] == 'mostrarAlumnos'){
 	echo ("<form class='form-inline'  action=../presentacion/mostrarAlumnos.php>");
 }
@@ -40,20 +40,21 @@ else {
 
 
 if ($_REQUEST['funcion'] == 'verInasistenciasAnio') {
-	echo (" <select style='margin: 10px 10px 10px 0' class='form-control mb-2 mr-sm-2 mb-sm-0' id='selCurso' name='selCurso' > <option value=seleccionar...> Seleccione un curso </option>");
+	echo (" <select style='margin: 10px 10px 10px 0' class='form-control mb-2 mr-sm-2 mb-sm-0' id='selCurso' name='selCurso' > <option value='seleccionar...'> Seleccione un curso </option>");
 	for ($i = 0; $i < $registros; $i++) {
 	    print('<option value="' . $cursos[$i]["idcurso"] . '"> ' . $cursos[$i]["anio"] . '&deg' . $cursos[$i]["nombre"] . '</option>');
 	}
 	echo ("</select>");
 
-	echo (" <select style='margin: 10px 10px 10px 0' class='form-control mb-2 mr-sm-2 mb-sm-0' id='selAnio' name='selAnio' > <option value=seleccionar...> Seleccione un año </option>");
+	echo (" <select style='margin: 10px 10px 10px 0' class='form-control mb-2 mr-sm-2 mb-sm-0' id='selAnio' name='selAnio' > <option value='seleccionar...'> Seleccione un año </option>");
 	for ($i = 0; $i < count($alumnoXCursoAnio); $i++) {
 	    print('<option value="' . $alumnoXCursoAnio[$i]["anio"] . '"> ' . $alumnoXCursoAnio[$i]["anio"].'</option>');
 	}
 	echo ("</select>");
-	echo ("<button type='submit' class='btn btn-danger'>Buscar</button>");
+	echo ("<button type='button' onclick='control()'  class='btn btn-danger'>Buscar</button>");
 	echo ("</div>");
 	echo ("</div>");
+		
 }
 else{
 	echo (" <select style='margin: 10px 10px 10px 0' class='form-control mb-2 mr-sm-2 mb-sm-0' id='sel' name='sel' onchange='this.form.submit()'> <option value=seleccionar...> Seleccione un curso </option>");

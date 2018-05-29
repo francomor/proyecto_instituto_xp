@@ -1,4 +1,3 @@
-
 <?php
 
 /**
@@ -9,7 +8,7 @@
 
 
 //Agrega la interfaz del preceptor comun a todas las secciones
-include_once "GUIPreceptor.class.php";
+require_once "GUIPreceptor.class.php";
 
 if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
 
