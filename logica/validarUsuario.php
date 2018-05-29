@@ -40,7 +40,7 @@ if (!empty($_POST)) {
                 $_SESSION["clave"] = $password;
                 $_SESSION["login"] = true;
 
-                echo "home";
+                echo "window.location.href='../presentacion/home.php'";
 
             }
         } else {

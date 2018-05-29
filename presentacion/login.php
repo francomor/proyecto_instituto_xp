@@ -75,12 +75,16 @@
             url: "../logica/validarUsuario.php",
             datatype: "html",
             success: function (respuesta) {
-              if (respuesta == " home") {
-                window.location.replace("../presentacion/home.php");
-              } else {
-                $('#loginAjax').html(respuesta);
-              }
-            }
+                if(respuesta.includes("window")){
+                  eval(respuesta);
+                }
+                else{
+                  $('#loginAjax').html(respuesta);
+                }
+            },
+            error : function(xhr, status) {
+                $('#loginAjax').html('Disculpe, existió un problema');
+            },
           });
         });
         $('#tutor').click(function () {
@@ -98,12 +102,13 @@
               url: "../logica/validarUsuario.php",
               datatype: "html",
               success: function (respuesta) {
-                if (respuesta == " home") {
-                  window.location.replace("../presentacion/home.php");
-                } else {
+                  if(respuesta.includes("window")){
+                  eval(respuesta);
+                }
+                else{
                   $('#loginAjax').html(respuesta);
                 }
-              }
+              },
             });
           }
         });
