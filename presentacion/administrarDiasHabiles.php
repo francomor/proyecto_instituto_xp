@@ -27,7 +27,7 @@ $gui_preceptor = new GUIPreceptor();
             <div class="panel-heading">
                   <h4>Seleccione días no hábiles</h4>
             </div>
-            <div class="alert alert-danger">
+            <div class="alert">
                     <strong>Los dias habiles se cargan automáticamente al cargar una inasistencia. Solo agregue en caso de anomalía, o elimine en casos de errores.</strong>
             </div>
 
