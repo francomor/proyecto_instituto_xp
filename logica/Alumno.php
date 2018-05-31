@@ -77,6 +77,7 @@ class Alumno {
 
     public function guardarAlumnoEditado($apellido,$nombre, $dni, $fechaNacimiento,$direccion, $email, $lugarNacimiento,$dniTutor,$cursosAlumno,$inasistencias ){
       $con = ConexionBD::getConexion();
+
       $result = $con->insertar("INSERT INTO `alumno`(`apellido`, `nombre`, `dni`, `fechaNacimiento`, `direccion`, `email`, `lugarNacimiento`, `tutor_dni`) VALUES ('".$apellido."','".$nombre."','".$dni."','".$fechaNacimiento."','".$direccion."','".$email."','".$lugarNacimiento."','".$dniTutor."')");
      
        for($i=0; $i<count($cursosAlumno); $i++){
@@ -97,4 +98,3 @@ class Alumno {
     }
 }
 
-?>

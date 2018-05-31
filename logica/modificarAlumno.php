@@ -28,28 +28,28 @@ $alumno = $a->existeAlumno($dniAlumno);
 
 if(strcmp($dniViejo, $dniAlumno) !== 0){
 
-if(count($alumno)>0 ) { 
-	header('Location:../logica/alertModificarAlumno.php?valor=error');
-	 /*echo ("<script>");
-    echo ("alert ('El DNI no puede ser modificado, ya que pertenece a otro alumno')");
-    echo ("</script>");*/
-    
-}
-else{
+	if(count($alumno)>0 ) { 
+		header('Location:../logica/alertModificarAlumno.php?valor=error');
+		 /*echo ("<script>");
+	    echo ("alert ('El DNI no puede ser modificado, ya que pertenece a otro alumno')");
+	    echo ("</script>");*/
+	    
+	}
+	else{
 
-$a->eliminarAlumno($dniViejo);
-$a->guardarAlumnoEditado($apeAlumno,$nomAlumno,$dniAlumno,$fechaAlumno,$direcAlumno,$emailAlumno,$lugarNacAlumno,$dniTutor,$cursosAlumno,$inasistencias);
-	 header('Location:../logica/alertModificarAlumno.php?valor=guardado');
-	/*echo ("<script>");
-    echo ("alert ('ModificadoCorrectamente')");
-    echo ("</script>");*/
-}
+		$a->eliminarAlumno($dniViejo);
+		$a->guardarAlumnoEditado($apeAlumno,$nomAlumno,$dniAlumno,$fechaAlumno,$direcAlumno,$emailAlumno,$lugarNacAlumno,$dniTutor,$cursosAlumno,$inasistencias);
+		header('Location:../logica/alertModificarAlumno.php?valor=guardado');
+			/*echo ("<script>");
+		    echo ("alert ('ModificadoCorrectamente')");
+		    echo ("</script>");*/
+	}
 
 }
 else{
 	$a->eliminarAlumno($dniViejo);
 	$a->guardarAlumnoEditado($apeAlumno,$nomAlumno,$dniAlumno,$fechaAlumno,$direcAlumno,$emailAlumno,$lugarNacAlumno,$dniTutor,$cursosAlumno,$inasistencias);
-	 header('Location:../logica/alertModificarAlumno.php?valor=guardado');
+	header('Location:../logica/alertModificarAlumno.php?valor=guardado');
 	/*echo ("<script>");
     echo ("alert ('ModificadoCorrectamente')");
     echo ("</script>");*/

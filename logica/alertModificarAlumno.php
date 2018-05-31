@@ -1,4 +1,4 @@
- <?php
+<?php
 require_once "../presentacion/GUIPreceptor.class.php";
 
 /**
@@ -49,7 +49,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true && $_GET['valor']=='
   			</div>
 		</div>
 		<div class="col-md-11"> 
-		<a href="../presentacion/mostrarAlumnos.php"  >
+		<a href="../presentacion/seleccionarCursoMostrarAlumnos.php"  >
 		<button  type="button" class="btn btn-danger" > 
 		 <span class="fa fa-user-plus"></span> Volver a mostrar alumnos
 		</button>
@@ -70,7 +70,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true && $_GET['valor']=='
           
 
 	<?php
-	$gui_preceptor->cargarFooter();
+
 }
 
 else{
@@ -112,7 +112,7 @@ else{
   			</div>
 		</div>
 		<div class="col-md-11"> 
-		<a href="../presentacion/mostrarAlumnos.php"  >
+		<a href="../presentacion/seleccionarCursoMostrarAlumnos.php"  >
 		<button  type="button" class="btn btn-danger" > 
 		 <span class="fa fa-user-plus"></span> Volver a mostrar alumnos 
 		</button>
@@ -132,6 +132,7 @@ else{
 
 <?php
   }
+  	$gui_preceptor->cargarFooter();
 ?>
  
 

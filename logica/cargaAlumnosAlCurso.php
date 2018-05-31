@@ -1,4 +1,3 @@
- 
 <?php
 /**
  * Este archivo asigna un alumno a un curso si no existe asignado ya.
@@ -30,4 +29,3 @@ else{
 	header('Location:../presentacion/guardadoAlumnoAlCurso.php');
 }
 
-?>

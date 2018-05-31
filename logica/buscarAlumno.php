@@ -23,7 +23,7 @@ if (count($existeAlumno)>0){ //si el tutor existe:
 ?>
 
 
-<div class="form-group row">
+
           
           <label for="anio" class="col-md-1 control-label">Alumno</label>
             <div class="col-md-2">
@@ -35,7 +35,6 @@ if (count($existeAlumno)>0){ //si el tutor existe:
                 <input type="submit" class="btn btn-danger" value="Asignar Alumno" id="guardar"> <!-- Envio de formulario !-->
               		 
 
- </div>
 
 <?php
 

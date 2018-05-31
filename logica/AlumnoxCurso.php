@@ -25,7 +25,7 @@ class AlumnoxCurso {
     
         public function obtenerAlumnoxCursoAlumno($dni){
         $con = ConexionBD::getConexion();
-        $result = $con->recuperarAsociativo("select * from AlumnoxCurso where alumno_dni= ".$dni);
+        $result = $con->recuperarAsociativo("select * from alumnoxcurso where alumno_dni= ".$dni);
         return $result;
     }
 

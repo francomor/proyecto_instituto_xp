@@ -54,85 +54,86 @@ $gui_preceptor = new GUIPreceptor();
                  
                 </div>
           </div>   
-        </form>
+        
            
-        <?php
-             
-        date_default_timezone_set('America/Argentina/Buenos_Aires');
-        $curso = $_REQUEST['sel']; //se obtiene el id del curso seleccionado desde el archivo cursos.php
-        $alumnos = AlumnoxCurso::obtenerAlumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del a�o actual
-        $cantfilas = count($alumnos); //se cuentan los registros obtenidos de la consulta anterior
-         ?>
-          
-           <?php
-                        //se muestra en la tabla el curso actual
-              $c = new Curso();
-              $cursoActual = $c->obtenerCurso($curso);
-    
-            ?>
-         
-        <hr/>
+          <?php
+               
+          date_default_timezone_set('America/Argentina/Buenos_Aires');
+          $curso = $_REQUEST['sel']; //se obtiene el id del curso seleccionado desde el archivo cursos.php
+          $alumnos = AlumnoxCurso::obtenerAlumnoxCurso($curso, (int) date("Y")); //se obtienen los alumnos del curso seleccionado del a�o actual
+          $cantfilas = count($alumnos); //se cuentan los registros obtenidos de la consulta anterior
+           ?>
+            
+             <?php
+                          //se muestra en la tabla el curso actual
+                $c = new Curso();
+                $cursoActual = $c->obtenerCurso($curso);
+      
+              ?>
+           
+          <hr/>
 
-        <div class="panel-heading ">
-          <div class="box-header">
-              <h3 class="box-title"> </h3>
+          <div class="panel-heading ">
+            <div class="box-header">
+                <h3 class="box-title"> </h3>
 
-              <label for="curso" class="col-md-1 control-label"> CURSO </label> 
-                <div class="col-md-2">
-                  <input type="text" value=" <?php    echo $cursoActual [0]['anio'] . ' ' . $cursoActual[0]['nombre'];  ?> " class="form-control input-sm" id="nombrecurso" name="nombrecurso" readonly>
-                </div>
+                <label for="curso" class="col-md-1 control-label"> CURSO </label> 
+                  <div class="col-md-2">
+                    <input type="text" value=" <?php    echo $cursoActual [0]['anio'] . ' ' . $cursoActual[0]['nombre'];  ?> " class="form-control input-sm" id="nombrecurso" name="nombrecurso" readonly>
+                  </div>
 
-                <label for="curso" class="col-md-1 control-label">ID </label> 
-                <div class="col-md-2">
-                  <input type="text" value=" <?php   echo $curso  ?> " class="form-control input-sm" id="curso" name="curso" readonly>
-                </div>
+                  <label for="curso" class="col-md-1 control-label">ID </label> 
+                  <div class="col-md-2">
+                    <input type="text" value=" <?php   echo $curso  ?> " class="form-control input-sm" id="curso" name="curso" readonly>
+                  </div>
 
-            <label for="anio" class="col-md-1 control-label">AÑO</label>
-            <div class="col-md-2">
-              <input type="text" value=" <?php   echo  (int)date('Y') ?> " class="form-control input-sm" id="anio" name="anio" readonly>
+              <label for="anio" class="col-md-1 control-label">AÑO</label>
+              <div class="col-md-2">
+                <input type="text" value=" <?php   echo  (int)date('Y') ?> " class="form-control input-sm" id="anio" name="anio" readonly>
+              </div>
             </div>
           </div>
-        </div>
 
-        <!-- tabla donde estan contenidos todos los alumnos del curso seleccionado !-->
-        <table class="table table-bordered table-hover" border="1" width="50%">
-          <thead>
-            <tr>
-              <th scope="col" width="5%">#</th>
-              <th scope="col" width="80%">Apellido y Nombre</th>
-              <th scope="col">Dar de baja</th>
-            </tr>
-
-             
-          </thead>
-            
-          <?php
-         
-          for ($i = 0; $i < $cantfilas; $i++) {
-              
-              //se hace de manera dinamica la carga de los alumnos a la tabla, con sus respectivos 
-              //checkbox donde se computan las faltas a clase y a ed-fisica.
-              ?>
-          
+          <!-- tabla donde estan contenidos todos los alumnos del curso seleccionado !-->
+          <table class="table table-bordered table-hover" border="1" width="50%">
+            <thead>
               <tr>
-                  <td><?php echo $i + 1 ?></td> <!-- se muestra el numero del alumno en la tabla -->
-                  <td><?php 
-                  $nombreAlumno=$alumnos[$i]["apellido"] . ", " . $alumnos[$i]["nombre"];
-                  if (mb_detect_encoding($nombreAlumno, 'utf-8', true) === false) {
-                  $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
-                  } 
-                  echo $nombreAlumno; ?> </td> 
-                  <!-- se muestra el nombre y apellido del alumno en la tabla --> 
-                 <td> 
-
-                    <a href="#" class='btn btn-default bg-red' title='Borrar cliente' onclick="eliminar('<?php echo $id_cliente; ?>')"><i class="glyphicon glyphicon-trash"></i> </a></span></td>
-                 </td>
+                <th scope="col" width="5%">#</th>
+                <th scope="col" width="80%">Apellido y Nombre</th>
+                <th scope="col">Dar de baja</th>
               </tr>
-              <?php
-             
-          }//cierre del for
-          ?>
-        </table>
+
+               
+            </thead>
+              
+            <?php
+           
+            for ($i = 0; $i < $cantfilas; $i++) {
+                
+                //se hace de manera dinamica la carga de los alumnos a la tabla, con sus respectivos 
+                //checkbox donde se computan las faltas a clase y a ed-fisica.
+                ?>
+            
+                <tr>
+                    <td><?php echo $i + 1 ?></td> <!-- se muestra el numero del alumno en la tabla -->
+                    <td><?php 
+                    $nombreAlumno=$alumnos[$i]["apellido"] . ", " . $alumnos[$i]["nombre"];
+                    if (mb_detect_encoding($nombreAlumno, 'utf-8', true) === false) {
+                    $nombreAlumno = mb_convert_encoding($nombreAlumno, 'utf-8', 'iso-8859-1');
+                    } 
+                    echo $nombreAlumno; ?> </td> 
+                    <!-- se muestra el nombre y apellido del alumno en la tabla --> 
+                   <td> 
+
+                      <a href="#" class='btn btn-default bg-red' title='Borrar cliente' onclick="eliminar('<?php echo $id_cliente; ?>')"><i class="glyphicon glyphicon-trash"></i> </a></span></td>
+                   </td>
+                </tr>
+                <?php
+               
+            }//cierre del for
+            ?>
+          </table>
+        </form>
       </div>      
     </div>
   </section>   

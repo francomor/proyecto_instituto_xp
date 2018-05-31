@@ -26,7 +26,7 @@ if($_POST['guardarDatos']!= NULL){ //editar comun, es decir, si no edita el dni.
 
 	$t->editarTutor($apeTutor,$nomTutor,$telTutor,$emailTutor,$dniTutor);
 
-	header('Location:../presentacion/mostrarAlumnos.php');
+	header('Location:../presentacion/seleccionarCursoMostrarAlumnos.php');
 }	
 
 if($_POST['guardarComoNuevo']!= NULL){ // si se edita el dni pero para asignar un tutor nuevo a un alumno.
@@ -41,7 +41,7 @@ if($_POST['guardarComoNuevo']!= NULL){ // si se edita el dni pero para asignar u
 
 $t->crearTutoryAsociarAlumno($apeTutor,$nomTutor,$telTutor,$emailTutor,$dniTutor,$dniViejo,$alumno,$cursosAlumno,$inasistencias);
 		
-	header('Location:../presentacion/mostrarAlumnos.php');
+	header('Location:../presentacion/seleccionarCursoMostrarAlumnos.php');
 }
 
 if($_POST['vincular']!= NULL){
@@ -55,6 +55,6 @@ if($_POST['vincular']!= NULL){
 
 $t->crearTutoryAsociarAlumno($apeTutor,$nomTutor,$telTutor,$emailTutor,$dniTutor,$dniViejo,$alumno,$cursosAlumno,$inasistencias);
 		
-	header('Location:../presentacion/mostrarAlumnos.php');
+	header('Location:../presentacion/seleccionarCursoMostrarAlumnos.php');
 }
 	

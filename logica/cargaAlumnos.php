@@ -1,4 +1,3 @@
- 
 <?php
 /**
  * Este archivo guarda los datos del formulario del archivo "altaAlumnos.php" relacionados a la carga de alumnos.
@@ -38,4 +37,3 @@ else{
 // header('Location:../presentacion/guardado.php');
  
 }
-?>
