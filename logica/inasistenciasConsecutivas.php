@@ -44,7 +44,7 @@
                 $interval=4;        //trampita, si es null, quiere decir que nunca hubo mail enviado, entonces puede entrar al proximo if.
                   }
 
-            if($interval>3){
+            if($interval>3 and $t[0]['email']!=null){
                 $emailTutor = $t[0]['email'];
                 
                 //mensaje
