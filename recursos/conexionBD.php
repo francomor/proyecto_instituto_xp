@@ -12,9 +12,9 @@ class ConexionBD {
     private $_connection;
     private static $_instance; //The single instance
     private $_host = "localhost";
-    private $_username = "root";
-    private $_password = "admin"; //admin
-    private $_database = "instituto";
+    private $_username = "id5311329_institutonuestrasenora";
+    private $_password = "proyectoinstituto"; //admin
+    private $_database = "id5311329_instituto";
 
     /**
      * Get an instance of the Database

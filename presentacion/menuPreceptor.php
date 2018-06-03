@@ -16,12 +16,6 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
           </span>
         </a>
         <ul class="treeview-menu">
-          <li>
-            <a href="mostrarCursos.php">
-              <i class="glyphicon glyphicon-th-list"></i> 
-              Mostrar Cursos
-            </a>
-          </li>
           <li class="active">
             <a href="asignarAlumnos.php">
               <i class="glyphicon glyphicon-indent-left"></i> 

@@ -9,41 +9,12 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
       <li class="  treeview">
         <a href="#">
           <i class=" glyphicon glyphicon-align-left"></i> 
-          <span>Tutores </span>
-          <span class="pull-right-container">
-            <i class="fa fa-angle-left pull-right"></i>
-          </span>
-        </a>
-        <ul class="treeview-menu">
-          <li>
-            <a href="#">
-              <i class="glyphicon glyphicon-th-list"></i> 
-              Mostrar Tutores
-            </a>
-          </li>
-          <li class="active">
-            <a href="#">
-              <i class="glyphicon glyphicon-indent-left"></i> 
-              Agregar Tutores 
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="  treeview">
-        <a href="#">
-          <i class=" glyphicon glyphicon-align-left"></i> 
           <span>Cursos </span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
           </span>
         </a>
         <ul class="treeview-menu">
-          <li>
-            <a href="mostrarCursos.php">
-              <i class="glyphicon glyphicon-th-list"></i> 
-              Mostrar Cursos
-            </a>
-          </li>
           <li class="active">
             <a href="asignarAlumnos.php">
               <i class="glyphicon glyphicon-indent-left"></i> 
