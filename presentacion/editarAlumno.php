@@ -97,6 +97,7 @@ $fecha = $alumno[0]['fechaNacimiento'];
              		</div>
              		<input hidden type="text" id="dniTutor" name="dniTutor" value="<?php echo $alumno[0]['tutor_dni'] ?>">
              		<input hidden type="text" id="dniViejo" name="dniViejo" value="<?php echo $alumno[0]['dni'] ?>">
+             		<input hidden type="text" id="cursoAct" name="cursoAct" value="<?php echo $_POST['curso'] ?>">
 
 
 

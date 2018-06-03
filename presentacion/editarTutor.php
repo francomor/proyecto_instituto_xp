@@ -80,6 +80,7 @@ include("../presentacion/modalConfirm.php");
 
 		  </div>
 			<input type="text" id="dniAlumnoEdit" name="dniAlumnoEdit" hidden> 
+			<input hidden type="text" name="curso" id="curso" value="<?php echo $_POST['curso']; ?>" >
 		  </form>
 		  </div>
 		</div>
@@ -97,8 +98,9 @@ include("../presentacion/modalConfirm.php");
 
 $("[id='confirmar']").click(function() {
 
-	var dniAlumno = $('#dniAlumnoEdit').val();
+   var dniAlumno = $('#dniAlumnoEdit').val();
    var dniTutorViejo = $('#dniTutorEdit').val();
+   var cursoActual = $('#curso').val();
    /*
    	var apeTutor = 	$('#apellidoTutorEdit').val();
    	var nomTutor = 	$('#nombreTutorEdit').val();
@@ -110,6 +112,7 @@ $("[id='confirmar']").click(function() {
 
     $('#dniAlumnoModif').val(dniAlumno);
     $('#dniViejo').val(dniTutorViejo);
+    $('#cursoAct').val(cursoActual);
 
 
    	$('#modComoNuevoTutor').modal();

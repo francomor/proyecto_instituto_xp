@@ -68,7 +68,9 @@
 		  </div>
 		  	<input type="text" id="dniAlumnoModif" name="dniAlumnoModif" hidden>
 		  	<input type="text" id="dniViejo" name="dniViejo" hidden>
-		  	</div> <!--div ajax-->
+		  </div>
+		  <input type="text" id="cursoAct" name="cursoAct" hidden>
+		  	 <!--div ajax-->
 		  </form>
 	<!--</div>-->
 		  </div>
@@ -104,3 +106,5 @@ $( document ).ready(function() {
 
 
 </script>
+
+	

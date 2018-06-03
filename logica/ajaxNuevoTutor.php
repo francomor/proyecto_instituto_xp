@@ -37,21 +37,17 @@ if (count($existeTutor)>0){ //si el tutor existe:
 				</div>
 			  </div>
 
-			  <div class="form-group">
 
-				<div class="col-sm-8">
-					<div class="alert alert-danger" align="center">
-  						<strong>El tutor ingresado ya existe!</strong> 
-					</div>
-				  
+		  	<div class="panel panel-danger" align="center">
+				<div class="panel-heading"> 
+	 				<strong>El tutor ingresado ya existe!</strong> 
 				</div>
-			  </div>
-			  
-			   
-			 
+			</div>
+
 			
 		  
 		  <div class="modal-footer">
+
 			<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 			<button type="submit" class="btn btn-danger"  name="vincular" id="vincular" value="true">Vincular</button>
 		  </div>

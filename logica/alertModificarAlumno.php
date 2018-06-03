@@ -49,7 +49,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true && $_GET['valor']=='
   			</div>
 		</div>
 		<div class="col-md-11"> 
-		<a href="../presentacion/seleccionarCursoMostrarAlumnos.php"  >
+		<a href="../presentacion/mostrarAlumnos.php?sel=<?php echo $_GET['curso']?> ">
 		<button  type="button" class="btn btn-danger" > 
 		 <span class="fa fa-user-plus"></span> Volver a mostrar alumnos
 		</button>
@@ -112,7 +112,7 @@ else{
   			</div>
 		</div>
 		<div class="col-md-11"> 
-		<a href="../presentacion/seleccionarCursoMostrarAlumnos.php"  >
+		<a href="../presentacion/mostrarAlumnos.php?sel=<?php echo $_GET['curso']?>" >
 		<button  type="button" class="btn btn-danger" > 
 		 <span class="fa fa-user-plus"></span> Volver a mostrar alumnos 
 		</button>

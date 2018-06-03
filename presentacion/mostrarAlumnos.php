@@ -139,7 +139,8 @@ $("[name='botonEliminar']").on('click', function(){
 // se abra un formulario para editarlo.
 $("[name='botonEditar']").on('click', function(){
   var parametros = {
-                    "dni" : $(this).attr('id')
+                    "dni" : $(this).attr('id'),
+                    "curso" : $("[id='curso']").val()
                   };
                   $.ajax({
                    data: parametros,

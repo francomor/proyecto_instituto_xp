@@ -55,6 +55,7 @@ class Tutor {
       $con = ConexionBD::getConexion();
       
       $tutores = $con->recuperarAsociativo("SELECT `dni` FROM `alumno` WHERE `tutor_dni`=".$dniTutor);
+      var_dump(count($tutores));
       if(count($tutores)==0){
       $result = $con->insertar("INSERT INTO `tutor` (`dni`, `apellido`, `nombre`, `telefono`, `email`) VALUES (".$dniTutor.",'".$apellido."','".$nombre."','".$telefono."','".$email."')");
       }      
