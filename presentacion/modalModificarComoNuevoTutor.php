@@ -7,7 +7,7 @@
  * @author Herrero Francisco Piñero Luciana
  * @version 1.0
  */
-	?>
+?>
 	<!-- Modal -->
 	<div class="modal fade" id="modComoNuevoTutor" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  data-backdrop="static" data-keyboard="false">
 	  <div class="modal-dialog" role="document">

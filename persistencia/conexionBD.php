@@ -62,7 +62,7 @@ class ConexionBD {
         if ($this->_connection->query($consulta) === true) {
             $guardado = true;
         } else {
-            echo "Error: " . $consulta . "<br>" . $this->_connection->error;
+            //echo "Error: " . $consulta . "<br>" . $this->_connection->error;
         }
         return $guardado;
     }
