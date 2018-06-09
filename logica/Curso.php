@@ -28,7 +28,8 @@ class Curso {
         $result = $con->recuperarAsociativo("select idcurso,nombre,anio from curso");
         return $result;
     }
-        public function obtenerCursosxPreceptor($preceptor) {
+    
+    public function obtenerCursosxPreceptor($preceptor) {
         $con = ConexionBD::getConexion();
         $result = $con->recuperarAsociativo("select idcurso,nombre,anio from curso where `preceptor_id`= '" . $preceptor . "'");
         return $result;

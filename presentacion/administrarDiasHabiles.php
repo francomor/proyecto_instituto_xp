@@ -2,8 +2,8 @@
 require_once "../logica/DiasHabiles.php";
 require_once "GUIPreceptor.class.php";
 /**
- * En este archivo,
- * @author Nicolases
+ * Función OBSOLETA, pero con posible implementación. Este archivo genera una interfaz para agregar o quitar dias habiles
+ * @author Decchechi Nicolás, Silvera Nicolás. 
  * @version 1.0
  */
 $gui_preceptor = new GUIPreceptor();

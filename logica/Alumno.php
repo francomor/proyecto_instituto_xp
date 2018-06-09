@@ -26,6 +26,7 @@ class Alumno {
         $result = $con->recuperarAsociativo("select nombre,apellido from alumno where dni='" . $dni_alumno . "'");
         return $result;
     }
+    
     public function cantRegistros() {
         $con = ConexionBD::getConexion();
         $result = $con->cantidadRegistros("select dni from alumno");
@@ -94,6 +95,12 @@ class Alumno {
       $con = ConexionBD::getConexion();
         $result = $con->recuperarAsociativo("select `dni` from alumno where tutor_dni=".$dniTutor);
         $result=count($result);
+        return $result;  
+    }
+
+    public function obtenerDNITutor($dni){
+       $con = ConexionBD::getConexion();
+        $result = $con->recuperar("select `tutor_dni` from alumno where dni=".$dni);
         return $result;  
     }
 }
