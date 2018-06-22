@@ -25,7 +25,7 @@ class AlumnoxCurso {
     
         public function obtenerAlumnoxCursoAlumno($dni){
         $con = ConexionBD::getConexion();
-        $result = $con->recuperarAsociativo("select * from alumnoxcurso where alumno_dni= ".$dni);
+        $result = $con->recuperarAsociativo("select * from AlumnoxCurso where alumno_dni= ".$dni);
         return $result;
     }
 
@@ -44,7 +44,11 @@ class AlumnoxCurso {
         $con = ConexionBD::getConexion();
          $con->insertar("INSERT INTO `alumnoxcurso` (`alumno_dni`, `curso_idcurso`, `anio`) VALUES ('".$dniAlu."', '".$id_curso."', '".$anio."'); ");
     }
-    
+        public static function borrarAlumnoxCurso($dni,$idcurso){
+        $con = ConexionBD::getConexion();
+        $result = $con->delete("DELETE FROM `alumnoxcurso` WHERE `curso_idcurso`=".$idcurso." and `alumno_dni`='".$dni."'");
+        return $result;
+    }
 }
 
 ?>

@@ -10,6 +10,7 @@ require_once "../logica/Alumno.php";
 require_once "../logica/Tutor.php";
 require_once "../logica/Preceptor.php";
 if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
+   date_default_timezone_set('America/Argentina/Buenos_Aires');
               $anioActual= date('Y'); 
               $curso = new Curso();
               $alumno= new Alumno();

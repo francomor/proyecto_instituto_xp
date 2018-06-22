@@ -26,7 +26,6 @@ class Alumno {
         $result = $con->recuperarAsociativo("select nombre,apellido from alumno where dni='" . $dni_alumno . "'");
         return $result;
     }
-    
     public function cantRegistros() {
         $con = ConexionBD::getConexion();
         $result = $con->cantidadRegistros("select dni from alumno");
@@ -78,7 +77,6 @@ class Alumno {
 
     public function guardarAlumnoEditado($apellido,$nombre, $dni, $fechaNacimiento,$direccion, $email, $lugarNacimiento,$dniTutor,$cursosAlumno,$inasistencias ){
       $con = ConexionBD::getConexion();
-
       $result = $con->insertar("INSERT INTO `alumno`(`apellido`, `nombre`, `dni`, `fechaNacimiento`, `direccion`, `email`, `lugarNacimiento`, `tutor_dni`) VALUES ('".$apellido."','".$nombre."','".$dni."','".$fechaNacimiento."','".$direccion."','".$email."','".$lugarNacimiento."','".$dniTutor."')");
      
        for($i=0; $i<count($cursosAlumno); $i++){
@@ -97,11 +95,10 @@ class Alumno {
         $result=count($result);
         return $result;  
     }
-
+    
     public function obtenerDNITutor($dni){
        $con = ConexionBD::getConexion();
         $result = $con->recuperar("select `tutor_dni` from alumno where dni=".$dni);
         return $result;  
     }
 }
-

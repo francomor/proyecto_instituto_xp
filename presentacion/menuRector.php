@@ -6,9 +6,9 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
   <section class="sidebar">
     <ul class="sidebar-menu">
       <li class="header">MENU PRINCIPAL</li>
-      <li class="treeview">
+      <li class="  treeview">
         <a href="#">
-          <i class="ion-person-stalker"></i>
+           <i class="ion-person-stalker"></i>
           <span>Preceptores</span>
           <span class="pull-right-container">
             <i class="fa fa-angle-left pull-right"></i>
@@ -52,7 +52,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
           </li>
         </ul>
       </li>
-
+    
       <li class="treeview">
         <a href="#">
           <i class="ion-person-stalker"></i>
@@ -112,12 +112,7 @@ if (isset($_SESSION["login"]) && $_SESSION["login"] == true) {
           </li>
         </ul>
       </li>
-	 <!--	<li class="treeview">
-          <a href="../logica/modificarDiasHabiles.php">
-            <i class="glyphicon glyphicon-calendar"></i>
-            <span>Dias Habiles</span>
-         </a>
-      </li>      -->
+      
     </ul>
   </section>
 </aside>

@@ -21,6 +21,7 @@
     $tutor = new Tutor();
     $dhabiles=new DiasHabiles();
     $fecha = $_GET['fecha'];
+    date_default_timezone_set('America/Argentina/Buenos_Aires');
     $fechaActual = date("Y")."-".date("m")."-".date("d"); // obtenermos la fecha de hoy y le damos formato de bdd
     $curso = $_GET['curso'];
     $dias=$dhabiles->recuperarDias();
@@ -42,7 +43,7 @@
 
                 } else{
                 $interval=4;        //trampita, si es null, quiere decir que nunca hubo mail enviado, entonces puede entrar al proximo if.
-                  }
+            }
 
             if($interval>3 and $t[0]['email']!=null){
                 $emailTutor = $t[0]['email'];
@@ -97,15 +98,12 @@
 
                 if ($exito){
                     $exito2 = $tutor->cambiarFechaMail($fechaActual,$dniTutor);
-                    echo "<script>alert('El mensaje se ha enviado exitosamente a " .$emailTutor. "')</script>";
-                } else{
-                    echo "<script>alert('Falló el envio')</script>";
                 }
 
                 
-                }
-              }
-         }
+            }
+        }
+    }
     
     //una vez verificadas las inasistencias consecutivas, redireccionar a la pagina de seleccion de cursos
     print("<script>window.location='../presentacion/registrarAsistencia.php';</script>"); 
